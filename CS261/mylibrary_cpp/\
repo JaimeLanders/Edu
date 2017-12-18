@@ -1,0 +1,518 @@
+#include <cstdarg>		// support macros for vararg
+#include <iostream>
+#include "library.h"
+
+/* TODO:
+ * xAdd book
+ * xAdd keywords
+ *  Add music album
+ *  Add band members
+ *  Add movie
+ *  Add cast
+ * xPrint items by title
+ * xPrint items by keyword
+ * xPrint books by author
+ *  Print albums by band
+ *  Print albums by member
+ *  Print movies by director
+ *  Print movies by cast 
+ * xDelete set contents 
+ * xDelete map contents
+ *
+ *  Bugs:
+ * xItems sorted by title
+ *  Extra comma on keywords output
+ *  Missing/extra newline when printing items
+*/
+
+// general functions
+/*Library::Library() // Needed ?
+{
+    // your code here
+    bool debug = true;
+
+    if (debug == true)
+    {
+        std::cout << "\nLibrary constructor " << std::endl; 
+    }
+}
+*/
+Library::~Library()
+{
+    // your code here
+    bool debug = true;
+
+    if (debug == true)
+    {
+        std::cout << "\nLibrary deconstructor " << std::endl; 
+    }
+
+    deleteMapContents(ItemMapByKeyword);
+    deleteMapContents(BookMapByAuthor);
+    deleteItemSetContents(BookSet);
+
+}
+
+void Library::addKeywordsForItem(const Item* const item, int nKeywords, ...)
+{
+    bool debug = true;
+
+    if (debug == true)
+    {
+        std::cout << "\naddKeywordsForItem " << std::endl; 
+        std::cout << "nKeywords = " << nKeywords << std::endl; 
+    }
+    
+    // the code in this function demonstrates how to handle a vararg in C++
+
+    va_list		keywords;
+    char		*keyword;
+
+    va_start(keywords, nKeywords);
+
+    for (int i = 0; i < nKeywords; i++)
+    {
+	    keyword = va_arg(keywords, char*);
+
+	    // do something with each keyword
+        if (debug == true)
+            std::cout << "keyword = " << keyword << std::endl; 
+        
+        // Add keyword and item to map 
+// Temp placehoder 1
+        
+        Item * nItem;
+//        Item * nItem = new Item(*item); // Calls copy constructor, needs keywords
+//          Item * nItem = new Item();
+
+        nItem = const_cast<Item*>(item); // Temp fix
+
+        nItem->setKeywords(keyword);
+
+        if (ItemMapByKeyword.find(keyword) == ItemMapByKeyword.end()) // Case 1 - keyword not mapped
+        {
+            if (debug == true)
+                std::cout << keyword << " not mapped " << std::endl; 
+
+            Item  * tempItem = nItem;
+//             Item  * tempItem = new Item (*nItem); // Calls copy constructor
+//            Item * tempItem = new Item(*item); // Calls copy constructor
+
+//            ItemSet * tempSet;
+            ItemSet * tempSet = new ItemSet();
+
+            tempSet->insert(tempItem);
+//            tempSet->insert(nItem);
+
+            ItemMapByKeyword.insert(std::make_pair(keyword, tempSet));
+        }
+        else // Case 2 - keyword already mapped
+        {
+            if (debug == true)
+                std::cout << keyword << " already mapped " << std::endl; 
+
+            Item  * tempItem = nItem;
+//            Item * tempItem = new Item(*nItem); // Calls copy constructor, needs keywords
+//            Item * tempItem = new Item(*item); // Calls copy constructor, needs keywords
+
+            ItemSet * tempSet = ItemMapByKeyword[keyword];
+
+            tempSet->insert(tempItem);
+//            tempSet->insert(nItem);
+
+            ItemMapByKeyword.insert(std::make_pair(keyword, tempSet));
+
+            if (debug == true)
+                std::cout << "tempSet size = " <<  tempSet->size() << std::endl; 
+        }
+
+        if (debug == true)
+        {
+            std::cout << "ItemMapByKeyword size = " << ItemMapByKeyword.size() << std::endl; 
+            std::cout << keyword << " values " << ItemMapByKeyword[keyword]->size() << std::endl; 
+        }
+    }
+
+    va_end(keywords);
+
+}
+
+const ItemSet* Library::itemsForKeyword(const string& keyword) const
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\nitemsForKeyword " << std::endl; 
+        std::cout << "keyword = " << keyword << std::endl; 
+    }
+    
+    const ItemSet * tempSet;
+
+    if (ItemMapByKeyword.find(keyword) != ItemMapByKeyword.end())
+    {
+        if (debug == true)
+            std::cout << keyword << " found " << std::endl; 
+
+        tempSet = ItemMapByKeyword.at(keyword);
+
+        return tempSet;
+    }
+    else
+    {
+        if (debug == true)
+            std::cout << keyword << " not found " << std::endl; 
+        return NULL;
+    }
+}
+
+// book-related functions
+
+const Item* Library::addBook(const string& title, const string& author, const int nPages)
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\naddBook pre-op " << std::endl; 
+        std::cout << "title = " << title << std::endl; 
+        std::cout << "author = " << author << std::endl; 
+        std::cout << "nPages = " << nPages << std::endl; 
+    }
+
+    Item *nBook = new Book(title, author, nPages);
+//    Book *nBook = new Book(title, author, nPages);
+//    ItemPtr nPtr;// = new ItemPtr(nBook);
+//    ItemPtr *nPtr = new ItemPtr(nBook);
+    BookSet.insert(nBook);
+//    BookSet.insert(*nPtr);
+
+//    Item mBook = *nBook; // Assignment overload test
+//    std::cout << "mBook = " << &mBook << std::endl;
+//    Item *pBook = new Item(*nBook); // Copy constructor test
+//    std::cout << "pBook = " << &pBook << std::endl;
+
+/*    delete nPtr->getPtr(); // Temp 
+    delete nPtr; // Temp 
+//    delete nBook; // Temp 
+    BookSet.clear(); // Temp 
+*/    
+    if (BookMapByAuthor.find(author) == BookMapByAuthor.end()) // Case 1 - author not mapped
+        {
+            if (debug == true)
+                std::cout << author << " not mapped " << std::endl; 
+
+            ItemSet * tempSet = new ItemSet();
+            tempSet->insert(nBook);
+//            tempSet->insert(*nPtr);
+            BookMapByAuthor.insert(std::make_pair(author, tempSet));
+        }
+        else // Case 2 -  already mapped
+        {
+            if (debug == true)
+                std::cout << author << " already mapped " << std::endl; 
+
+            ItemSet * tempSet;
+            tempSet = BookMapByAuthor[author];
+            tempSet->insert(nBook);
+//            tempSet->insert(*nPtr);
+            BookMapByAuthor.insert(std::make_pair(author, tempSet));
+
+            if (debug == true)
+                std::cout << "tempSet size = " <<  tempSet->size() << std::endl; 
+        }
+
+    if (debug == true)
+    {
+        std::cout << "\naddBook post-op " << std::endl; 
+        std::cout << "BookSet size = " << BookSet.size() << std::endl; 
+    }
+
+    return nBook;
+}
+
+const ItemSet* Library::booksByAuthor(const string& author) const
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\nbooksByAuthor " << std::endl; 
+        std::cout << "author = " << author << std::endl; 
+    }
+
+    const ItemSet * tempSet;
+
+    if (BookMapByAuthor.find(author) != ItemMapByKeyword.end())
+    {
+        if (debug == true)
+            std::cout << author << " found " << std::endl; 
+
+        tempSet = BookMapByAuthor.at(author);
+
+        return tempSet;
+    }
+    else
+    {
+        if (debug == true)
+            std::cout << author << " not found " << std::endl; 
+        return NULL;
+    }
+}
+
+const ItemSet* Library::books() const
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\nLibrary::books() " << std::endl; 
+    }
+
+    return &BookSet;
+//    return NULL;
+}
+
+// music-related functions
+
+const Item* Library::addMusicAlbum(const string& title, const string& band, const int nSongs)
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\naddMusicAlbum " << std::endl; 
+        std::cout << "title = " << title << std::endl; 
+        std::cout << "band = " << band << std::endl; 
+        std::cout << "nSongs = " << nSongs << std::endl; 
+    }
+
+    return NULL;
+}
+
+void Library::addBandMembers(const Item* const musicAlbum, const int nBandMembers, ...)
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\naddBandMembers " << std::endl; 
+        std::cout << "musicAlbum = " << musicAlbum << std::endl; 
+        std::cout << "nBandMembers = " << nBandMembers << std::endl; 
+    }
+}
+
+const ItemSet* Library::musicByBand(const string& band) const
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\nmusicByBand " << std::endl; 
+        std::cout << "band = " << band << std::endl; 
+    }
+
+    return NULL;
+}
+
+const ItemSet* Library::musicByMusician(const string& musician) const
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\nmusicByMusician " << std::endl; 
+        std::cout << "musicican = " << musician << std::endl; 
+    }
+
+    return NULL;
+}
+
+const ItemSet* Library::musicAlbums() const
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\nmusicAlbums " << std::endl; 
+    }
+
+    return NULL;
+}
+
+// movie-related functions
+
+const Item* Library::addMovie(const string& title, const string& director, const int nScenes)
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\naddMovie " << std::endl; 
+        std::cout << "title = " << title << std::endl; 
+        std::cout << "director = " << director << std::endl; 
+        std::cout << "nScenes = " << nScenes << std::endl; 
+    }
+    return NULL;
+}
+
+void Library::addCastMembers(const Item* const movie, const int nCastMembers, ...)
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\naddCastMembers " << std::endl; 
+        std::cout << "movie = " << movie << std::endl; 
+        std::cout << "nCastMembers = " << nCastMembers << std::endl; 
+    }
+}
+
+const ItemSet* Library::moviesByDirector(const string& director) const
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\nmoviesByDirector " << std::endl; 
+        std::cout << "director = " << director << std::endl; 
+    }
+
+    return NULL;
+}
+
+const ItemSet* Library::moviesByActor(const string& actor) const
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\nmoviesByActor " << std::endl; 
+        std::cout << "actor = " << actor << std::endl; 
+    }
+
+    return NULL;
+}
+
+const ItemSet* Library::movies() const
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\nLibrary::movies() " << std::endl; 
+    }
+
+    return NULL;
+}
+
+static void deleteMapContents(StringToItemSetMap& s2ism)
+{
+    // your code here
+    bool debug = true;
+
+    if (debug == true)
+    {
+        std::cout << "\ndeleteMapContents pre-op " << std::endl; 
+        std::cout << "s2ism size = " << s2ism.size() <<  std::endl; 
+    }
+
+    // Iterate through map
+    for(std::map<string, ItemSet*>::iterator it = s2ism.begin(); it != s2ism.end(); )
+    {
+        if (debug == true)
+            std::cout << "key = " << it->first << endl;
+
+        // Iterate through set
+        ItemSet *tempSet = it->second;
+
+        for(std::set<ItemPtr>::iterator it2 = tempSet->begin(); it2 != tempSet->end(); )
+        {
+            if (debug == true)
+            {
+                std::cout << "tempSet size = " << tempSet->size() << std::endl;
+                std::cout << it2->getPtr() << endl;
+            }
+
+// Temp placeholder 2        
+            // Delete item in set
+//            Item *tempItem = it2->getPtr(); 
+//            delete tempItem;
+//            delete it2->getPtr(); // Seg faults after 1st deletion of item
+//            delete &it2;
+          
+            if (next((it2),1) != tempSet->end())        
+                it2 = tempSet->erase(it2);
+            else
+                ++it2;
+
+//            delete tempSet; // Test
+        }
+
+//        tempSet->clear();
+          delete tempSet; // Test
+
+//        if (debug == true)
+//            std::cout << "tempSet size = " << tempSet->size() << std::endl;
+
+        if (next((it),1) != s2ism.end())        
+            it = s2ism.erase(it);
+        else
+            ++it;
+    }
+     
+//    s2ism.clear();
+
+    if (debug == true)
+    {
+        std::cout << "\ndeleteMapContents post-op " << std::endl; 
+        std::cout << "s2ism size = " << s2ism.size() <<  std::endl; 
+    }
+}
+
+static void deleteItemSetContents(ItemSet& itemSet)
+{
+    // your code here
+    bool debug = false;
+
+    if (debug == true)
+    {
+        std::cout << "\ndeleteItemSetContents pre-op " << std::endl; 
+        std::cout << "itemSet size " << itemSet.size() <<  std::endl; 
+    }
+
+    for(std::set<ItemPtr>::iterator it = itemSet.begin(); it != itemSet.end(); )
+    {
+        if (debug == true)
+            std::cout << it->getPtr() << endl;
+
+        delete it->getPtr();
+
+        if (next((it),1) != itemSet.end())        
+            it = itemSet.erase(it);
+        else
+            ++it;
+    }
+
+//    itemSet.clear();
+
+    if (debug == true)
+    {
+        std::cout << "\ndeleteItemSetContents post-op " << std::endl; 
+        std::cout << "itemSet size " << itemSet.size() <<  std::endl; 
+    }
+}

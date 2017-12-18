@@ -1,0 +1,274 @@
+#include <cstring>
+#include <iomanip>
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+#include "data.h"
+#include "linkedstack.h"
+#include "linkedqueue.h"
+
+data::data() // Data default constructor
+{
+	cout << "\ndata default constructor " << endl;
+
+//	head = NULL;
+//	next = NULL;
+	address = {'\0'};
+	squareFeet = 0;
+	roomCount = 0;
+	bathCount = 0.0;
+	notes = {'\0'};
+}
+
+data::data(const data& houseIn) // Data copy constructor
+{
+	cout << "\ndata copy constructor " << endl;
+//	cout << "houseIn = " << houseIn << endl;
+//	next = houseIn.next;
+	address = houseIn.address;
+	squareFeet = houseIn.squareFeet;
+	roomCount = houseIn.roomCount;
+	bathCount = houseIn.bathCount;
+	notes = houseIn.notes;
+}
+
+data::~data() // Data deconstructor
+{
+	cout << "\ndata deconstructor " << endl;
+	cout << "this = " << this << endl;
+
+	if (this != NULL)
+	{
+		if (address)
+		{
+			address = {'\0'};
+			delete[] address;
+		}
+		if (notes)
+		{
+			notes = {'\0'};
+			delete[] notes;
+		}
+
+      		squareFeet = 0;
+		roomCount = 0;
+		bathCount = 0.0;
+
+//		delete this; // sig faulting
+	}
+}
+
+
+const data& data::operator=(const data& houseIn)
+//data* data::operator=(const data& houseIn)
+//data::operator=(const data& houseIn)
+{
+	cout << "\ndata = operator overload " << endl;
+
+	if (this != &houseIn && this != NULL)
+	{
+		this->clear(); // Causing deconstructor problems?
+//		next = houseIn.next;
+		address = houseIn.address;
+		cout << "address = " << address << endl;
+		squareFeet = houseIn.squareFeet;
+		roomCount = houseIn.roomCount;
+		bathCount = houseIn.bathCount;
+		notes = houseIn.notes;
+		cout << "notes = " << notes << endl;
+
+		return *this;
+	}
+	else
+		return *this;
+}
+
+ostream& operator<<(ostream& outputStream, const data& houseIn)
+{
+	cout << "\n<< overload " << endl;
+//	cout << "houseIn = " << houseIn << endl;
+
+	outputStream << houseIn.getAddress() << ", " ; 
+	outputStream << houseIn.getSquareFeet() << ", " ; 
+	outputStream << houseIn.getRoomCount() << ", " ; 
+	outputStream << houseIn.getBathCount() << ", " ; 
+	outputStream << houseIn.getNotes() << endl; 
+
+	return outputStream;
+}
+
+void data::clear()
+{
+	cout << "data clear " << endl;
+
+//	next = NULL;
+	address = {'\0'};
+	delete[] address;
+	squareFeet = 0;
+	roomCount = 0;
+	bathCount = 0.0;
+	notes = {'\0'};
+	delete[] notes;
+
+//	delete this; // Valgrind errors
+
+	return;
+}
+
+/*data* data::getNext() const
+//data* data::getNext(data * houseIn)
+{
+//	cout << "\ndata getNext " << endl;
+//	cout << "houseIn = " << houseIn << endl;
+//	cout << "this = " << this << endl;
+	
+	return next;
+//	return this->next;
+//	return houseIn->next;
+}
+*/
+char* data::getAddress () const
+//char* data::getAddress (data * houseIn)
+{
+//	cout << "\ndata getAddress " << endl;
+
+	return address;
+//	return this->address;
+//	return houseIn->address;
+}
+
+int data::getSquareFeet () const
+//int data::getSquareFeet (data * houseIn)
+{
+//	cout << "\ndata getSquareFeet " << endl;
+
+	return squareFeet;
+//	return this->squareFeet;
+//	return houseIn->squareFeet;
+}
+int data::getRoomCount () const
+//int data::getRoomCount (data * houseIn)
+{
+//	cout << "\ndata getRoomCount " << endl;
+
+	return roomCount;
+//	return this->roomCount;
+//	return houseIn->roomCount;
+}
+int data::getBathCount () const
+//int data::getBathCount (data * houseIn)
+{
+//	cout << "\ndata getBathCount " << endl;
+
+	return bathCount;
+//	return this->bathCount;
+//	return houseIn->bathCount;
+}
+char * data::getNotes () const
+//char * data::getNotes (data * houseIn)
+{
+//	cout << "\ndata getNotes " << endl;
+
+	return notes;
+//	return this->notes;
+//	return houseIn->notes;
+}
+
+//void data::setAddress(data& houseIn, char tempString[])
+void data::setAddress(char tempStringIn[])
+//void data::setAddress(data * houseIn, char tempString[])
+{
+	cout << "\ndata setAddress " << endl;
+//	cout << "houseIn = " << houseIn << endl;
+//	cout << "address = " << address << end;
+	int stringSize = strlen(tempStringIn);
+//	cout << "stringSize = " << stringSize << endl;
+//	houseIn->address = address;
+//	houseIn->address = new char[stringSize + 1]
+
+//	houseIn.address = new char[stringSize + 1]; 
+	address = new char[stringSize + 1]; 
+//	houseIn->address = new char[stringSize + 1]; 
+//	strncpy(houseIn.address, tempString, stringSize);
+	strncpy(address, tempStringIn, stringSize);
+//	strncpy(houseIn->address, tempString, stringSize);
+//	houseIn.address[stringSize] = '\0';
+	address[stringSize] = '\0';
+//	houseIn->address[stringSize] = '\0';
+//	cout << "address = " << houseIn.address << endl;
+	cout << "address = " << address << endl;
+//	cout << "address = " << houseIn->address << endl;
+
+	return;
+}
+
+void data::setBathCount(float bathCountIn)
+//void data::setBathCount(data * houseIn, float bathCount)
+{
+	cout << "\ndata setBathCount " << endl;
+//	cout << "houseIn = " << houseIn << endl;
+	bathCount = bathCountIn;
+	cout << "bathCount " << bathCount << endl;
+//	houseIn->bathCount = bathCount;
+//	cout << "bathCount = " << houseIn->bathCount << endl;
+}
+
+//void data::setNext(data& nextIn)
+//void data::setNext(data& houseIn, data * nextIn)
+/*void data::setNext(data * nextIn)
+//void data::setNext(data * houseIn, data * nextIn)
+{
+	cout << "\ndata setNext " << endl;
+//	cout << "houseIn = " << houseIn << endl;
+	cout << "nextIn = " << nextIn << endl;
+
+//	houseIn.next = nextIn;
+//	next = &nextIn;
+	next = nextIn;
+//	houseIn->next = nextIn;
+//	cout << "next = " << houseIn.next << endl;
+	cout << "next = " << next << endl;
+//	cout << "next = " << houseIn->next << endl;
+
+	return;
+}
+*/
+void data::setNotes(char tempStringIn[])
+//void data::setNotes(data * houseIn, char tempString[])
+{
+	cout << "\ndata setNote " << endl;
+//	cout << "houseIn = " << houseIn << endl;
+
+	int stringSize = strlen(tempStringIn);
+//	cout << "stringSize = " << stringSize << endl;
+
+	notes = new char[stringSize + 1]; 
+//	houseIn->notes = new char[stringSize + 1]; 
+	strncpy(notes, tempStringIn, stringSize);
+//	strncpy(houseIn->notes, tempString, stringSize);
+	notes[stringSize] = '\0';
+//	houseIn->notes[stringSize] = '\0';
+	cout << "notes = " << notes << endl;
+}
+
+void data::setRoomCount(int roomCountIn)
+//void data::setRoomCount(data * houseIn, int roomCount)
+{
+	cout << "\ndata setRoomCount " << endl;
+//	cout << "houseIn = " << houseIn << endl;
+	roomCount = roomCountIn;
+//	houseIn->roomCount = roomCount;
+	cout << "roomCount = " << roomCount << endl;
+}
+
+void data::setSquareFeet(int squareFeetIn)
+//void data::setSquareFeet(data * houseIn, int squareFeet)
+{
+	cout << "\ndata setSquareFeet " << endl;
+//	cout << "houseIn = " << houseIn << endl;
+	squareFeet = squareFeetIn;
+//	houseIn->squareFeet = squareFeet;
+	cout << "squareFeet = " << squareFeet << endl;
+}

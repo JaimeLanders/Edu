@@ -1,0 +1,39 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+
+//using namespace std;
+
+int main ()
+{
+    char fileName[30]; 
+//    string fileName;
+    bool debug = true;
+//    bool debug = false;
+
+    std::cout << "Welcome to lab 1! " << std::endl;
+
+    // Prompt user for file to open
+    
+    std::cout << "File location to read: ";// << std::endl;
+    std::cin >> fileName;// >> std::endl; 
+
+    if (debug == true)
+        std::cout << "fileName = " << fileName << std::endl;
+
+    // Open file 
+    
+    ifstream inFile;
+    inFile.open("fileName");
+
+    // Read data and add to list
+    
+
+    // Close file
+    inFIle.close();
+    
+
+    // Output list
+
+    return 0;
+}

@@ -1,0 +1,12 @@
+Lab #1
+
+Introduction: The goal of this assignment is to ensure that you can create, edit, and execute C++ programs. If you find that you are having trouble completing this lab you may need to review C++.
+
+Submission: You should submit a single source code file named main.cpp that contains all of the C++ code required to complete this assignment. Do not submit any executable files, any Visual Studio project files, or any data files. Your assignment box should contain nothing except the main.cpp file.
+
+Instructions: Create a standard C++ program that prompts the user for the full path name of an input text file. The program should open the input text file, make a list of all words contained in the file, close the file, and then display the list of words found in the file to the standard output. The list should be displayed in alphabetical (ASCII) order, and each word should appear no more than one time in the list (i.e. eliminate duplicate entries). There will be no more than 100 unique words in the input file.  (Note: ASCII order means that the output is not exactly alphabetical as uppercase letters will appear before any lower case letters regardless of their place in the alphabet.) 
+ 
+
+Your program must be written in standard C++ 11 or later, and must compile and execute on the PCC Linux server (in other words, do not include any system-dependent statements in your code). 
+
+See the attached file for a sample output. 

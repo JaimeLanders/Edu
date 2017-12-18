@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    unsigned int pFloat = 0x12345678; 
+    float pPointer = *(float*) &pFloat; 
+    unsigned int pShift =  *(unsigned int*) &pPointer >> 15; 
+
+    printf("\nWelcome to practice \n");
+    printf("\npPointer = 0x%08X", *(unsigned int*) &pPointer);
+    printf("\npShift = 0x%08X", *(unsigned int*) &pShift);
+}
