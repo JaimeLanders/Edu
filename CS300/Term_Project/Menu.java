@@ -7,49 +7,58 @@ public class Menu
     {
         Scanner sc = new Scanner(System.in);
         int oid;
-        int menuNum;
+        int menuNum = -1;
 
-        System.out.println("Welcome to ChocAn Data Processing Software");
+        System.out.println("Welcome to ChocAn Data Processing System");
 
         // Operator Login  
         System.out.print("\nLogin to ChocAn Using Provider/Manager ID:");
-
         oid = sc.nextInt();
         System.out.println("Provider " + oid + " Verified...");
 
 
         // Provide menu functionns here:
-        System.out.println("\nProvider Operations;");
+        while(menuNum != 0)
+        {
+            System.out.println("\nProvider Operations;");
             // Member Check-In (first verification)
-            System.out.println("\t1. Member Check-In");
-                // Member Check-Out (second verification)
-                System.out.println("\t2. Member Check-Out");
-                    // Add Service Provided
-                    System.out.println("\t3. New Service Provided ");
+            System.out.println("  1. Member Check-In");
+            // Member Check-Out (second verification)
+            System.out.println("  2. Member Check-Out");
+            // Add Service Provided
+            System.out.println("  3. New Service Provided ");
             // List Provider Directory        
-            System.out.println("\t4. Display Provider Directory ");
+            System.out.println("  4. Display Provider Directory ");
             // Generate Provider Directory File 
-            System.out.println("\t5. Save Provider Directory ");
+            System.out.println("  5. Save Provider Directory ");
             // Weekly Member Report
-            System.out.println("\t6. Generate Member's Report ");
+            System.out.println("  6. Generate Member's Report ");
             // Weekly Provider Report
-            System.out.println("\t7. Generate Provider's Report ");
+            System.out.println("  7. Generate Provider's Report ");
             // EFT Report
-            System.out.println("\t8. Generate EFT Report ");
+            System.out.println("  8. Generate EFT Report ");
+            System.out.println("  0. Exit ChocAn Data Processing System  ");
 
             System.out.print("\nEnter Selection: ");
             menuNum = sc.nextInt();
             
                
-        // Manager menu functions:  
-            // Weekly Accoounting  Report
+            // Manager menu functions:  
+                // Weekly Accoounting  Report
             
-        // Operator menu functions:
-            // Add New Member
-            // Remove Member
-            // Update Member Records
-            // Add New Provider
-            // Remove Provider
-            // Update Provider Records
+            // Operator menu functions:
+                // Add New Member
+                // Remove Member
+                // Update Member Records
+                // Add New Provider
+                // Remove Provider
+                // Update Provider Records
+            
+            if(menuNum == 0)
+            {
+                System.out.println("\nThanks for using ChocAn Data Processing System. Good Bye!" );
+            }
+             
+        }
     }
 }
