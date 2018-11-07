@@ -1,5 +1,6 @@
 import java.io.PrintStream;
 import java.util.*;
+import chocan.Data;
 
 public class Menu
 {
