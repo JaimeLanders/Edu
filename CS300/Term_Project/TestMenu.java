@@ -1,4 +1,4 @@
-import java.io.PrintStream;
+//import java.io.PrintStream;
 import java.util.*;
 import chocan.*;
 
@@ -10,16 +10,22 @@ public class TestMenu
         int oid;
         int menuNum = -1;
 
-//        Set<Data> testData = new TreeSet<Data>();
-//        Data nMember = new Data();
-//        Member nMember = new Member();
-//        Provider nProvider = new Provider();
-        Service nService = new Service();
 //        Data nMember = new Member();
-//        nMember.name = "testing";
-//        testData.add(nMember);
+        Member nMember = new Member();
+//        Provider nProvider = new Provider();
+//        Service nService = new Service();
 
-        System.out.println("Welcome to ChocAn Data Processing System....");
+        nMember.name = "testing";
+        nMember.number = 123456789;
+
+        List<Data> testData = new LinkedList<Data>();
+        testData.add(nMember);
+//        testData.add(nProvider);
+//        testData.add(nService);
+
+        System.out.println(nMember);
+
+        System.out.println("Welcome to ChocAn Data Processing System");
 
         // Operator Login  
         System.out.print("\nLogin to ChocAn Using Provider/Manager ID:");

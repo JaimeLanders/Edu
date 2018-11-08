@@ -7,14 +7,16 @@ public abstract class Data
     boolean debug = true;
 
     protected Set<Data> services;
-    protected String name;
+    public String name;
+    public int number;
+/*    protected String name;
     protected int number;
     protected String address;
     protected String city;
     protected String state;
     protected int zip;
     protected int id;
-
+*/
     public Data()
     {
         if(debug == true)
@@ -25,12 +27,12 @@ public abstract class Data
 //        services = null;
         name = null;
         number = 0;
-        address = null;
+/*        address = null;
         city = null;
         state = null;
         zip = 0;
         id = 0;
-    }
+*/    }
 
     public String toString()
     {
@@ -40,6 +42,7 @@ public abstract class Data
         }
 
         String data = null;
+        data = "Name: " + this.name + "\nNumber: " + number;
 
         return data;
     }
