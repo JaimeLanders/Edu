@@ -2,7 +2,7 @@ import java.io.PrintStream;
 import java.util.*;
 import chocan.*;
 
-public class Menu
+public class TestMenu
 {
     public static void main(String[] args)
     {
@@ -11,7 +11,6 @@ public class Menu
         int menuNum = -1;
 
 //        Set<Data> testData = new TreeSet<Data>();
-
 //        Data nMember = new Data();
 //        Member nMember = new Member();
 //        Provider nProvider = new Provider();
@@ -20,7 +19,7 @@ public class Menu
 //        nMember.name = "testing";
 //        testData.add(nMember);
 
-        System.out.println("Welcome to ChocAn Data Processing System");
+        System.out.println("Welcome to ChocAn Data Processing System....");
 
         // Operator Login  
         System.out.print("\nLogin to ChocAn Using Provider/Manager ID:");
