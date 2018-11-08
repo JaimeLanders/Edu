@@ -1,6 +1,6 @@
 import java.io.PrintStream;
 import java.util.*;
-import chocan.Data;
+import chocan.*;
 
 public class Menu
 {
@@ -10,13 +10,22 @@ public class Menu
         int oid;
         int menuNum = -1;
 
+//        Set<Data> testData = new TreeSet<Data>();
+
+//        Data nMember = new Data();
+//        Member nMember = new Member();
+//        Provider nProvider = new Provider();
+        Service nService = new Service();
+//        Data nMember = new Member();
+//        nMember.name = "testing";
+//        testData.add(nMember);
+
         System.out.println("Welcome to ChocAn Data Processing System");
 
         // Operator Login  
         System.out.print("\nLogin to ChocAn Using Provider/Manager ID:");
         oid = sc.nextInt();
         System.out.println("Provider " + oid + " Verified...");
-
 
         // Provide menu functionns here:
         while(menuNum != 0)

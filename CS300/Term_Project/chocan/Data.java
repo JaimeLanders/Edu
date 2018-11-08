@@ -1,8 +1,11 @@
 package chocan;
 import java.util.*;
 
+//public class Data
 public abstract class Data
 {
+    boolean debug = true;
+
     protected Set<Data> services;
     protected String name;
     protected int number;
@@ -14,6 +17,11 @@ public abstract class Data
 
     public Data()
     {
+        if(debug == true)
+        {
+            System.out.println("Data constructor");
+        }
+
 //        services = null;
         name = null;
         number = 0;
@@ -26,6 +34,11 @@ public abstract class Data
 
     public String toString()
     {
+        if(debug == true)
+        {
+            System.out.println("Data toString");
+        }
+
         String data = null;
 
         return data;
