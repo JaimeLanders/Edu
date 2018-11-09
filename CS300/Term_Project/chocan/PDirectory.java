@@ -14,6 +14,8 @@ public class PDirectory
     {
         boolean debug = true;
 
+        initializePDir();
+
         if(debug == true)
         {
             System.out.println("PDirectory Constructor");

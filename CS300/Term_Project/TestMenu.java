@@ -11,19 +11,21 @@ public class TestMenu
         int menuNum = -1;
 
 //        Data nMember = new Member();
-        Member nMember = new Member();
-//        Provider nProvider = new Provider();
+//        Member nMember = new Member();
+        Provider nProvider = new Provider();
 //        Service nService = new Service();
 
-        nMember.name = "testing";
-        nMember.number = 123456789;
+        nProvider.name = "testing";
+        nProvider.number = 123456789;
 
         List<Data> testData = new LinkedList<Data>();
-        testData.add(nMember);
+        testData.add(nProvider);
 //        testData.add(nProvider);
 //        testData.add(nService);
 
-        System.out.println(nMember);
+        System.out.println(nProvider);
+
+        PDirectory nPDir = new PDirectory();
 
         System.out.println("Welcome to ChocAn Data Processing System");
 
