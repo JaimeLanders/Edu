@@ -6,9 +6,29 @@
 package chocan;
 import java.util.*;
 
-public class PDirecotry
+public class PDirectory
 {
     public Map<String, Provider> PDir = new HashMap<String, Provider>();
+
+    public PDirectory()
+    {
+        boolean debug = true;
+
+        if(debug == true)
+        {
+            System.out.println("PDirectory Constructor");
+        }
+    }
+
+    protected void initializePDir()
+    {
+        boolean debug = true;
+
+        if(debug == true)
+        {
+            System.out.println("initializePDir");
+        }
+    }
 
     public int verifyProvider(int pid)
     {
