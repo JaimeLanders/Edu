@@ -1,0 +1,48 @@
+../src/probedata.txt
+Launching probe Alpha
+------------------------------------------------
+Probe Alpha starting
+Sensor readings before emitting
+  Last reading for DILITHIUM_VAPOR: 0.002
+  Last reading for TRACE_TRILITHIUM_PARTICULATE: 0.045
+  Last reading for HEXAFLOURINE_GAS: 7.2E-4
+  Last reading for HYDRAZINE: 1.0E-6
+  Emitting a burst of 0.5units of NITRIUM_GAS
+Sensor readings after emitting
+  Last reading for DILITHIUM_VAPOR: 0.0018000000000000002
+  Last reading for TRACE_TRILITHIUM_PARTICULATE: 0.045
+  Last reading for HEXAFLOURINE_GAS: 6.48E-4
+  Last reading for HYDRAZINE: 9.0E-7
+Recalling probe Alpha
+Launching probe Beta
+------------------------------------------------
+Probe Beta starting
+Sensor readings before emitting
+  Last reading for DILITHIUM_VAPOR: 0.0018000000000000002
+  Last reading for TRACE_TRILITHIUM_PARTICULATE: 0.045
+  Last reading for HEXAFLOURINE_GAS: 6.48E-4
+  Last reading for HYDRAZINE: 9.0E-7
+  Emitting a burst of 0.5units of NITRIUM_GAS
+Sensor readings after emitting
+  Last reading for DILITHIUM_VAPOR: 0.0016200000000000001
+  Last reading for TRACE_TRILITHIUM_PARTICULATE: 0.045
+  Last reading for HEXAFLOURINE_GAS: 5.832000000000001E-4
+  Last reading for HYDRAZINE: 8.1E-7
+Recalling probe Beta
+Launching probe Gamma
+------------------------------------------------
+Probe Gamma starting
+Sensor readings before emitting
+  Last reading for NITRIUM_GAS: 1.1
+  Last reading for TRACE_TRILITHIUM_PARTICULATE: 0.045
+  Last reading for HEXAFLOURINE_GAS: 5.832000000000001E-4
+  Last reading for HYDRAZINE: 8.1E-7
+  Emitting a burst of 0.001units of PROTOMATTER_DENSITY
+  Emitting a burst of 1.0units of HEXAFLOURINE_GAS
+  Emitting a burst of 0.5units of TRACE_TRILITHIUM_PARTICULATE
+Sensor readings after emitting
+  Last reading for NITRIUM_GAS: 1.102299198
+  Last reading for TRACE_TRILITHIUM_PARTICULATE: 0.21066666666666667
+  Last reading for HEXAFLOURINE_GAS: 1.0495832
+  Last reading for HYDRAZINE: 0.049000810000000006
+Recalling probe Gamma

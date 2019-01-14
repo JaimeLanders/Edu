@@ -1,0 +1,2 @@
+a02: a02main.cpp a02implementation.cpp a02.h
+	g++ -o a02 a02main.cpp a02implementation.cpp a02.h

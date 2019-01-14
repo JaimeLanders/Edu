@@ -1,0 +1,4 @@
+lab1:
+hello.cpp
+lab1: hello.cpp
+	g++ -o lab1 hello.cpp

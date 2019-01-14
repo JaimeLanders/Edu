@@ -1,0 +1,2 @@
+a02: a02comp.cpp
+	g++ -o a02 a02comp.cpp
