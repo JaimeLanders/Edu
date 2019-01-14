@@ -1,3 +1,0 @@
-This is a test input file for CS 250's CS 161 pre-requisite assignment.
-
-This file contains a number of words and lines, but nothing terribly important.
