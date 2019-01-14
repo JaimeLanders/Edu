@@ -1,0 +1,111 @@
+** Make sure you read the background.txt file in order to understand what this
+assignment is asking for. **
+
+Assignment Overview
+
+For this assignment you are going to write a program that generates the report
+that Captain Picard needs to submit to Starfleet Academy.  Worf has provided
+you with a data file that contains the complete mission log
+(missionlog.txt). Your program will be written in Java.  It will read in the
+mission log and generate a report showing the number of times each crew member
+has been to each location.  The locations should be presented in alphabetical
+order.  The crew members should be presented in alphabetical order. 
+
+Here is a small portion of the expected output file.
+
+Acamar III:
+  B. Crusher             44
+  Data                   43
+  O'Brien                39
+  Picard                  9
+  Riker                  51
+  Troi                   43
+  W. Crusher             11
+  Worf                   43
+Carraya IV:
+  B. Crusher             29
+  Data                   46
+  O'Brien                52
+  Picard                 14
+  Riker                  32
+  Troi                   39
+  W. Crusher             13
+  Worf                   56
+
+Assignment Implementation Details
+
+The basic flow of this program is fairly straight-forward.  The program should
+read in all of the data from the mission log and store that data in an
+appropriate data structure provided by the Java Collections classes.  After
+reading all of the data the program will iterate through the data in the data
+structure and print out a report in the correct format.
+
+Reading the data: Each line of the mission log contains a crew member name and
+a planet name seperated by a comma.  For example: "Troi,Seary IV".  Your
+program should read each line and separate the crew and planet names.  You can
+use the Scanner class (see the provided starter code) to read the data.  It is
+useful to set a custom delimeter in the Scanner (again, look at the starter
+code).
+
+Storing the data: As you read a line of data you will need to store it in a
+data structure.  A key aspect of this assignment is researching the various
+Collection classes that Java provides and selecting appropriate ones. You
+should not be creating your own data structure for this.  Note that the data
+should be stored in a data structure that automatically sorts the data. Do not
+sort the data manually or with a call to Collections.sort().
+
+Printing the report: You should print the report while doing only one pass
+over the data.  The way you do this will depend on the data structure that you
+use to store the data. 
+
+If you have any questions about this assignment ask!
+
+Collections Framework
+
+If you do this assignment correctly use the Collections Framework. You need to
+pay attention to the storage and time efficiency of your code and use the
+Collections Framework components that are most appropriate to the task your
+code will be performing.
+
+You are required to use the "generics" syntax in your code. This means that if
+you're using (for example) an ArrayList, you should code it like this:
+
+List<Integer> list = new ArrayList<Integer>(); </p>
+
+In other words, the data types of the items in your Collections must always be
+specified between the angle brackets.
+
+This requirement is true of all other Java assignments for this
+course. Anytime it's possible to use the generics syntax, it's required.
+
+Code To Start With
+
+This assignment provides a you with a java file containing the code you can
+start with. The Java file contains a basic structure for the program and you
+only need to insert your code in a few places.  Some people find it easier to
+do the whole program themselves from scratch.  You are welcome to do that if
+you want but be sure to name the main class MissionCount.
+
+JAR Files
+
+Java executables are packaged as JAR files. A JAR file is actually a Zip
+file. Once you're ready to submit your work, you will need to create a JAR
+file containing your code.
+
+Testing Your Code
+
+This assignment comes with a missionlog.txt files. When your program is
+working correctly it will generate the exact same output as in the
+expected.txt file.
+
+Assignment Additional Requirements
+
+The following items are specific grading items you should pay attention to
+(see the general course information about how programs are graded for more
+information).
+
+- Do not use Collections.sort() or do a manual sort of the data.
+- Only iterate once through the data
+- Use generic types
+
+
