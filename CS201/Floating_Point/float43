@@ -1,3 +1,0 @@
-#! /bin/bash
-
-./float 4 3 20 9 | less
