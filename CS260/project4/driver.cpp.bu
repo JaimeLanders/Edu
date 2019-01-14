@@ -1,0 +1,115 @@
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <iomanip>
+#include "collection.h"
+#include "data.h"
+
+using namespace std;
+
+int main ()
+{
+	cout << "Welcome to project 4 driver! " << endl;
+
+	char fileName[100] = "data.dat";
+	collection vendorCollection(fileName);  // Populate
+//	collection vendorCollection;
+
+//	char searchName[100] = "Amanda's Boutique";
+	char searchName[100] = "Testing";
+//	char searchName[100] = "Jaime's Vendor";
+//	char searchName[] = "Savanah's Shoppe";
+	char searchProduct[100] = "All da stuffs";
+
+	int dataItems = 0;
+	int dataCap = 10;
+	bool removeRtn = false;
+	int searchRtn = 0;
+
+	data dataRtnRef;
+
+	data dataRtn[dataCap];
+
+	cout << "\nVendor data (by name) before manipulation: " << endl;
+	vendorCollection.displayName();
+
+	cout << "\n=====" << endl;
+
+	cout << "\nVendor data (by product) before manipulation: " << endl;
+	vendorCollection.displayProduct();
+
+	cout << "\n=====" << endl;
+
+	char name[100] = "Testing";
+	char number[100] = "(503)123-4567";
+	char products[100] = "Testing";
+//	char products[100] =  "All da stuffs";
+	char events[100] = "Testing";
+
+	data testData(name, number, products, events);
+
+	vendorCollection.insert(testData);
+
+	cout << "\n=====" << endl;
+
+	cout << "\nVendor data (by name) after insert: " << endl;
+	vendorCollection.displayName();
+
+	cout << "\n=====" << endl;
+
+	cout << "\nVendor data (by product) after insert: " << endl;
+	vendorCollection.displayProduct();
+
+	cout << "\n=====" << endl;
+
+	cout << "\nSearching for name " << searchName << endl;
+	searchRtn = vendorCollection.retrieveName(dataRtnRef, searchName);
+
+	if (searchRtn == true)
+	{
+		cout << "\nVendor data: " << endl; 
+		cout << dataRtnRef << endl;
+	}
+	else
+		cout << searchName << " not found... " << endl;
+
+	cout << "\n=====" << endl;
+
+	cout << "\nSearching for product " << searchProduct << endl;
+	dataItems = vendorCollection.retrieveProduct(dataRtn, searchProduct, dataItems);
+	cout << "dataItems return = " << dataItems << endl;
+
+	if (dataItems > 0)
+	{
+		cout << "\nVendor Data: " << endl;
+		for (int i = 0; i < dataItems; i++)  
+		{
+
+			cout << dataRtn[i] << endl;
+		}
+	}
+	else
+		cout << searchProduct << " not found... " << endl;
+
+	cout << "\n=====" << endl;
+
+	cout << "\nRemoving " << searchName << endl;
+	removeRtn = vendorCollection.remove(searchName);
+
+	if (removeRtn == true)
+		cout << searchName << " removed " << endl;
+	else
+		cout << searchName << " not found... " << endl;
+
+	cout << "\n=====" << endl;
+
+	cout << "\nVendor data (by name) after removal: " << endl;
+	vendorCollection.displayName();
+
+	cout << "\n=====" << endl;
+
+	cout << "\nVendor data (by product)  after removal: " << endl;
+	vendorCollection.displayProduct();
+
+	return 0;
+}
