@@ -1,0 +1,4419 @@
+CS261 - MissionCount - Your Name
+
+Acamar III
+:
+  B. Crusher             11
+  Barclay                 6
+  Data                   15
+  Gomez                   3
+  Guinan                  4
+  Lefler                  5
+  O'Brien                12
+  Ogawa                   4
+  Picard                  5
+  Pulaski                14
+  Riker                  12
+  Troi                    9
+  W. Crusher              4
+  Worf                   14
+  Yar                     3
+Adelphous IV
+:
+  B. Crusher             23
+  Barclay                 4
+  Data                   14
+  Gomez                   4
+  Guinan                  7
+  Lefler                  3
+  O'Brien                12
+  Ogawa                   1
+  Picard                  3
+  Pulaski                 9
+  Riker                   8
+  Troi                   10
+  W. Crusher              2
+  Worf                   11
+  Yar                     7
+Akrayde VII
+:
+  B. Crusher             14
+  Barclay                 6
+  Data                   17
+  Gomez                   7
+  Guinan                  2
+  Lefler                  7
+  O'Brien                21
+  Ogawa                   7
+  Picard                  4
+  Pulaski                17
+  Riker                  23
+  Troi                   16
+  W. Crusher              5
+  Worf                   15
+  Yar                     5
+Aldea
+:
+  B. Crusher             14
+  Barclay                 2
+  Data                   14
+  Gomez                   1
+  Guinan                  4
+  Lefler                  3
+  O'Brien                10
+  Ogawa                   4
+  Picard                  3
+  Pulaski                14
+  Riker                  14
+  Troi                   10
+  W. Crusher              6
+  Worf                   13
+  Yar                     4
+Aldron IV
+:
+  B. Crusher             14
+  Barclay                 7
+  Data                    6
+  Gomez                   4
+  Guinan                  7
+  Lefler                  5
+  O'Brien                16
+  Ogawa                   4
+  Picard                  8
+  Pulaski                14
+  Riker                  14
+  Troi                   14
+  W. Crusher              6
+  Worf                   14
+  Yar                     6
+Algeron
+:
+  B. Crusher             17
+  Barclay                 2
+  Data                   10
+  Gomez                   5
+  Guinan                  2
+  Lefler                  2
+  O'Brien                19
+  Ogawa                   5
+  Picard                  6
+  Pulaski                12
+  Riker                  10
+  Troi                   10
+  W. Crusher              7
+  Worf                    8
+  Yar                     4
+Alpha Moon
+:
+  B. Crusher              7
+  Barclay                 5
+  Data                   10
+  Gomez                   5
+  Guinan                  3
+  Lefler                  7
+  O'Brien                 8
+  Ogawa                   4
+  Picard                  7
+  Pulaski                15
+  Riker                  14
+  Troi                   13
+  W. Crusher              4
+  Worf                   13
+  Yar                     6
+Alpha Onias III
+:
+  B. Crusher              6
+  Barclay                 5
+  Data                   13
+  Gomez                   6
+  Guinan                  2
+  Lefler                  2
+  O'Brien                18
+  Ogawa                   4
+  Picard                  4
+  Pulaski                 9
+  Riker                  15
+  Troi                   13
+  W. Crusher              3
+  Worf                   10
+  Yar                     4
+Altair III
+:
+  B. Crusher              9
+  Barclay                 5
+  Data                   18
+  Gomez                   4
+  Guinan                  2
+  Lefler                  2
+  O'Brien                 7
+  Ogawa                   3
+  Picard                  5
+  Pulaski                10
+  Riker                  12
+  Troi                   15
+  W. Crusher              6
+  Worf                   12
+  Yar                     5
+Altec
+:
+  B. Crusher             13
+  Barclay                 3
+  Data                   15
+  Gomez                   1
+  Guinan                  4
+  Lefler                  7
+  O'Brien                14
+  Ogawa                   3
+  Picard                  9
+  Pulaski                 9
+  Riker                  10
+  Troi                   15
+  W. Crusher              5
+  Worf                   17
+  Yar                     6
+Altoor VII
+:
+  B. Crusher             13
+  Barclay                 5
+  Data                   16
+  Gomez                   5
+  Guinan                  4
+  Lefler                  5
+  O'Brien                12
+  Ogawa                   4
+  Picard                  4
+  Pulaski                15
+  Riker                  14
+  Troi                   11
+  W. Crusher              8
+  Worf                    8
+  Yar                     2
+Angel One
+:
+  B. Crusher             18
+  Barclay                 4
+  Data                   17
+  Gomez                   6
+  Guinan                  4
+  Lefler                  4
+  O'Brien                15
+  Ogawa                   2
+  Picard                  4
+  Pulaski                 8
+  Riker                   9
+  Troi                   11
+  W. Crusher              7
+  Worf                   17
+  Yar                     3
+Angosia III
+:
+  B. Crusher             15
+  Barclay                 8
+  Data                   14
+  Gomez                   2
+  Guinan                  3
+  Lefler                  4
+  O'Brien                11
+  Ogawa                   1
+  Picard                  2
+  Pulaski                 7
+  Riker                  13
+  Troi                   13
+  W. Crusher              7
+  Worf                   14
+  Yar                     7
+Antede III
+:
+  B. Crusher             11
+  Barclay                 9
+  Data                    9
+  Gomez                   6
+  Guinan                  6
+  Lefler                  3
+  O'Brien                24
+  Ogawa                   5
+  Picard                  6
+  Pulaski                14
+  Riker                  11
+  Troi                   17
+  W. Crusher              3
+  Worf                   16
+  Yar                     4
+Archer IV
+:
+  B. Crusher             11
+  Barclay                 2
+  Data                   20
+  Gomez                   3
+  Guinan                  5
+  Lefler                  6
+  O'Brien                16
+  Ogawa                   4
+  Picard                  4
+  Pulaski                19
+  Riker                  12
+  Troi                   16
+  W. Crusher              4
+  Worf                    8
+  Yar                     2
+Arlof IX
+:
+  B. Crusher              9
+  Barclay                 6
+  Data                   12
+  Gomez                   6
+  Guinan                  6
+  Lefler                  4
+  O'Brien                13
+  Ogawa                   3
+  Picard                  4
+  Pulaski                14
+  Riker                  11
+  Troi                   11
+  W. Crusher              1
+  Worf                    9
+  Yar                     1
+Armus IX
+:
+  B. Crusher             15
+  Barclay                 4
+  Data                   12
+  Gomez                   5
+  Guinan                  5
+  Lefler                  3
+  O'Brien                14
+  Ogawa                   6
+  Picard                  2
+  Pulaski                12
+  Riker                  11
+  Troi                   16
+  W. Crusher              4
+  Worf                   10
+  Yar                     1
+Astroidal planetoid
+:
+  B. Crusher             15
+  Barclay                 6
+  Data                   14
+  Gomez                   6
+  Guinan                  3
+  Lefler                  1
+  O'Brien                 6
+  Ogawa                   5
+  Picard                  4
+  Pulaski                16
+  Riker                  20
+  Troi                   17
+  W. Crusher              7
+  Worf                   10
+  Yar                     3
+Atalia VII
+:
+  B. Crusher             10
+  Barclay                 3
+  Data                   15
+  Gomez                   4
+  Lefler                  3
+  O'Brien                14
+  Ogawa                   2
+  Picard                  2
+  Pulaski                 7
+  Riker                  13
+  Troi                   12
+  W. Crusher              4
+  Worf                   13
+  Yar                     5
+Atmosphere dissapated
+:
+  B. Crusher             15
+  Barclay                 7
+  Data                   22
+  Gomez                   1
+  Guinan                  7
+  Lefler                  4
+  O'Brien                 7
+  Ogawa                   4
+  Picard                  3
+  Pulaski                10
+  Riker                  20
+  Troi                   11
+  W. Crusher              2
+  Worf                   13
+  Yar                     6
+Atrea IV
+:
+  B. Crusher             10
+  Barclay                 5
+  Data                   16
+  Gomez                   7
+  Guinan                  4
+  Lefler                 10
+  O'Brien                18
+  Ogawa                   3
+  Picard                  2
+  Pulaski                17
+  Riker                  16
+  Troi                   19
+  W. Crusher              4
+  Worf                   17
+  Yar                     1
+Audet IX
+:
+  B. Crusher             16
+  Barclay                 1
+  Data                   18
+  Gomez                   3
+  Guinan                  5
+  Lefler                  1
+  O'Brien                17
+  Ogawa                   7
+  Picard                  7
+  Pulaski                14
+  Riker                  17
+  Troi                   11
+  W. Crusher              2
+  Worf                    7
+  Yar                     3
+Barkon IV
+:
+  B. Crusher             14
+  Barclay                 5
+  Data                   13
+  Gomez                   2
+  Guinan                  4
+  Lefler                  8
+  O'Brien                13
+  Ogawa                   5
+  Picard                  3
+  Pulaski                12
+  Riker                  18
+  Troi                   13
+  Worf                   10
+  Yar                     3
+Barradas III
+:
+  B. Crusher             14
+  Barclay                 8
+  Data                   20
+  Gomez                   2
+  Guinan                  4
+  Lefler                  2
+  O'Brien                 8
+  Ogawa                   5
+  Picard                  2
+  Pulaski                11
+  Riker                  15
+  Troi                   15
+  W. Crusher              7
+  Worf                   11
+  Yar                     1
+Barson II
+:
+  B. Crusher             14
+  Barclay                 5
+  Data                   18
+  Gomez                   5
+  Guinan                  7
+  Lefler                  3
+  O'Brien                12
+  Ogawa                   5
+  Picard                  3
+  Pulaski                11
+  Riker                   9
+  Troi                   15
+  W. Crusher              3
+  Worf                   12
+  Yar                     2
+Barzan II
+:
+  B. Crusher             10
+  Barclay                 6
+  Data                    8
+  Gomez                   5
+  Guinan                  6
+  Lefler                  3
+  O'Brien                16
+  Ogawa                   6
+  Picard                  4
+  Pulaski                13
+  Riker                  18
+  Troi                   17
+  W. Crusher              3
+  Worf                   10
+  Yar                     4
+Benzar
+:
+  B. Crusher             14
+  Barclay                 3
+  Data                    8
+  Gomez                   5
+  Guinan                  4
+  Lefler                  3
+  O'Brien                19
+  Ogawa                   4
+  Picard                  5
+  Pulaski                 8
+  Riker                  16
+  Troi                    6
+  W. Crusher              3
+  Worf                   11
+  Yar                     5
+Bersallis III
+:
+  B. Crusher             21
+  Barclay                 7
+  Data                   21
+  Gomez                   4
+  Guinan                  5
+  Lefler                  4
+  O'Brien                10
+  Ogawa                   5
+  Picard                  1
+  Pulaski                 6
+  Riker                  13
+  Troi                   14
+  W. Crusher              2
+  Worf                   10
+  Yar                     7
+Beta Agni II
+:
+  B. Crusher             10
+  Barclay                 3
+  Data                   16
+  Gomez                   3
+  Guinan                  4
+  Lefler                  8
+  O'Brien                11
+  Ogawa                   5
+  Picard                  3
+  Pulaski                11
+  Riker                  12
+  Troi                   16
+  W. Crusher              4
+  Worf                   12
+Beta Moon
+:
+  B. Crusher             14
+  Barclay                 5
+  Data                    7
+  Gomez                   5
+  Guinan                  5
+  Lefler                  2
+  O'Brien                12
+  Ogawa                   4
+  Picard                  5
+  Pulaski                16
+  Riker                  18
+  Troi                    9
+  W. Crusher              2
+  Worf                   12
+  Yar                     4
+Beta Thorador
+:
+  B. Crusher              9
+  Barclay                 5
+  Data                    7
+  Gomez                   2
+  Guinan                  5
+  Lefler                  2
+  O'Brien                11
+  Ogawa                   5
+  Picard                  8
+  Pulaski                 9
+  Riker                  12
+  Troi                   18
+  W. Crusher              4
+  Worf                    9
+  Yar                     2
+Betaline Kel
+:
+  B. Crusher              9
+  Barclay                 2
+  Data                   18
+  Gomez                   4
+  Guinan                  4
+  Lefler                  2
+  O'Brien                14
+  Ogawa                   3
+  Picard                  3
+  Pulaski                16
+  Riker                   8
+  Troi                    6
+  W. Crusher              3
+  Worf                    8
+  Yar                     5
+Betazed
+:
+  B. Crusher             18
+  Barclay                 1
+  Data                    7
+  Gomez                   6
+  Guinan                  7
+  Lefler                  1
+  O'Brien                 7
+  Ogawa                   4
+  Picard                  5
+  Pulaski                13
+  Riker                   9
+  Troi                    9
+  W. Crusher              3
+  Worf                   21
+  Yar                     4
+Binus
+:
+  B. Crusher             12
+  Barclay                 5
+  Data                   10
+  Gomez                   4
+  Guinan                  5
+  Lefler                  6
+  O'Brien                16
+  Ogawa                   1
+  Picard                  5
+  Pulaski                15
+  Riker                  23
+  Troi                    9
+  W. Crusher              5
+  Worf                   16
+  Yar                     1
+Bokara VI
+:
+  B. Crusher             17
+  Barclay                 2
+  Data                   14
+  Gomez                   5
+  Guinan                  3
+  Lefler                  3
+  O'Brien                15
+  Ogawa                   7
+  Picard                  2
+  Pulaski                13
+  Riker                  15
+  Troi                   14
+  W. Crusher              8
+  Worf                   14
+  Yar                     5
+Boraal II
+:
+  B. Crusher             11
+  Barclay                 8
+  Data                   19
+  Gomez                   1
+  Guinan                  7
+  Lefler                  8
+  O'Brien                16
+  Ogawa                   3
+  Picard                  3
+  Pulaski                13
+  Riker                  17
+  Troi                   20
+  W. Crusher              5
+  Worf                   10
+  Yar                     5
+Bre'el IV
+:
+  B. Crusher             13
+  Barclay                 5
+  Data                   17
+  Gomez                   4
+  Guinan                  7
+  Lefler                  5
+  O'Brien                17
+  Ogawa                   3
+  Picard                  4
+  Pulaski                 9
+  Riker                  16
+  Troi                    8
+  W. Crusher              1
+  Worf                   15
+  Yar                     3
+Brekka
+:
+  B. Crusher             16
+  Barclay                 3
+  Data                   18
+  Gomez                   7
+  Guinan                  4
+  Lefler                  4
+  O'Brien                 9
+  Ogawa                   4
+  Picard                  1
+  Pulaski                11
+  Riker                  14
+  Troi                    8
+  W. Crusher              5
+  Worf                   15
+  Yar                     5
+Brentalya
+:
+  B. Crusher             13
+  Barclay                 2
+  Data                    7
+  Gomez                  10
+  Lefler                  2
+  O'Brien                 9
+  Ogawa                   6
+  Picard                  6
+  Pulaski                15
+  Riker                  10
+  Troi                   16
+  W. Crusher              3
+  Worf                   17
+  Yar                     5
+Browda IV
+:
+  B. Crusher             17
+  Barclay                 2
+  Data                   16
+  Gomez                   4
+  Guinan                  2
+  Lefler                  4
+  O'Brien                12
+  Ogawa                  10
+  Picard                  4
+  Pulaski                16
+  Riker                   8
+  Troi                    7
+  W. Crusher              4
+  Worf                   11
+  Yar                     2
+Cairn
+:
+  B. Crusher             17
+  Barclay                 5
+  Data                   14
+  Gomez                   4
+  Guinan                  2
+  Lefler                  5
+  O'Brien                10
+  Ogawa                   3
+  Picard                  6
+  Pulaski                 7
+  Riker                  17
+  Troi                    8
+  W. Crusher              3
+  Worf                   13
+  Yar                     3
+Calder II
+:
+  B. Crusher             10
+  Barclay                 3
+  Data                   10
+  Gomez                   6
+  Guinan                  5
+  Lefler                  6
+  O'Brien                11
+  Ogawa                   2
+  Picard                  3
+  Pulaski                15
+  Riker                   8
+  Troi                   11
+  W. Crusher              7
+  Worf                   14
+  Yar                     6
+Caldonia
+:
+  B. Crusher             14
+  Barclay                 6
+  Data                   20
+  Gomez                   2
+  Guinan                  4
+  Lefler                  3
+  O'Brien                13
+  Ogawa                   7
+  Picard                  3
+  Pulaski                18
+  Riker                   8
+  Troi                   13
+  W. Crusher              1
+  Worf                   14
+  Yar                     5
+Caldos IV
+:
+  B. Crusher             17
+  Barclay                 4
+  Data                   10
+  Gomez                   2
+  Guinan                  5
+  Lefler                  5
+  O'Brien                15
+  Ogawa                   3
+  Picard                  4
+  Pulaski                 3
+  Riker                  13
+  Troi                   15
+  W. Crusher             10
+  Worf                   20
+  Yar                     7
+Camor V
+:
+  B. Crusher             19
+  Barclay                 3
+  Data                   11
+  Gomez                   5
+  Guinan                  2
+  Lefler                  3
+  O'Brien                 8
+  Ogawa                   3
+  Picard                  4
+  Pulaski                15
+  Riker                  10
+  Troi                   13
+  W. Crusher              6
+  Worf                   14
+  Yar                     7
+Carraya IV
+:
+  B. Crusher             15
+  Barclay                 1
+  Data                   13
+  Gomez                   3
+  Guinan                  1
+  Lefler                 10
+  O'Brien                11
+  Ogawa                   5
+  Picard                  5
+  Pulaski                11
+  Riker                  14
+  Troi                    9
+  W. Crusher              6
+  Worf                   18
+  Yar                     4
+Castel I
+:
+  B. Crusher             15
+  Barclay                 2
+  Data                   11
+  Gomez                   7
+  Guinan                  8
+  Lefler                  4
+  O'Brien                11
+  Ogawa                   8
+  Picard                  6
+  Pulaski                10
+  Riker                  11
+  Troi                   15
+  W. Crusher              6
+  Worf                   11
+Celtris III
+:
+  B. Crusher              9
+  Barclay                 3
+  Data                    7
+  Gomez                   4
+  Guinan                  4
+  Lefler                  3
+  O'Brien                11
+  Ogawa                   6
+  Picard                  8
+  Pulaski                11
+  Riker                  14
+  Troi                   14
+  W. Crusher              4
+  Worf                   11
+  Yar                     2
+Chalna
+:
+  B. Crusher             14
+  Barclay                 1
+  Data                   13
+  Gomez                   3
+  Guinan                  2
+  Lefler                  5
+  O'Brien                12
+  Ogawa                   7
+  Picard                  7
+  Pulaski                12
+  Riker                  16
+  Troi                   11
+  W. Crusher              3
+  Worf                   10
+  Yar                     8
+Chandra V
+:
+  B. Crusher             13
+  Barclay                 4
+  Data                   10
+  Gomez                   4
+  Guinan                  3
+  Lefler                  4
+  O'Brien                11
+  Ogawa                   6
+  Picard                  6
+  Pulaski                10
+  Riker                  16
+  Troi                    9
+  W. Crusher              4
+  Worf                   16
+  Yar                     4
+Chantil III
+:
+  B. Crusher             10
+  Barclay                 5
+  Data                   11
+  Gomez                   7
+  Guinan                  7
+  Lefler                  8
+  O'Brien                10
+  Ogawa                   7
+  Picard                  4
+  Pulaski                19
+  Riker                  19
+  Troi                   19
+  W. Crusher              1
+  Worf                   11
+Chya VII
+:
+  B. Crusher             15
+  Barclay                 5
+  Data                    6
+  Guinan                  5
+  Lefler                  3
+  O'Brien                13
+  Ogawa                   5
+  Picard                  3
+  Pulaski                19
+  Riker                  15
+  Troi                    8
+  W. Crusher              5
+  Worf                   16
+  Yar                     7
+Clauvdia III
+:
+  B. Crusher              7
+  Barclay                 8
+  Data                   11
+  Gomez                   4
+  Guinan                  5
+  Lefler                  4
+  O'Brien                 7
+  Ogawa                   3
+  Picard                  7
+  Pulaski                13
+  Riker                  15
+  Troi                   14
+  W. Crusher              1
+  Worf                   11
+  Yar                     7
+Colla III
+:
+  B. Crusher             18
+  Barclay                 3
+  Data                    7
+  Gomez                   3
+  Guinan                  4
+  Lefler                  3
+  O'Brien                10
+  Ogawa                   5
+  Picard                  7
+  Pulaski                12
+  Riker                  13
+  Troi                   10
+  W. Crusher              4
+  Worf                   15
+  Yar                     4
+Corcoroli V
+:
+  B. Crusher             14
+  Barclay                 6
+  Data                   12
+  Gomez                   5
+  Guinan                  3
+  Lefler                  3
+  O'Brien                14
+  Ogawa                   8
+  Picard                  4
+  Pulaski                14
+  Riker                  16
+  Troi                   13
+  W. Crusher              6
+  Worf                    8
+  Yar                     3
+Costalane
+:
+  B. Crusher             12
+  Barclay                 4
+  Data                   13
+  Gomez                   1
+  Guinan                  5
+  Lefler                  4
+  O'Brien                14
+  Ogawa                   3
+  Picard                  4
+  Pulaski                13
+  Riker                  17
+  Troi                    9
+  W. Crusher              5
+  Worf                   16
+  Yar                     6
+Daled IV
+:
+  B. Crusher              7
+  Barclay                 3
+  Data                   14
+  Gomez                   4
+  Guinan                  8
+  Lefler                  3
+  O'Brien                16
+  Ogawa                   1
+  Picard                  6
+  Pulaski                13
+  Riker                  10
+  Troi                   11
+  W. Crusher              4
+  Worf                   18
+  Yar                     2
+Deanius III
+:
+  B. Crusher             16
+  Barclay                 3
+  Data                   15
+  Gomez                   2
+  Guinan                  9
+  Lefler                  2
+  O'Brien                13
+  Ogawa                   7
+  Picard                  4
+  Pulaski                14
+  Riker                  20
+  Troi                   18
+  W. Crusher              1
+  Worf                   15
+  Yar                     5
+Deilos IV
+:
+  B. Crusher             15
+  Barclay                 1
+  Data                    8
+  Gomez                   4
+  Guinan                  7
+  Lefler                  3
+  O'Brien                14
+  Ogawa                   4
+  Picard                  5
+  Pulaski                 6
+  Riker                  11
+  Troi                    6
+  W. Crusher              4
+  Worf                   21
+  Yar                     4
+Deinonychus VII
+:
+  B. Crusher             12
+  Barclay                 1
+  Data                   15
+  Gomez                   3
+  Guinan                  1
+  Lefler                  4
+  O'Brien                16
+  Ogawa                   2
+  Picard                  5
+  Pulaski                13
+  Riker                  13
+  Troi                   13
+  W. Crusher              5
+  Worf                   11
+  Yar                     4
+Delb II
+:
+  B. Crusher             11
+  Barclay                 2
+  Data                   18
+  Gomez                   8
+  Guinan                  1
+  Lefler                  4
+  O'Brien                 8
+  Ogawa                   1
+  Picard                  1
+  Pulaski                 8
+  Riker                  12
+  Troi                    7
+  W. Crusher              5
+  Worf                   11
+  Yar                     4
+Deneb IV
+:
+  B. Crusher              6
+  Barclay                 4
+  Data                   13
+  Gomez                   2
+  Guinan                  5
+  Lefler                  9
+  O'Brien                17
+  Ogawa                   3
+  Picard                  2
+  Pulaski                10
+  Riker                   5
+  Troi                   15
+  W. Crusher              5
+  Worf                   12
+  Yar                     2
+Deravin V
+:
+  B. Crusher             17
+  Barclay                 5
+  Data                   12
+  Gomez                   1
+  Guinan                  2
+  Lefler                  3
+  O'Brien                13
+  Ogawa                   5
+  Picard                  6
+  Pulaski                 9
+  Riker                  14
+  Troi                   15
+  W. Crusher              5
+  Worf                   12
+  Yar                     4
+Desica II
+:
+  B. Crusher              9
+  Barclay                 6
+  Data                   16
+  Gomez                   7
+  Guinan                  3
+  Lefler                  5
+  O'Brien                 8
+  Ogawa                   5
+  Picard                  4
+  Pulaski                14
+  Riker                  13
+  Troi                   17
+  W. Crusher              5
+  Worf                   15
+  Yar                     2
+Devidia II
+:
+  B. Crusher             11
+  Barclay                 7
+  Data                   16
+  Gomez                   5
+  Guinan                  4
+  Lefler                  3
+  O'Brien                13
+  Ogawa                   3
+  Picard                  6
+  Pulaski                20
+  Riker                  13
+  Troi                   12
+  W. Crusher              5
+  Worf                   11
+  Yar                     3
+Dilicium IV
+:
+  B. Crusher             13
+  Barclay                 4
+  Data                   12
+  Gomez                   3
+  Guinan                  5
+  Lefler                  4
+  O'Brien                20
+  Ogawa                   2
+  Picard                  5
+  Pulaski                12
+  Riker                  13
+  Troi                   16
+  W. Crusher              5
+  Worf                    7
+  Yar                     7
+Dilula II
+:
+  B. Crusher              8
+  Barclay                 6
+  Data                   11
+  Gomez                   8
+  Guinan                  8
+  Lefler                  4
+  O'Brien                12
+  Ogawa                   5
+  Picard                  6
+  Pulaski                16
+  Riker                  13
+  Troi                   15
+  W. Crusher              5
+  Worf                   12
+  Yar                     4
+Ditalix B
+:
+  B. Crusher              6
+  Barclay                 6
+  Data                    9
+  Gomez                   4
+  Guinan                  4
+  Lefler                  4
+  O'Brien                12
+  Ogawa                   6
+  Picard                  6
+  Pulaski                12
+  Riker                  22
+  Troi                   12
+  W. Crusher              4
+  Worf                   12
+  Yar                     2
+Dorat I
+:
+  B. Crusher             15
+  Barclay                 2
+  Data                   11
+  Gomez                  12
+  Guinan                  7
+  Lefler                  4
+  O'Brien                13
+  Ogawa                   5
+  Picard                  4
+  Pulaski                11
+  Riker                  12
+  Troi                   11
+  W. Crusher              2
+  Worf                    9
+  Yar                     6
+Dorvan V
+:
+  B. Crusher             11
+  Barclay                 3
+  Data                    9
+  Gomez                   5
+  Guinan                  7
+  Lefler                  5
+  O'Brien                15
+  Ogawa                   2
+  Picard                  5
+  Pulaski                 9
+  Riker                  10
+  Troi                   14
+  W. Crusher              2
+  Worf                   12
+  Yar                     2
+Dracana IV
+:
+  B. Crusher             12
+  Barclay                 1
+  Data                    7
+  Gomez                   2
+  Guinan                  4
+  Lefler                  7
+  O'Brien                13
+  Ogawa                   3
+  Picard                  3
+  Pulaski                 9
+  Riker                  13
+  Troi                   11
+  W. Crusher              3
+  Worf                   10
+  Yar                    13
+Drago IV
+:
+  B. Crusher             16
+  Barclay                 6
+  Data                   21
+  Gomez                   6
+  Guinan                  5
+  Lefler                  4
+  O'Brien                14
+  Ogawa                   2
+  Picard                  5
+  Pulaski                12
+  Riker                   9
+  Troi                   13
+  W. Crusher              6
+  Worf                   15
+  Yar                    11
+Draken IV
+:
+  B. Crusher              7
+  Barclay                 7
+  Data                    6
+  Gomez                   8
+  Guinan                  2
+  Lefler                  4
+  O'Brien                15
+  Ogawa                   3
+  Picard                  5
+  Pulaski                13
+  Riker                  12
+  Troi                   11
+  W. Crusher              2
+  Worf                   19
+  Yar                     3
+Draycon IV
+:
+  B. Crusher             13
+  Barclay                 1
+  Data                   20
+  Gomez                   4
+  Guinan                  3
+  Lefler                  3
+  O'Brien                13
+  Ogawa                   8
+  Picard                  5
+  Pulaski                11
+  Riker                  11
+  Troi                   13
+  W. Crusher              3
+  Worf                   10
+  Yar                     4
+Drema IV
+:
+  B. Crusher             15
+  Barclay                 6
+  Data                    8
+  Gomez                   4
+  Guinan                  9
+  Lefler                  1
+  O'Brien                22
+  Ogawa                   3
+  Picard                  3
+  Pulaski                14
+  Riker                  21
+  Troi                   13
+  W. Crusher              5
+  Worf                   15
+  Yar                     3
+Eladril IV
+:
+  B. Crusher             12
+  Barclay                 2
+  Data                   14
+  Gomez                   5
+  Lefler                  5
+  O'Brien                17
+  Ogawa                   3
+  Picard                  2
+  Pulaski                14
+  Riker                  11
+  Troi                   16
+  W. Crusher              3
+  Worf                   12
+  Yar                     4
+Emila II
+:
+  B. Crusher             15
+  Barclay                 3
+  Data                   11
+  Gomez                   4
+  Guinan                  3
+  Lefler                  2
+  O'Brien                14
+  Ogawa                   1
+  Picard                  7
+  Pulaski                14
+  Riker                   9
+  Troi                    9
+  W. Crusher              3
+  Worf                   12
+  Yar                     6
+Enan VI
+:
+  B. Crusher             10
+  Barclay                 6
+  Data                   14
+  Gomez                   3
+  Guinan                  2
+  Lefler                  2
+  O'Brien                12
+  Ogawa                   4
+  Picard                  3
+  Pulaski                17
+  Riker                  17
+  Troi                   13
+  W. Crusher              7
+  Worf                   11
+  Yar                     3
+Forkis III
+:
+  B. Crusher             13
+  Barclay                 4
+  Data                   14
+  Gomez                   7
+  Guinan                  6
+  Lefler                  1
+  O'Brien                24
+  Ogawa                   6
+  Picard                  4
+  Pulaski                21
+  Riker                  13
+  Troi                   18
+  W. Crusher              5
+  Worf                   16
+  Yar                     5
+Gagaran IV
+:
+  B. Crusher             15
+  Barclay                 1
+  Data                   14
+  Gomez                   3
+  Guinan                  5
+  Lefler                  2
+  O'Brien                14
+  Ogawa                   9
+  Picard                  3
+  Pulaski                16
+  Riker                  13
+  Troi                   10
+  W. Crusher              3
+  Worf                   12
+  Yar                     5
+Gailen IV
+:
+  B. Crusher             16
+  Barclay                 6
+  Data                   14
+  Gomez                   3
+  Guinan                  5
+  Lefler                  4
+  O'Brien                18
+  Ogawa                   5
+  Picard                  2
+  Pulaski                10
+  Riker                   9
+  Troi                    9
+  W. Crusher              9
+  Worf                   14
+  Yar                     4
+Galas II
+:
+  B. Crusher             12
+  Barclay                 1
+  Data                   11
+  Gomez                   4
+  Guinan                  6
+  Lefler                  3
+  O'Brien                14
+  Ogawa                   4
+  Picard                  2
+  Pulaski                14
+  Riker                  10
+  Troi                   17
+  W. Crusher              4
+  Worf                   15
+  Yar                     8
+Galor IV
+:
+  B. Crusher             16
+  Barclay                 7
+  Data                    7
+  Gomez                   5
+  Guinan                  3
+  Lefler                  5
+  O'Brien                13
+  Ogawa                  10
+  Picard                  4
+  Pulaski                14
+  Riker                  14
+  Troi                   14
+  W. Crusher              1
+  Worf                   11
+  Yar                     8
+Galorndon Kor
+:
+  B. Crusher              6
+  Data                   11
+  Gomez                   5
+  Guinan                  5
+  Lefler                  2
+  O'Brien                14
+  Ogawa                   8
+  Picard                  7
+  Pulaski                13
+  Riker                   7
+  Troi                   12
+  W. Crusher              5
+  Worf                   13
+  Yar                     3
+Galvon Five
+:
+  B. Crusher             11
+  Barclay                 4
+  Data                   14
+  Gomez                   4
+  Guinan                  3
+  Lefler                  2
+  O'Brien                16
+  Ogawa                   5
+  Picard                  4
+  Pulaski                11
+  Riker                  16
+  Troi                   10
+  W. Crusher              2
+  Worf                   14
+  Yar                     4
+Gamalon V
+:
+  B. Crusher             10
+  Barclay                 8
+  Data                   14
+  Gomez                   5
+  Guinan                  2
+  Lefler                  5
+  O'Brien                16
+  Ogawa                   4
+  Picard                  9
+  Pulaski                16
+  Riker                  16
+  Troi                   13
+  W. Crusher              5
+  Worf                   13
+  Yar                     7
+Gamaras V
+:
+  B. Crusher             12
+  Barclay                 6
+  Data                    9
+  Gomez                   8
+  Guinan                  2
+  Lefler                  2
+  O'Brien                17
+  Ogawa                   2
+  Picard                  4
+  Pulaski                 8
+  Riker                  22
+  Troi                    9
+  W. Crusher              2
+  Worf                   15
+  Yar                     5
+Gamma Hromi II
+:
+  B. Crusher             11
+  Barclay                 6
+  Data                   10
+  Gomez                   6
+  Guinan                  4
+  Lefler                  5
+  O'Brien                19
+  Ogawa                   4
+  Picard                  6
+  Pulaski                21
+  Riker                  12
+  Troi                   14
+  W. Crusher              4
+  Worf                   14
+  Yar                     4
+Gamma Tauri IV
+:
+  B. Crusher             11
+  Barclay                 1
+  Data                   15
+  Gomez                   5
+  Guinan                  5
+  Lefler                  5
+  O'Brien                17
+  Ogawa                   5
+  Picard                  3
+  Pulaski                11
+  Riker                  10
+  Troi                   14
+  W. Crusher              9
+  Worf                    8
+  Yar                     7
+Garadias IV
+:
+  B. Crusher             15
+  Barclay                 7
+  Data                   12
+  Gomez                   1
+  Guinan                  5
+  Lefler                  4
+  O'Brien                16
+  Ogawa                   5
+  Picard                  4
+  Pulaski                11
+  Riker                  13
+  Troi                   12
+  W. Crusher              7
+  Worf                    8
+  Yar                     3
+Garon II
+:
+  B. Crusher             16
+  Barclay                11
+  Data                    9
+  Gomez                   2
+  Guinan                  4
+  Lefler                  4
+  O'Brien                 9
+  Ogawa                   1
+  Picard                  3
+  Pulaski                12
+  Riker                   9
+  Troi                   19
+  W. Crusher              3
+  Worf                   13
+  Yar                     5
+Garon IV
+:
+  B. Crusher             10
+  Barclay                 6
+  Data                   13
+  Gomez                   1
+  Guinan                  3
+  Lefler                  6
+  O'Brien                13
+  Ogawa                   5
+  Picard                  5
+  Pulaski                15
+  Riker                   9
+  Troi                   17
+  W. Crusher              4
+  Worf                    9
+  Yar                     8
+Garushda
+:
+  B. Crusher             13
+  Barclay                 3
+  Data                   10
+  Gomez                   2
+  Guinan                  3
+  Lefler                  5
+  O'Brien                13
+  Ogawa                   6
+  Picard                  4
+  Pulaski                19
+  Riker                  11
+  Troi                   14
+  W. Crusher              2
+  Worf                   13
+  Yar                     5
+Gault
+:
+  B. Crusher             12
+  Barclay                 6
+  Data                   10
+  Gomez                   2
+  Guinan                  5
+  Lefler                  3
+  O'Brien                18
+  Ogawa                   4
+  Picard                  3
+  Pulaski                13
+  Riker                  16
+  Troi                   15
+  W. Crusher              2
+  Worf                   12
+  Yar                     5
+Gon-el IV
+:
+  B. Crusher             15
+  Barclay                 5
+  Data                   11
+  Gomez                   6
+  Guinan                  1
+  Lefler                  5
+  O'Brien                12
+  Ogawa                   5
+  Picard                  5
+  Pulaski                14
+  Riker                  17
+  Troi                   13
+  W. Crusher              3
+  Worf                   11
+  Yar                     1
+Graves' World
+:
+  B. Crusher             12
+  Barclay                 3
+  Data                   12
+  Gomez                   3
+  Guinan                  3
+  Lefler                  3
+  O'Brien                11
+  Ogawa                   1
+  Picard                  4
+  Pulaski                13
+  Riker                  14
+  Troi                   11
+  W. Crusher              8
+  Worf                    9
+  Yar                     5
+Harrakis V
+:
+  B. Crusher             11
+  Barclay                 2
+  Data                    9
+  Gomez                   3
+  Guinan                  5
+  Lefler                  2
+  O'Brien                12
+  Ogawa                   7
+  Picard                  3
+  Pulaski                12
+  Riker                  15
+  Troi                   15
+  W. Crusher              3
+  Worf                   15
+  Yar                     3
+Harrod IV
+:
+  B. Crusher              8
+  Barclay                 5
+  Data                   15
+  Gomez                   4
+  Guinan                  2
+  Lefler                  3
+  O'Brien                11
+  Ogawa                   6
+  Picard                  6
+  Pulaski                12
+  Riker                  14
+  Troi                   16
+  W. Crusher              3
+  Worf                   16
+  Yar                     4
+Hattoria
+:
+  B. Crusher             22
+  Barclay                 7
+  Data                   10
+  Gomez                   3
+  Guinan                  6
+  Lefler                  6
+  O'Brien                10
+  Ogawa                   2
+  Picard                 10
+  Pulaski                15
+  Riker                  20
+  Troi                   16
+  W. Crusher              6
+  Worf                    8
+  Yar                     9
+Haven
+:
+  B. Crusher             13
+  Barclay                 3
+  Data                    7
+  Gomez                   3
+  Guinan                  5
+  Lefler                  5
+  O'Brien                11
+  Ogawa                   5
+  Picard                  4
+  Pulaski                19
+  Riker                  18
+  Troi                   14
+  W. Crusher              3
+  Worf                   14
+  Yar                     5
+Heirata III
+:
+  B. Crusher             12
+  Barclay                 4
+  Data                    5
+  Gomez                   8
+  Guinan                  6
+  Lefler                  3
+  O'Brien                12
+  Ogawa                   5
+  Picard                  4
+  Pulaski                14
+  Riker                  19
+  Troi                   13
+  W. Crusher              1
+  Worf                   15
+  Yar                     4
+Hekaras II
+:
+  B. Crusher              9
+  Barclay                10
+  Data                   14
+  Gomez                   8
+  Guinan                  1
+  Lefler                  3
+  O'Brien                16
+  Ogawa                   5
+  Picard                  4
+  Pulaski                21
+  Riker                  15
+  Troi                    5
+  W. Crusher              6
+  Worf                   15
+  Yar                     5
+Hercoze III
+:
+  B. Crusher             11
+  Barclay                 4
+  Data                   17
+  Gomez                   1
+  Guinan                  2
+  Lefler                  3
+  O'Brien                19
+  Ogawa                   4
+  Picard                  7
+  Pulaski                11
+  Riker                  12
+  Troi                   12
+  W. Crusher              4
+  Worf                   11
+  Yar                     1
+Hogas II
+:
+  B. Crusher             10
+  Barclay                 6
+  Data                   11
+  Gomez                   3
+  Guinan                  8
+  Lefler                  3
+  O'Brien                 6
+  Ogawa                   7
+  Picard                  6
+  Pulaski                16
+  Riker                   9
+  Troi                    8
+  W. Crusher              3
+  Worf                   20
+  Yar                     2
+Hottar II
+:
+  B. Crusher             11
+  Barclay                 8
+  Data                   12
+  Gomez                   4
+  Guinan                  7
+  Lefler                  4
+  O'Brien                11
+  Ogawa                   4
+  Picard                  4
+  Pulaski                14
+  Riker                   9
+  Troi                   15
+  W. Crusher              5
+  Worf                   14
+  Yar                     4
+Iconia
+:
+  B. Crusher              9
+  Barclay                 3
+  Data                    8
+  Gomez                   5
+  Guinan                  6
+  Lefler                  2
+  O'Brien                16
+  Ogawa                   5
+  Picard                  4
+  Pulaski                12
+  Riker                  17
+  Troi                   11
+  W. Crusher              1
+  Worf                    9
+  Yar                     5
+Indri VIII
+:
+  B. Crusher             11
+  Barclay                 9
+  Data                   19
+  Gomez                   3
+  Guinan                  4
+  Lefler                  5
+  O'Brien                10
+  Ogawa                   5
+  Picard                  1
+  Pulaski                12
+  Riker                   8
+  Troi                   15
+  W. Crusher              3
+  Worf                    6
+  Yar                     4
+Iratin V
+:
+  B. Crusher              8
+  Barclay                 3
+  Data                   14
+  Gomez                   6
+  Guinan                  5
+  Lefler                  8
+  O'Brien                 8
+  Ogawa                   3
+  Picard                  7
+  Pulaski                17
+  Riker                   8
+  Troi                   11
+  W. Crusher              6
+  Worf                   14
+  Yar                     5
+Isis III
+:
+  B. Crusher             15
+  Barclay                 5
+  Data                   12
+  Gomez                   3
+  Guinan                  5
+  Lefler                  8
+  O'Brien                12
+  Ogawa                   5
+  Picard                  5
+  Pulaski                18
+  Riker                  15
+  Troi                   12
+  W. Crusher              2
+  Worf                   15
+  Yar                     7
+Ivadni IV
+:
+  B. Crusher             15
+  Barclay                 5
+  Data                   15
+  Gomez                   4
+  Guinan                  3
+  Lefler                  2
+  O'Brien                10
+  Ogawa                   4
+  Picard                  6
+  Pulaski                10
+  Riker                   9
+  Troi                   10
+  W. Crusher              5
+  Worf                   12
+  Yar                     6
+Juri IV
+:
+  B. Crusher             23
+  Barclay                 2
+  Data                   15
+  Gomez                   4
+  Guinan                  3
+  Lefler                  5
+  O'Brien                 5
+  Ogawa                   8
+  Picard                  2
+  Pulaski                 9
+  Riker                   8
+  Troi                   12
+  W. Crusher              3
+  Worf                    3
+  Yar                     3
+Kabatris
+:
+  B. Crusher             11
+  Barclay                 7
+  Data                   15
+  Gomez                   7
+  Guinan                  5
+  Lefler                  5
+  O'Brien                 7
+  Ogawa                   2
+  Picard                  6
+  Pulaski                10
+  Riker                  12
+  Troi                   10
+  W. Crusher              3
+  Worf                   15
+  Yar                     8
+Kaldra IV
+:
+  B. Crusher             17
+  Barclay                 9
+  Data                   13
+  Gomez                   2
+  Guinan                  4
+  Lefler                  2
+  O'Brien                15
+  Ogawa                   3
+  Picard                  6
+  Pulaski                18
+  Riker                  12
+  Troi                   11
+  W. Crusher              3
+  Worf                    8
+  Yar                     5
+Kalon II
+:
+  B. Crusher             13
+  Barclay                 2
+  Data                   12
+  Gomez                   3
+  Guinan                  2
+  Lefler                  6
+  O'Brien                10
+  Ogawa                   6
+  Picard                  5
+  Pulaski                15
+  Riker                  17
+  Troi                   14
+  W. Crusher              4
+  Worf                   17
+  Yar                     3
+Kanda IV
+:
+  B. Crusher             15
+  Barclay                 1
+  Data                   20
+  Gomez                   6
+  Guinan                  3
+  Lefler                  4
+  O'Brien                 9
+  Ogawa                   5
+  Picard                  4
+  Pulaski                12
+  Riker                  12
+  Troi                   15
+  W. Crusher              3
+  Worf                   18
+  Yar                     6
+Kataan
+:
+  B. Crusher             21
+  Barclay                 2
+  Data                    6
+  Gomez                   3
+  Guinan                  4
+  Lefler                  2
+  O'Brien                13
+  Ogawa                   9
+  Picard                  4
+  Pulaski                16
+  Riker                   8
+  Troi                   11
+  W. Crusher              7
+  Worf                   10
+  Yar                     5
+Kavis Alpha IV
+:
+  B. Crusher              7
+  Barclay                 3
+  Data                   12
+  Gomez                   7
+  Guinan                  6
+  Lefler                  6
+  O'Brien                18
+  Ogawa                   3
+  Picard                  6
+  Pulaski                12
+  Riker                  15
+  Troi                   12
+  W. Crusher              3
+  Worf                   19
+  Yar                     5
+Keeair
+:
+  B. Crusher             14
+  Barclay                 7
+  Data                   14
+  Gomez                   2
+  Guinan                  4
+  Lefler                  1
+  O'Brien                16
+  Ogawa                   9
+  Picard                  3
+  Pulaski                12
+  Riker                  10
+  Troi                   11
+  W. Crusher              3
+  Worf                   17
+  Yar                     6
+Kendal II
+:
+  B. Crusher             13
+  Barclay                 7
+  Data                   15
+  Gomez                   6
+  Guinan                  6
+  Lefler                  1
+  O'Brien                17
+  Ogawa                   7
+  Picard                  6
+  Pulaski                19
+  Riker                   9
+  Troi                    9
+  W. Crusher              6
+  Worf                   12
+  Yar                     3
+Kerl
+:
+  B. Crusher             11
+  Barclay                 3
+  Data                   18
+  Gomez                   5
+  Guinan                  7
+  Lefler                  6
+  O'Brien                21
+  Ogawa                   9
+  Picard                  9
+  Pulaski                16
+  Riker                  12
+  Troi                   12
+  W. Crusher              7
+  Worf                   15
+  Yar                     4
+Kesprit III
+:
+  B. Crusher             16
+  Barclay                 2
+  Data                   10
+  Gomez                   1
+  Guinan                  4
+  Lefler                  5
+  O'Brien                15
+  Ogawa                   3
+  Picard                  4
+  Pulaski                15
+  Riker                  16
+  Troi                   10
+  W. Crusher              5
+  Worf                   18
+  Yar                     7
+Khitomer
+:
+  B. Crusher             13
+  Barclay                 4
+  Data                   11
+  Gomez                   6
+  Guinan                  5
+  Lefler                  3
+  O'Brien                16
+  Ogawa                   2
+  Picard                 10
+  Pulaski                 6
+  Riker                  11
+  Troi                    6
+  W. Crusher              5
+  Worf                   10
+  Yar                     4
+Kling
+:
+  B. Crusher             12
+  Barclay                 9
+  Data                   12
+  Gomez                   8
+  Guinan                  3
+  Lefler                  5
+  O'Brien                21
+  Ogawa                   3
+  Picard                  3
+  Pulaski                15
+  Riker                  13
+  Troi                   14
+  W. Crusher              1
+  Worf                   16
+  Yar                     8
+Koltair IV
+:
+  B. Crusher             14
+  Barclay                 4
+  Data                   10
+  Gomez                   4
+  Guinan                  6
+  Lefler                  5
+  O'Brien                14
+  Ogawa                   2
+  Picard                  2
+  Pulaski                 9
+  Riker                   9
+  Troi                   11
+  W. Crusher              2
+  Worf                    9
+  Yar                     3
+Korbin II
+:
+  B. Crusher             11
+  Barclay                 2
+  Data                    9
+  Gomez                   6
+  Guinan                  2
+  Lefler                  6
+  O'Brien                11
+  Ogawa                   2
+  Picard                  3
+  Pulaski                11
+  Riker                  15
+  Troi                   10
+  W. Crusher              3
+  Worf                   13
+  Yar                     8
+Kresalia
+:
+  B. Crusher             18
+  Barclay                 4
+  Data                   13
+  Gomez                   3
+  Guinan                  6
+  Lefler                  4
+  O'Brien                14
+  Ogawa                   4
+  Picard                  2
+  Pulaski                19
+  Riker                  11
+  Troi                   12
+  W. Crusher              6
+  Worf                    9
+  Yar                     4
+Krios
+:
+  B. Crusher              9
+  Barclay                 4
+  Data                    8
+  Gomez                   6
+  Guinan                  6
+  Lefler                  3
+  O'Brien                14
+  Ogawa                   5
+  Picard                  4
+  Pulaski                11
+  Riker                  13
+  Troi                   19
+  W. Crusher              4
+  Worf                   17
+  Yar                     3
+Lalya IV
+:
+  B. Crusher              5
+  Barclay                 4
+  Data                   11
+  Gomez                   3
+  Guinan                  4
+  Lefler                  3
+  O'Brien                12
+  Ogawa                   6
+  Picard                  3
+  Pulaski                13
+  Riker                  12
+  Troi                   14
+  W. Crusher              4
+  Worf                   12
+  Yar                     3
+Lambda Paz
+:
+  B. Crusher             15
+  Barclay                 2
+  Data                   16
+  Gomez                   3
+  Guinan                  5
+  Lefler                  3
+  O'Brien                16
+  Ogawa                   7
+  Picard                  1
+  Pulaski                13
+  Riker                  14
+  Troi                    7
+  W. Crusher              3
+  Worf                    7
+  Yar                     6
+Landris II
+:
+  B. Crusher              6
+  Barclay                 7
+  Data                   12
+  Gomez                   5
+  Guinan                  4
+  Lefler                  3
+  O'Brien                 9
+  Ogawa                   5
+  Picard                  5
+  Pulaski                13
+  Riker                  13
+  Troi                   13
+  W. Crusher              5
+  Worf                   18
+  Yar                     5
+Lapa IV
+:
+  B. Crusher             16
+  Barclay                 8
+  Data                   10
+  Gomez                   3
+  Guinan                  5
+  Lefler                  3
+  O'Brien                17
+  Ogawa                   5
+  Picard                  4
+  Pulaski                16
+  Riker                  13
+  Troi                   10
+  W. Crusher              5
+  Worf                    9
+  Yar                     1
+Larieshe IV
+:
+  B. Crusher             13
+  Barclay                 4
+  Data                    8
+  Gomez                   3
+  Guinan                  8
+  Lefler                  3
+  O'Brien                18
+  Ogawa                   5
+  Picard                  4
+  Pulaski                22
+  Riker                   9
+  Troi                   18
+  Worf                   11
+  Yar                     1
+Layma II
+:
+  B. Crusher             17
+  Barclay                 7
+  Data                   16
+  Gomez                   5
+  Guinan                  5
+  Lefler                  4
+  O'Brien                12
+  Ogawa                   8
+  Picard                  3
+  Pulaski                10
+  Riker                  19
+  Troi                   15
+  W. Crusher              1
+  Worf                   20
+  Yar                     6
+Ligon II
+:
+  B. Crusher             20
+  Barclay                 7
+  Data                   16
+  Gomez                   3
+  Guinan                  3
+  Lefler                  4
+  O'Brien                19
+  Ogawa                   1
+  Picard                  2
+  Pulaski                15
+  Riker                  16
+  Troi                   14
+  W. Crusher              7
+  Worf                   13
+  Yar                     4
+Loran III
+:
+  B. Crusher             12
+  Barclay                 5
+  Data                   14
+  Gomez                   5
+  Guinan                  5
+  Lefler                  9
+  O'Brien                19
+  Ogawa                   6
+  Picard                  5
+  Pulaski                10
+  Riker                  12
+  Troi                   15
+  W. Crusher              1
+  Worf                   10
+  Yar                     4
+Lunar V
+:
+  B. Crusher             10
+  Barclay                 2
+  Data                   22
+  Gomez                   2
+  Guinan                  6
+  Lefler                  5
+  O'Brien                10
+  Ogawa                   1
+  Picard                  1
+  Pulaski                14
+  Riker                  17
+  Troi                   12
+  W. Crusher              5
+  Worf                   16
+  Yar                     4
+Lyar
+:
+  B. Crusher             20
+  Barclay                 4
+  Data                   20
+  Gomez                   5
+  Guinan                  4
+  Lefler                  3
+  O'Brien                14
+  Ogawa                   4
+  Picard                  4
+  Pulaski                15
+  Riker                   6
+  Troi                   19
+  W. Crusher              1
+  Worf                   10
+  Yar                     3
+Lygos VII
+:
+  B. Crusher              8
+  Barclay                 6
+  Data                   12
+  Gomez                   4
+  Guinan                  4
+  Lefler                  6
+  O'Brien                 7
+  Ogawa                   9
+  Picard                  2
+  Pulaski                11
+  Riker                   6
+  Troi                   13
+  W. Crusher              6
+  Worf                   14
+  Yar                     3
+Lysia
+:
+  B. Crusher              9
+  Barclay                 6
+  Data                    5
+  Gomez                   7
+  Guinan                  4
+  O'Brien                18
+  Ogawa                   6
+  Picard                  8
+  Pulaski                11
+  Riker                  22
+  Troi                   16
+  W. Crusher              4
+  Worf                   12
+  Yar                     6
+Mab-Bu VI
+:
+  B. Crusher             10
+  Barclay                 2
+  Data                    7
+  Gomez                   2
+  Guinan                  7
+  Lefler                  6
+  O'Brien                13
+  Ogawa                   6
+  Picard                  7
+  Pulaski                12
+  Riker                  21
+  Troi                   14
+  W. Crusher              4
+  Worf                   11
+  Yar                    10
+Malena II
+:
+  B. Crusher             18
+  Barclay                 4
+  Data                    8
+  Gomez                   7
+  Guinan                  2
+  Lefler                  5
+  O'Brien                 9
+  Ogawa                   4
+  Picard                  7
+  Pulaski                13
+  Riker                   9
+  Troi                   16
+  W. Crusher              3
+  Worf                   11
+  Yar                     4
+Malkor III
+:
+  B. Crusher             10
+  Barclay                 5
+  Data                   14
+  Gomez                   7
+  Guinan                  2
+  Lefler                  2
+  O'Brien                12
+  Ogawa                   6
+  Picard                  5
+  Pulaski                16
+  Riker                   7
+  Troi                   14
+  W. Crusher              8
+  Worf                   11
+  Yar                     4
+Malkus IX
+:
+  B. Crusher             12
+  Barclay                 5
+  Data                   15
+  Gomez                   4
+  Guinan                  7
+  Lefler                  9
+  O'Brien                13
+  Ogawa                   4
+  Picard                  6
+  Pulaski                10
+  Riker                  13
+  Troi                   10
+  W. Crusher              2
+  Worf                    9
+  Yar                     2
+Malona IV
+:
+  B. Crusher             14
+  Barclay                 5
+  Data                   14
+  Gomez                   6
+  Guinan                  5
+  Lefler                  4
+  O'Brien                16
+  Ogawa                   4
+  Picard                  5
+  Pulaski                13
+  Riker                  18
+  Troi                   17
+  W. Crusher              3
+  Worf                   13
+  Yar                     2
+Maranga IV
+:
+  B. Crusher             11
+  Barclay                 6
+  Data                    9
+  Gomez                   4
+  Guinan                  5
+  Lefler                  3
+  O'Brien                10
+  Ogawa                   3
+  Picard                  2
+  Pulaski                12
+  Riker                  13
+  Troi                   18
+  W. Crusher              2
+  Worf                   12
+  Yar                     2
+Mariposa
+:
+  B. Crusher             13
+  Barclay                 5
+  Data                   10
+  Gomez                   7
+  Guinan                  3
+  Lefler                  4
+  O'Brien                10
+  Ogawa                   4
+  Picard                  4
+  Pulaski                12
+  Riker                  13
+  Troi                    4
+  W. Crusher              7
+  Worf                   18
+  Yar                     3
+Marlonia
+:
+  B. Crusher             20
+  Barclay                 3
+  Data                   12
+  Gomez                   3
+  Guinan                  5
+  Lefler                  3
+  O'Brien                16
+  Ogawa                   2
+  Picard                  5
+  Pulaski                 9
+  Riker                  13
+  Troi                   12
+  W. Crusher              4
+  Worf                   14
+  Yar                     5
+Mars
+:
+  B. Crusher             15
+  Barclay                 7
+  Data                   15
+  Gomez                  10
+  Guinan                  2
+  Lefler                  6
+  O'Brien                10
+  Ogawa                   7
+  Picard                  3
+  Pulaski                13
+  Riker                  17
+  Troi                   19
+  W. Crusher              3
+  Worf                   12
+  Yar                     2
+Melas II
+:
+  B. Crusher             12
+  Barclay                 4
+  Data                   12
+  Gomez                   9
+  Guinan                  4
+  Lefler                  8
+  O'Brien                 9
+  Ogawa                   5
+  Picard                  2
+  Pulaski                13
+  Riker                  18
+  Troi                   12
+  W. Crusher              7
+  Worf                   14
+  Yar                     5
+Melindy VII
+:
+  B. Crusher             18
+  Barclay                 5
+  Data                    6
+  Gomez                   4
+  Guinan                  2
+  Lefler                  4
+  O'Brien                14
+  Ogawa                   9
+  Picard                  5
+  Pulaski                12
+  Riker                  11
+  Troi                    7
+  W. Crusher              3
+  Worf                   17
+  Yar                     2
+Melnos IV
+:
+  B. Crusher             20
+  Barclay                 4
+  Data                   16
+  Gomez                   4
+  Guinan                  4
+  Lefler                  3
+  O'Brien                10
+  Ogawa                   4
+  Pulaski                13
+  Riker                  20
+  Troi                   10
+  W. Crusher              6
+  Worf                   14
+  Yar                     5
+Melvala IV
+:
+  B. Crusher              6
+  Barclay                 5
+  Data                    8
+  Gomez                   5
+  Guinan                  8
+  Lefler                  3
+  O'Brien                14
+  Ogawa                   8
+  Picard                  2
+  Pulaski                16
+  Riker                  13
+  Troi                   14
+  W. Crusher              6
+  Worf                   11
+  Yar                    10
+Meudo V
+:
+  B. Crusher             15
+  Barclay                 5
+  Data                   17
+  Gomez                   1
+  Guinan                  3
+  Lefler                  4
+  O'Brien                17
+  Ogawa                   7
+  Picard                  2
+  Pulaski                12
+  Riker                  15
+  Troi                    9
+  W. Crusher              2
+  Worf                   13
+  Yar                     6
+Millica III
+:
+  B. Crusher             15
+  Barclay                 4
+  Data                    6
+  Gomez                   1
+  Guinan                  3
+  Lefler                  4
+  O'Brien                21
+  Ogawa                   7
+  Picard                  2
+  Pulaski                 9
+  Riker                  14
+  Troi                   10
+  W. Crusher              5
+  Worf                   14
+  Yar                     4
+Mimas
+:
+  B. Crusher             14
+  Barclay                 5
+  Data                    6
+  Gomez                   3
+  Guinan                  6
+  Lefler                  5
+  O'Brien                13
+  Ogawa                   4
+  Picard                  6
+  Pulaski                 9
+  Riker                  14
+  Troi                   17
+  W. Crusher              4
+  Worf                   10
+  Yar                     5
+Minas V
+:
+  B. Crusher              6
+  Barclay                 7
+  Data                   15
+  Gomez                   5
+  Guinan                  5
+  Lefler                  2
+  O'Brien                16
+  Ogawa                   2
+  Picard                  2
+  Pulaski                10
+  Riker                  12
+  Troi                    5
+  W. Crusher              5
+  Worf                   18
+  Yar                     2
+Minos
+:
+  B. Crusher             19
+  Barclay                 5
+  Data                    8
+  Gomez                   5
+  Guinan                  6
+  Lefler                  5
+  O'Brien                14
+  Ogawa                   1
+  Picard                  5
+  Pulaski                11
+  Riker                  11
+  Troi                   15
+  W. Crusher              2
+  Worf                   15
+  Yar                     5
+Mintaka III
+:
+  B. Crusher             15
+  Barclay                 4
+  Data                   12
+  Gomez                   3
+  Guinan                  4
+  Lefler                  1
+  O'Brien                 8
+  Ogawa                   4
+  Picard                  3
+  Pulaski                19
+  Riker                  11
+  Troi                    8
+  W. Crusher              2
+  Worf                   16
+  Yar                     4
+Miridian VI
+:
+  B. Crusher             10
+  Barclay                 3
+  Data                    7
+  Gomez                   6
+  Guinan                  9
+  Lefler                  4
+  O'Brien                13
+  Ogawa                   3
+  Picard                  5
+  Pulaski                14
+  Riker                   7
+  Troi                   10
+  W. Crusher              5
+  Worf                   19
+  Yar                     1
+Mizarr II
+:
+  B. Crusher             17
+  Barclay                 6
+  Data                   12
+  Gomez                   2
+  Guinan                  6
+  Lefler                  6
+  O'Brien                22
+  Ogawa                   7
+  Picard                  9
+  Pulaski                14
+  Riker                  16
+  Troi                    8
+  W. Crusher              3
+  Worf                   13
+  Yar                     6
+Moab IV
+:
+  B. Crusher             11
+  Barclay                 4
+  Data                   11
+  Gomez                   7
+  Guinan                  3
+  Lefler                  3
+  O'Brien                10
+  Ogawa                   6
+  Picard                  5
+  Pulaski                14
+  Riker                   9
+  Troi                   16
+  W. Crusher              4
+  Worf                   14
+  Yar                     5
+Mordan IV
+:
+  B. Crusher             16
+  Barclay                 2
+  Data                   10
+  Gomez                   4
+  Guinan                  4
+  Lefler                  3
+  O'Brien                15
+  Ogawa                   2
+  Picard                  4
+  Pulaski                10
+  Riker                  17
+  Troi                   19
+  W. Crusher              3
+  Worf                    8
+  Yar                     7
+Moricon VII
+:
+  B. Crusher              7
+  Barclay                 5
+  Data                   10
+  Gomez                   4
+  Guinan                  3
+  Lefler                  2
+  O'Brien                 3
+  Ogawa                   7
+  Picard                  4
+  Pulaski                 7
+  Riker                  19
+  Troi                   14
+  W. Crusher              1
+  Worf                   13
+  Yar                     7
+Myrichri VII
+:
+  B. Crusher              8
+  Barclay                 4
+  Data                   11
+  Gomez                  10
+  Guinan                  3
+  Lefler                  6
+  O'Brien                11
+  Ogawa                   5
+  Picard                  7
+  Pulaski                12
+  Riker                  17
+  Troi                   12
+  W. Crusher              3
+  Worf                   12
+  Yar                     3
+Narendra III
+:
+  B. Crusher             11
+  Barclay                 5
+  Data                   14
+  Gomez                   4
+  Guinan                  1
+  Lefler                  3
+  O'Brien                11
+  Ogawa                   2
+  Picard                 10
+  Pulaski                12
+  Riker                  18
+  Troi                   14
+  W. Crusher              7
+  Worf                   22
+  Yar                     3
+Nawme IV
+:
+  B. Crusher             13
+  Barclay                 7
+  Data                   12
+  Gomez                   3
+  Guinan                  3
+  Lefler                  8
+  O'Brien                13
+  Ogawa                   5
+  Picard                  3
+  Pulaski                17
+  Riker                  15
+  Troi                   11
+  W. Crusher              3
+  Worf                   13
+  Yar                     3
+Neinmen
+:
+  B. Crusher             15
+  Barclay                 5
+  Data                   17
+  Gomez                   6
+  Guinan                  8
+  Lefler                  8
+  O'Brien                10
+  Ogawa                   6
+  Picard                  4
+  Pulaski                15
+  Riker                   7
+  Troi                    8
+  W. Crusher              5
+  Worf                   12
+  Yar                     3
+Nell III
+:
+  B. Crusher              7
+  Barclay                 3
+  Data                   16
+  Gomez                   5
+  Guinan                  2
+  Lefler                  3
+  O'Brien                12
+  Ogawa                   4
+  Picard                  5
+  Pulaski                10
+  Riker                  12
+  Troi                   15
+  W. Crusher              4
+  Worf                   15
+  Yar                     4
+Nelvana III
+:
+  B. Crusher             12
+  Barclay                 2
+  Data                   10
+  Gomez                   6
+  Guinan                  5
+  Lefler                  6
+  O'Brien                18
+  Ogawa                   5
+  Picard                  4
+  Pulaski                13
+  Riker                  14
+  Troi                   16
+  W. Crusher              5
+  Worf                   13
+  Yar                     1
+Nervala IV
+:
+  B. Crusher             10
+  Barclay                 5
+  Data                   12
+  Gomez                   3
+  Guinan                  5
+  Lefler                  4
+  O'Brien                17
+  Ogawa                   3
+  Picard                  5
+  Pulaski                21
+  Riker                  12
+  Troi                   15
+  W. Crusher              8
+  Worf                   19
+  Yar                     4
+New Gaul
+:
+  B. Crusher             15
+  Barclay                 2
+  Data                   15
+  Gomez                   5
+  Guinan                  4
+  Lefler                  5
+  O'Brien                11
+  Picard                  2
+  Pulaski                10
+  Riker                  12
+  Troi                   14
+  W. Crusher              3
+  Worf                   12
+  Yar                     7
+Neygor
+:
+  B. Crusher             12
+  Barclay                 5
+  Data                   17
+  Gomez                   3
+  Guinan                  3
+  Lefler                  3
+  O'Brien                 9
+  Ogawa                   3
+  Picard                  1
+  Pulaski                16
+  Riker                  14
+  Troi                   11
+  W. Crusher              4
+  Worf                   11
+  Yar                     5
+Norpin IV
+:
+  B. Crusher              8
+  Barclay                 5
+  Data                   12
+  Gomez                   3
+  Guinan                  3
+  Lefler                  1
+  O'Brien                13
+  Ogawa                   7
+  Picard                  4
+  Pulaski                 4
+  Riker                  13
+  Troi                   16
+  W. Crusher              4
+  Worf                   19
+  Yar                     5
+Norpin V
+:
+  B. Crusher             13
+  Barclay                 4
+  Data                   12
+  Gomez                   8
+  Guinan                  4
+  Lefler                  6
+  O'Brien                13
+  Ogawa                   6
+  Picard                  5
+  Pulaski                14
+  Riker                  15
+  Troi                    9
+  W. Crusher              3
+  Worf                    8
+Oceanis IV
+:
+  B. Crusher             10
+  Barclay                 7
+  Data                    5
+  Gomez                   6
+  Guinan                  6
+  Lefler                  7
+  O'Brien                10
+  Ogawa                   2
+  Picard                  8
+  Pulaski                10
+  Riker                  17
+  Troi                   12
+  W. Crusher              1
+  Worf                   17
+  Yar                     5
+Ohniaka Three
+:
+  B. Crusher              9
+  Barclay                 3
+  Data                   18
+  Gomez                   5
+  Guinan                  4
+  Lefler                  1
+  O'Brien                10
+  Ogawa                   6
+  Picard                  4
+  Pulaski                13
+  Riker                  18
+  Troi                   13
+  W. Crusher              6
+  Worf                   12
+  Yar                     2
+Omicron Theta
+:
+  B. Crusher             13
+  Barclay                 4
+  Data                   15
+  Gomez                   8
+  Guinan                  4
+  Lefler                  3
+  O'Brien                11
+  Ogawa                   3
+  Picard                  1
+  Pulaski                16
+  Riker                   6
+  Troi                    5
+  W. Crusher              3
+  Worf                    8
+  Yar                     3
+Onara III
+:
+  B. Crusher             11
+  Barclay                 2
+  Data                   16
+  Gomez                   4
+  Guinan                  2
+  Lefler                  4
+  O'Brien                16
+  Ogawa                   4
+  Picard                  5
+  Pulaski                13
+  Riker                  14
+  Troi                   15
+  W. Crusher              5
+  Worf                   14
+  Yar                     4
+Pacifica
+:
+  B. Crusher             17
+  Barclay                 5
+  Data                   14
+  Gomez                   1
+  Guinan                  3
+  Lefler                  4
+  O'Brien                14
+  Ogawa                   3
+  Picard                  9
+  Pulaski                13
+  Riker                  14
+  Troi                   14
+  W. Crusher              8
+  Worf                   13
+  Yar                     8
+Parliament
+:
+  B. Crusher             13
+  Barclay                 2
+  Data                   16
+  Gomez                   6
+  Guinan                  4
+  Lefler                  4
+  O'Brien                12
+  Ogawa                   6
+  Picard                  6
+  Pulaski                13
+  Riker                  15
+  Troi                   15
+  W. Crusher              4
+  Worf                   19
+  Yar                     2
+Pasiphony V
+:
+  B. Crusher              7
+  Barclay                 4
+  Data                    8
+  Gomez                   5
+  Guinan                  2
+  Lefler                  3
+  O'Brien                14
+  Ogawa                   7
+  Picard                  4
+  Pulaski                16
+  Riker                  13
+  Troi                   15
+  W. Crusher              3
+  Worf                   11
+  Yar                     6
+Peliazel
+:
+  B. Crusher             15
+  Barclay                 4
+  Data                   10
+  Gomez                   3
+  Guinan                  4
+  Lefler                  4
+  O'Brien                18
+  Ogawa                   5
+  Picard                  6
+  Pulaski                16
+  Riker                  15
+  Troi                   14
+  W. Crusher              3
+  Worf                   16
+  Yar                     8
+Pellius V
+:
+  B. Crusher             13
+  Barclay                 6
+  Data                    8
+  Gomez                   8
+  Guinan                  5
+  Lefler                  1
+  O'Brien                17
+  Ogawa                   3
+  Picard                  2
+  Pulaski                14
+  Riker                   7
+  Troi                   16
+  W. Crusher              7
+  Worf                   11
+  Yar                     2
+Pentarus II
+:
+  B. Crusher             10
+  Barclay                 3
+  Data                   11
+  Gomez                   5
+  Guinan                  6
+  Lefler                  5
+  O'Brien                 8
+  Ogawa                   5
+  Picard                  3
+  Pulaski                15
+  Riker                  14
+  Troi                   17
+  W. Crusher              6
+  Worf                    9
+  Yar                     1
+Pentarus III
+:
+  B. Crusher              8
+  Barclay                 7
+  Data                    6
+  Gomez                   3
+  Guinan                  4
+  Lefler                  6
+  O'Brien                14
+  Ogawa                   4
+  Picard                  9
+  Pulaski                 6
+  Riker                  12
+  Troi                    9
+  W. Crusher              4
+  Worf                   22
+  Yar                     2
+Pentarus V
+:
+  B. Crusher             11
+  Barclay                 6
+  Data                    6
+  Gomez                   2
+  Guinan                  3
+  Lefler                  6
+  O'Brien                 7
+  Ogawa                   3
+  Picard                  7
+  Pulaski                19
+  Riker                  11
+  Troi                   13
+  W. Crusher              3
+  Worf                    9
+  Yar                     3
+Penthara IV
+:
+  B. Crusher             14
+  Barclay                 2
+  Data                   16
+  Gomez                   2
+  Guinan                  2
+  Lefler                  4
+  O'Brien                14
+  Ogawa                   3
+  Picard                 10
+  Pulaski                12
+  Riker                  14
+  Troi                   16
+  W. Crusher              6
+  Worf                   13
+  Yar                     3
+Phendouse V
+:
+  B. Crusher             14
+  Barclay                 5
+  Data                   13
+  Gomez                   4
+  Guinan                  3
+  Lefler                  3
+  O'Brien                11
+  Ogawa                   4
+  Picard                  2
+  Pulaski                13
+  Riker                  12
+  Troi                   12
+  W. Crusher              1
+  Worf                   16
+  Yar                     4
+Pholar III
+:
+  B. Crusher              7
+  Barclay                 5
+  Data                   14
+  Gomez                   5
+  Guinan                  5
+  Lefler                  7
+  O'Brien                15
+  Ogawa                   5
+  Picard                  5
+  Pulaski                11
+  Riker                  16
+  Troi                    9
+  W. Crusher              3
+  Worf                   11
+  Yar                     5
+Proctol II
+:
+  B. Crusher             17
+  Barclay                 5
+  Data                   21
+  Gomez                   7
+  Guinan                  5
+  Lefler                  3
+  O'Brien                19
+  Ogawa                   4
+  Picard                  4
+  Pulaski                12
+  Riker                  14
+  Troi                    8
+  W. Crusher              5
+  Worf                   11
+  Yar                     7
+Procyon V
+:
+  B. Crusher             13
+  Barclay                 4
+  Data                   12
+  Gomez                   2
+  Guinan                  5
+  Lefler                  3
+  O'Brien                13
+  Ogawa                   6
+  Picard                  6
+  Pulaski                11
+  Riker                  14
+  Troi                   20
+  W. Crusher              8
+  Worf                   12
+  Yar                     5
+Psi Upsilon 3
+:
+  B. Crusher             11
+  Barclay                 3
+  Data                   10
+  Gomez                   5
+  Guinan                  4
+  Lefler                  7
+  O'Brien                10
+  Ogawa                   5
+  Picard                  1
+  Pulaski                13
+  Riker                   8
+  Troi                   11
+  W. Crusher              3
+  Worf                   14
+  Yar                     4
+Psi Upsilon 4
+:
+  B. Crusher              9
+  Barclay                 1
+  Data                   17
+  Gomez                   2
+  Guinan                  3
+  Lefler                  5
+  O'Brien                11
+  Ogawa                   5
+  Picard                  5
+  Pulaski                17
+  Riker                  15
+  Troi                    8
+  W. Crusher              2
+  Worf                   11
+  Yar                     3
+Quadra Sigma III
+:
+  B. Crusher             24
+  Barclay                 4
+  Data                    6
+  Gomez                   8
+  Guinan                  2
+  Lefler                  9
+  O'Brien                12
+  Ogawa                   1
+  Picard                  5
+  Pulaski                18
+  Riker                  11
+  Troi                   16
+  W. Crusher              7
+  Worf                   10
+  Yar                     1
+Qualar II
+:
+  B. Crusher             15
+  Barclay                 2
+  Data                    8
+  Gomez                   2
+  Guinan                  3
+  Lefler                  6
+  O'Brien                12
+  Ogawa                   1
+  Picard                  4
+  Pulaski                12
+  Riker                  13
+  Troi                   12
+  W. Crusher              6
+  Worf                   15
+  Yar                     5
+Ramatis III
+:
+  B. Crusher              8
+  Barclay                 5
+  Data                   12
+  Gomez                   5
+  Guinan                  4
+  Lefler                  1
+  O'Brien                 9
+  Ogawa                   2
+  Picard                  4
+  Pulaski                14
+  Riker                  15
+  Troi                    8
+  W. Crusher              8
+  Worf                   20
+  Yar                     2
+Ramazad
+:
+  B. Crusher             13
+  Barclay                 5
+  Data                    9
+  Gomez                   1
+  Guinan                  9
+  Lefler                  2
+  O'Brien                11
+  Ogawa                   4
+  Picard                  3
+  Pulaski                14
+  Riker                  14
+  Troi                   16
+  W. Crusher              9
+  Worf                   14
+  Yar                     1
+Rana IV
+:
+  B. Crusher             19
+  Barclay                 4
+  Data                   12
+  Gomez                   2
+  Guinan                  7
+  Lefler                  4
+  O'Brien                 9
+  Ogawa                   5
+  Picard                  6
+  Pulaski                12
+  Riker                  16
+  Troi                   14
+  W. Crusher              4
+  Worf                   14
+  Yar                     6
+Raynas VI
+:
+  B. Crusher             14
+  Barclay                 4
+  Data                   12
+  Gomez                   4
+  Guinan                  4
+  Lefler                  5
+  O'Brien                17
+  Ogawa                   1
+  Picard                  1
+  Pulaski                11
+  Riker                   9
+  Troi                   12
+  W. Crusher              3
+  Worf                   15
+  Yar                     2
+Reina VI
+:
+  B. Crusher             11
+  Barclay                 5
+  Data                   13
+  Gomez                   5
+  Guinan                  5
+  Lefler                  7
+  O'Brien                15
+  Ogawa                   2
+  Picard                  4
+  Pulaski                10
+  Riker                  13
+  Troi                   13
+  W. Crusher              3
+  Worf                   15
+  Yar                     8
+Rekok Saronia
+:
+  B. Crusher             11
+  Barclay                 5
+  Data                   13
+  Gomez                   4
+  Guinan                  5
+  Lefler                  4
+  O'Brien                12
+  Ogawa                   5
+  Picard                  5
+  Pulaski                13
+  Riker                  12
+  Troi                    9
+  W. Crusher              4
+  Worf                   12
+  Yar                     6
+Relva VII
+:
+  B. Crusher             13
+  Barclay                 3
+  Data                    9
+  Gomez                   6
+  Guinan                  2
+  Lefler                  5
+  O'Brien                12
+  Ogawa                   5
+  Picard                  2
+  Pulaski                21
+  Riker                  19
+  Troi                   15
+  W. Crusher              1
+  Worf                   23
+  Yar                     6
+Rigel III
+:
+  B. Crusher             12
+  Barclay                 5
+  Data                   16
+  Gomez                   4
+  Guinan                  2
+  Lefler                  2
+  O'Brien                18
+  Ogawa                   5
+  Picard                  6
+  Pulaski                15
+  Riker                  17
+  Troi                    8
+  W. Crusher              3
+  Worf                   13
+  Yar                     2
+Risa
+:
+  B. Crusher             12
+  Barclay                 2
+  Data                   11
+  Gomez                   4
+  Guinan                  6
+  Lefler                  4
+  O'Brien                13
+  Ogawa                   4
+  Picard                  7
+  Pulaski                11
+  Riker                  15
+  Troi                   15
+  W. Crusher              3
+  Worf                   13
+  Yar                     4
+Rua IV
+:
+  B. Crusher             10
+  Barclay                 3
+  Data                   13
+  Gomez                   2
+  Guinan                  3
+  Lefler                  4
+  O'Brien                14
+  Ogawa                   4
+  Picard                  3
+  Pulaski                 9
+  Riker                  14
+  Troi                   11
+  W. Crusher             11
+  Worf                   14
+  Yar                     2
+Rubicun III
+:
+  B. Crusher             18
+  Barclay                 4
+  Data                   17
+  Gomez                   4
+  Guinan                  2
+  Lefler                  4
+  O'Brien                10
+  Ogawa                   6
+  Picard                  3
+  Pulaski                18
+  Riker                  13
+  Troi                    9
+  W. Crusher              5
+  Worf                   13
+  Yar                     1
+Ruso V
+:
+  B. Crusher             11
+  Barclay                 5
+  Data                   21
+  Gomez                   6
+  Guinan                  5
+  Lefler                  4
+  O'Brien                19
+  Ogawa                   5
+  Picard                  6
+  Pulaski                16
+  Riker                  18
+  Troi                   11
+  W. Crusher              6
+  Worf                   12
+  Yar                     5
+Ruteeya IV
+:
+  B. Crusher             12
+  Barclay                 3
+  Data                   14
+  Gomez                   7
+  Guinan                  5
+  Lefler                  5
+  O'Brien                12
+  Ogawa                   5
+  Picard                  7
+  Pulaski                14
+  Riker                   5
+  Troi                   12
+  W. Crusher              9
+  Worf                   12
+  Yar                     2
+Sarona VIII
+:
+  B. Crusher             10
+  Barclay                 3
+  Data                    7
+  Gomez                   1
+  Guinan                  4
+  Lefler                  2
+  O'Brien                12
+  Ogawa                   4
+  Picard                  5
+  Pulaski                13
+  Riker                  13
+  Troi                   14
+  W. Crusher              4
+  Worf                   14
+  Yar                     2
+Saturn
+:
+  B. Crusher              8
+  Barclay                 1
+  Data                   13
+  Gomez                   7
+  Guinan                  3
+  Lefler                  2
+  O'Brien                12
+  Ogawa                   4
+  Picard                  3
+  Pulaski                19
+  Riker                  17
+  Troi                   11
+  W. Crusher              5
+  Worf                   13
+  Yar                     4
+Scalos
+:
+  B. Crusher             17
+  Barclay                 3
+  Data                   17
+  Gomez                   7
+  Guinan                  2
+  Lefler                  9
+  O'Brien                13
+  Ogawa                   3
+  Picard                  2
+  Pulaski                11
+  Riker                  11
+  Troi                    9
+  W. Crusher              8
+  Worf                   11
+  Yar                     4
+Seary IV
+:
+  B. Crusher             14
+  Barclay                 6
+  Data                   16
+  Gomez                   2
+  Guinan                  9
+  Lefler                  4
+  O'Brien                12
+  Ogawa                   9
+  Picard                  3
+  Pulaski                12
+  Riker                  16
+  Troi                   18
+  W. Crusher              4
+  Worf                    8
+  Yar                     3
+Seltic III
+:
+  B. Crusher             13
+  Barclay                 4
+  Data                   11
+  Gomez                   3
+  Guinan                  3
+  Lefler                  7
+  O'Brien                 9
+  Ogawa                   3
+  Picard                  7
+  Pulaski                12
+  Riker                  11
+  Troi                   19
+  W. Crusher              3
+  Worf                    8
+  Yar                     2
+Septal Minor IV
+:
+  B. Crusher             13
+  Barclay                 5
+  Data                    8
+  Gomez                   5
+  Guinan                  5
+  Lefler                  5
+  O'Brien                 9
+  Ogawa                   4
+  Picard                  6
+  Pulaski                17
+  Riker                  11
+  Troi                   14
+  W. Crusher              3
+  Worf                    5
+  Yar                     6
+Solais V
+:
+  B. Crusher             15
+  Barclay                 2
+  Data                   15
+  Gomez                   2
+  Guinan                  5
+  Lefler                  1
+  O'Brien                11
+  Ogawa                   2
+  Picard                  5
+  Pulaski                15
+  Riker                  13
+  Troi                    8
+  W. Crusher              4
+  Worf                   12
+  Yar                     2
+Solarion IV
+:
+  B. Crusher              9
+  Barclay                 6
+  Data                    9
+  Gomez                   4
+  Guinan                  6
+  Lefler                  6
+  O'Brien                14
+  Ogawa                   6
+  Picard                  4
+  Pulaski                 9
+  Riker                  11
+  Troi                   13
+  W. Crusher              1
+  Worf                   14
+  Yar                     6
+Sorata IV
+:
+  B. Crusher             12
+  Barclay                 7
+  Data                   10
+  Gomez                   7
+  Guinan                  2
+  Lefler                  4
+  O'Brien                14
+  Ogawa                   3
+  Picard                  4
+  Pulaski                13
+  Riker                  12
+  Troi                   12
+  W. Crusher              8
+  Worf                    9
+  Yar                     3
+Sosha III
+:
+  B. Crusher              6
+  Barclay                 2
+  Data                    9
+  Gomez                   4
+  Guinan                  5
+  Lefler                  3
+  O'Brien                13
+  Ogawa                   3
+  Picard                  4
+  Pulaski                13
+  Riker                  11
+  Troi                   16
+  W. Crusher              6
+  Worf                    7
+  Yar                     7
+Straleb
+:
+  B. Crusher             11
+  Barclay                 2
+  Data                    8
+  Gomez                   4
+  Guinan                  5
+  Lefler                  4
+  O'Brien                10
+  Ogawa                   4
+  Picard                  2
+  Pulaski                10
+  Riker                  11
+  Troi                   14
+  W. Crusher              5
+  Worf                   18
+  Yar                     7
+Styrus IV
+:
+  B. Crusher             12
+  Barclay                 4
+  Data                   24
+  Gomez                   6
+  Guinan                  5
+  Lefler                  1
+  O'Brien                14
+  Ogawa                   5
+  Picard                  3
+  Pulaski                14
+  Riker                  13
+  Troi                    9
+  W. Crusher              5
+  Worf                   17
+  Yar                     9
+Suven IV
+:
+  B. Crusher              8
+  Barclay                 6
+  Data                    5
+  Gomez                  10
+  Guinan                  4
+  Lefler                  5
+  O'Brien                 8
+  Ogawa                   5
+  Picard                  4
+  Pulaski                13
+  Riker                   8
+  Troi                   19
+  W. Crusher              5
+  Worf                   10
+  Yar                     2
+Tagra IV
+:
+  B. Crusher             17
+  Barclay                 6
+  Data                   15
+  Gomez                   1
+  Guinan                  4
+  Lefler                  5
+  O'Brien                12
+  Ogawa                   7
+  Picard                  5
+  Pulaski                15
+  Riker                  14
+  Troi                   10
+  W. Crusher              3
+  Worf                   13
+  Yar                     3
+Takara
+:
+  B. Crusher             11
+  Barclay                 6
+  Data                   12
+  Gomez                   6
+  Guinan                  5
+  Lefler                  4
+  O'Brien                10
+  Ogawa                   4
+  Picard                  5
+  Pulaski                14
+  Riker                  12
+  Troi                    9
+  W. Crusher              2
+  Worf                   12
+  Yar                     4
+Tanika IV
+:
+  B. Crusher             13
+  Barclay                 7
+  Data                   15
+  Gomez                   7
+  Guinan                  5
+  Lefler                  8
+  O'Brien                14
+  Ogawa                   2
+  Picard                  7
+  Pulaski                 9
+  Riker                  13
+  Troi                   12
+  W. Crusher              6
+  Worf                   13
+  Yar                     7
+Tarella
+:
+  B. Crusher             10
+  Barclay                 4
+  Data                   10
+  Gomez                   2
+  Guinan                  8
+  Lefler                  7
+  O'Brien                 9
+  Ogawa                   3
+  Picard                  5
+  Pulaski                14
+  Riker                  10
+  Troi                   11
+  W. Crusher              4
+  Worf                    7
+  Yar                     7
+Tasus III
+:
+  B. Crusher             15
+  Barclay                 6
+  Data                   12
+  Gomez                   1
+  Guinan                  3
+  Lefler                  3
+  O'Brien                20
+  Ogawa                   3
+  Picard                  6
+  Pulaski                10
+  Riker                  22
+  Troi                    8
+  W. Crusher              4
+  Worf                   14
+  Yar                     3
+Tau Alpha-C
+:
+  B. Crusher             14
+  Barclay                 2
+  Data                   14
+  Gomez                   2
+  Guinan                 11
+  Lefler                  3
+  O'Brien                 9
+  Ogawa                   6
+  Picard                  9
+  Pulaski                12
+  Riker                  11
+  Troi                   17
+  W. Crusher              4
+  Worf                   14
+  Yar                     8
+Tau Ceti III
+:
+  B. Crusher             11
+  Barclay                 7
+  Data                   16
+  Gomez                   7
+  Guinan                  2
+  Lefler                  6
+  O'Brien                 8
+  Ogawa                   2
+  Picard                  2
+  Pulaski                15
+  Riker                  11
+  Troi                   13
+  W. Crusher              8
+  Worf                   13
+  Yar                     1
+Tau Cigna V
+:
+  B. Crusher             11
+  Barclay                 8
+  Data                    8
+  Gomez                  13
+  Guinan                  4
+  Lefler                  3
+  O'Brien                 8
+  Ogawa                   6
+  Picard                  3
+  Pulaski                10
+  Riker                  11
+  Troi                   15
+  W. Crusher              2
+  Worf                   11
+  Yar                     2
+Tavila Minor
+:
+  B. Crusher             18
+  Data                   13
+  Gomez                   5
+  Guinan                  7
+  Lefler                  3
+  O'Brien                 9
+  Ogawa                   1
+  Picard                  5
+  Pulaski                14
+  Riker                  14
+  Troi                   16
+  W. Crusher              4
+  Worf                   13
+  Yar                     3
+Taygus III
+:
+  B. Crusher             18
+  Barclay                 4
+  Data                    3
+  Gomez                   5
+  Guinan                  5
+  Lefler                  3
+  O'Brien                 7
+  Ogawa                   1
+  Picard                  4
+  Pulaski                15
+  Riker                   9
+  Troi                   17
+  W. Crusher              6
+  Worf                    6
+  Yar                     5
+Tazna V
+:
+  B. Crusher             10
+  Barclay                 5
+  Data                   14
+  Gomez                   6
+  Lefler                  3
+  O'Brien                12
+  Ogawa                   4
+  Picard                  5
+  Pulaski                17
+  Riker                   8
+  Troi                    7
+  W. Crusher              8
+  Worf                   14
+  Yar                     7
+Terlina III
+:
+  B. Crusher             13
+  Barclay                 5
+  Data                   12
+  Gomez                   4
+  Lefler                  5
+  O'Brien                 9
+  Ogawa                   2
+  Picard                  4
+  Pulaski                13
+  Riker                  12
+  Troi                   12
+  W. Crusher              3
+  Worf                   10
+  Yar                     6
+Tessen III
+:
+  B. Crusher             17
+  Barclay                 7
+  Data                   11
+  Gomez                   8
+  Guinan                  4
+  Lefler                  5
+  O'Brien                11
+  Ogawa                   2
+  Picard                  6
+  Pulaski                14
+  Riker                  16
+  Troi                   10
+  W. Crusher              6
+  Worf                   16
+  Yar                     1
+Tethis III
+:
+  B. Crusher             11
+  Barclay                 2
+  Data                   10
+  Gomez                   7
+  Guinan                  2
+  Lefler                  2
+  O'Brien                10
+  Picard                  5
+  Pulaski                 8
+  Riker                  10
+  Troi                    9
+  W. Crusher              3
+  Worf                   12
+  Yar                     1
+Thala VII
+:
+  B. Crusher             12
+  Barclay                 6
+  Data                   11
+  Gomez                   7
+  Guinan                  2
+  Lefler                  2
+  O'Brien                 7
+  Ogawa                   3
+  Picard                  2
+  Pulaski                12
+  Riker                  14
+  Troi                    9
+  W. Crusher              9
+  Worf                   13
+  Yar                     6
+Thanatos VII
+:
+  B. Crusher             10
+  Barclay                 6
+  Data                   12
+  Gomez                   7
+  Guinan                  2
+  Lefler                  5
+  O'Brien                12
+  Ogawa                   6
+  Picard                  3
+  Pulaski                18
+  Riker                   7
+  Troi                   18
+  W. Crusher              8
+  Worf                   19
+  Yar                     7
+Thelca IV
+:
+  B. Crusher             26
+  Barclay                 1
+  Data                   13
+  Gomez                   5
+  Guinan                  1
+  Lefler                  6
+  O'Brien                14
+  Ogawa                   3
+  Picard                  6
+  Pulaski                18
+  Riker                   8
+  Troi                   12
+  W. Crusher              9
+  Worf                   15
+  Yar                     2
+Theta VIII
+:
+  B. Crusher             11
+  Barclay                 5
+  Data                   20
+  Gomez                   4
+  Guinan                  5
+  O'Brien                12
+  Ogawa                   5
+  Picard                  3
+  Pulaski                10
+  Riker                   7
+  Troi                   14
+  W. Crusher              4
+  Worf                   15
+  Yar                     3
+Theydat IV
+:
+  B. Crusher             16
+  Barclay                 3
+  Data                   16
+  Gomez                   4
+  Guinan                  3
+  Lefler                  3
+  O'Brien                17
+  Ogawa                   3
+  Picard                  6
+  Pulaski                11
+  Riker                  12
+  Troi                   16
+  W. Crusher              1
+  Worf                    8
+  Yar                     1
+Tiarchanon III
+:
+  B. Crusher             21
+  Barclay                 7
+  Data                   13
+  Gomez                   5
+  Guinan                  4
+  Lefler                  3
+  O'Brien                 9
+  Ogawa                   2
+  Picard                  7
+  Pulaski                10
+  Riker                   8
+  Troi                   12
+  W. Crusher              6
+  Worf                   11
+  Yar                     4
+Tilonus IV
+:
+  B. Crusher              9
+  Barclay                 5
+  Data                   10
+  Gomez                   6
+  Guinan                  6
+  Lefler                  4
+  O'Brien                14
+  Ogawa                   2
+  Picard                  2
+  Pulaski                11
+  Riker                  13
+  Troi                   10
+  W. Crusher              8
+  Worf                   14
+  Yar                     4
+Titan
+:
+  B. Crusher             16
+  Barclay                 6
+  Data                   10
+  Gomez                   4
+  Guinan                  3
+  Lefler                  3
+  O'Brien                13
+  Ogawa                   4
+  Picard                  4
+  Pulaski                15
+  Riker                  12
+  Troi                   19
+  W. Crusher              4
+  Worf                   11
+  Yar                     4
+Titus IV
+:
+  B. Crusher             14
+  Barclay                 5
+  Data                   15
+  Gomez                   5
+  Guinan                  1
+  Lefler                  4
+  O'Brien                16
+  Ogawa                   5
+  Picard                  4
+  Pulaski                14
+  Riker                  10
+  Troi                   10
+  W. Crusher              6
+  Worf                   13
+  Yar                     5
+Tobin III
+:
+  B. Crusher             13
+  Barclay                 2
+  Data                   13
+  Gomez                   5
+  Guinan                  4
+  Lefler                  2
+  O'Brien                14
+  Ogawa                   5
+  Picard                  4
+  Pulaski                17
+  Riker                  13
+  Troi                   14
+  W. Crusher              3
+  Worf                   12
+  Yar                     3
+Tormin V
+:
+  B. Crusher              9
+  Barclay                 3
+  Data                   15
+  Gomez                   6
+  Guinan                  4
+  Lefler                  6
+  O'Brien                16
+  Ogawa                   7
+  Picard                  5
+  Pulaski                12
+  Riker                  17
+  Troi                   13
+  W. Crusher              3
+  Worf                   16
+  Yar                     2
+Turkana IV
+:
+  B. Crusher             12
+  Barclay                 4
+  Data                   10
+  Gomez                   2
+  Guinan                  3
+  Lefler                  4
+  O'Brien                10
+  Ogawa                   2
+  Picard                  4
+  Pulaski                12
+  Riker                  15
+  Troi                    8
+  W. Crusher              2
+  Worf                   15
+  Yar                     7
+Tyra VII-A
+:
+  B. Crusher              7
+  Barclay                 3
+  Data                   19
+  Gomez                   7
+  Guinan                  3
+  Lefler                  3
+  O'Brien                17
+  Ogawa                   5
+  Picard                  6
+  Pulaski                14
+  Riker                   9
+  Troi                   12
+  W. Crusher              4
+  Worf                   12
+  Yar                     5
+Udala Prime
+:
+  B. Crusher             14
+  Barclay                 4
+  Data                   10
+  Gomez                   8
+  Guinan                  5
+  Lefler                  7
+  O'Brien                12
+  Ogawa                   4
+  Picard                  3
+  Pulaski                 7
+  Riker                  14
+  Troi                   14
+  W. Crusher             10
+  Worf                    7
+  Yar                     2
+Vacca VI
+:
+  B. Crusher             17
+  Barclay                 6
+  Data                   13
+  Gomez                   6
+  Guinan                  1
+  Lefler                  6
+  O'Brien                15
+  Ogawa                   2
+  Pulaski                14
+  Riker                  10
+  Troi                    9
+  W. Crusher              6
+  Worf                   16
+  Yar                     3
+Vagra II
+:
+  B. Crusher              8
+  Barclay                 4
+  Data                    9
+  Gomez                   2
+  Guinan                  4
+  Lefler                  4
+  O'Brien                10
+  Ogawa                   6
+  Picard                  5
+  Pulaski                12
+  Riker                  17
+  Troi                    7
+  W. Crusher              3
+  Worf                   17
+  Yar                     3
+Valo I
+:
+  B. Crusher             14
+  Barclay                 8
+  Data                    5
+  Gomez                   2
+  Guinan                  4
+  Lefler                  4
+  O'Brien                11
+  Ogawa                   5
+  Picard                  5
+  Pulaski                10
+  Riker                  19
+  Troi                   13
+  W. Crusher              6
+  Worf                   13
+  Yar                     3
+Valo II
+:
+  B. Crusher             11
+  Barclay                 8
+  Data                   15
+  Gomez                   5
+  Guinan                  4
+  Lefler                  3
+  O'Brien                16
+  Ogawa                   4
+  Picard                  5
+  Pulaski                20
+  Riker                  14
+  Troi                   11
+  W. Crusher              3
+  Worf                    5
+  Yar                     4
+Valo III
+:
+  B. Crusher             15
+  Barclay                 7
+  Data                   13
+  Gomez                   4
+  Guinan                  3
+  Lefler                  2
+  O'Brien                13
+  Ogawa                   6
+  Picard                  4
+  Pulaski                22
+  Riker                  16
+  Troi                   11
+  W. Crusher              3
+  Worf                   12
+  Yar                     4
+Valt Minor
+:
+  B. Crusher             18
+  Barclay                 3
+  Data                   21
+  Gomez                   4
+  Guinan                  1
+  Lefler                  5
+  O'Brien                20
+  Ogawa                   5
+  Picard                  3
+  Pulaski                12
+  Riker                  13
+  Troi                    8
+  W. Crusher              1
+  Worf                    9
+  Yar                     4
+Vando VI
+:
+  B. Crusher             20
+  Barclay                 9
+  Data                   16
+  Gomez                   7
+  Guinan                  2
+  Lefler                  3
+  O'Brien                15
+  Ogawa                   9
+  Picard                  7
+  Pulaski                11
+  Riker                  13
+  Troi                   14
+  W. Crusher              4
+  Worf                   19
+  Yar                     2
+Velara III
+:
+  B. Crusher             10
+  Barclay                 3
+  Data                   17
+  Gomez                   4
+  Guinan                  4
+  Lefler                  7
+  O'Brien                16
+  Ogawa                   4
+  Picard                  3
+  Pulaski                15
+  Riker                   7
+  Troi                   11
+  W. Crusher              6
+  Worf                   11
+  Yar                     6
+Ventax II
+:
+  B. Crusher             14
+  Barclay                 5
+  Data                   19
+  Gomez                   7
+  Guinan                  5
+  Lefler                  5
+  O'Brien                16
+  Ogawa                   2
+  Picard                  5
+  Pulaski                10
+  Riker                  12
+  Troi                   18
+  W. Crusher              6
+  Worf                   17
+  Yar                     2
+Vilmora II
+:
+  B. Crusher             10
+  Barclay                 5
+  Data                   18
+  Gomez                   7
+  Guinan                  2
+  Lefler                  3
+  O'Brien                15
+  Ogawa                   2
+  Picard                  3
+  Pulaski                13
+  Riker                  13
+  Troi                    8
+  W. Crusher              5
+  Worf                   11
+  Yar                     3
+Zalcon
+:
+  B. Crusher             12
+  Barclay                 3
+  Data                   11
+  Gomez                   4
+  Guinan                  3
+  Lefler                  3
+  O'Brien                12
+  Ogawa                   4
+  Picard                  5
+  Pulaski                18
+  Riker                  21
+  Troi                   19
+  W. Crusher              2
+  Worf                   17
+  Yar                     4
+Zeta Alpha II
+:
+  B. Crusher             16
+  Barclay                 5
+  Data                   12
+  Gomez                   2
+  Guinan                  3
+  Lefler                  2
+  O'Brien                13
+  Ogawa                   4
+  Picard                  5
+  Pulaski                11
+  Riker                  13
+  Troi                   14
+  W. Crusher              2
+  Worf                    4
+  Yar                     4

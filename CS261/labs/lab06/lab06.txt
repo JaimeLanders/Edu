@@ -1,0 +1,25 @@
+-- Instruments --
+
+Instruments
+    Strings
+        Violin
+        Cello
+   Brass 
+        Trumpet
+        Clarinet
+
+Instruments -- Base class for modeling various instruments.  All instruments play verious notes/tones on pentonic scale.
+
+Strings -- Instruments that generate sound through plucking/strumming of strings.
+
+Violin -- This is a sublclass of Strings and models the violin and can play tones from G3 to A7.
+
+Cello -- This is a sublclass of Strings and models the cello and can play tones from C2 to C6.
+
+Brass -- Instruments that generate tones through air passed through the instrument.
+
+Trumpet -- This is a sublclass of Brass and models the trumpet and can play tones from F#3 to D6.
+
+Clarinet -- This is a sublclass of Brass and models the clarinet and can play tones from E3 to C7.
+
+Sources: http://www.orchestralibrary.com/reftables/rang.html

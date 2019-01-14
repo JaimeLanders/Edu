@@ -1,0 +1,41 @@
+=== Design and Implementation Plan Questions ===
+
+Below are a few questions about how you will design your program and your
+implementation plan. It is crucial to have a reasonable design and
+implementation plan before you start your program. Without this, success is
+unlikely. The following questions will help guide you in your thinking and
+raise some important questions and issues. There is no single "right" answer
+to each of the questions but there are some "wrong" answers. Some designs and
+plans are better than others. The point here is for you to think about what
+you're going to do.
+
+Make a copy of this file and edit it, adding your answers then turn this
+document in.
+
+----------------------------------------------------------------------
+
+1) List and describe one design choice that you made for the My Java Library
+assignment that you will keep for this C++ version of the library.
+
+Pending feedback from my java version I am planning on having the item class 
+handle the implementations of members common to all classes, and having the 
+subclasses handle their own specific implementations as I did in the java
+version.  I also plan on using multiple data structures, probably several 
+map's to be able to store all of the items and to be able to perform the 
+operations on them as efficiently as possible.  
+
+2) List and describe one design choice that you made for the My Java Library
+assignment that you will change for this C++ version of the library.
+
+In the Java version I didn't have to worry about constructors (because of 
+garbage collection) or copy constructors (everything passed by reference), 
+and thus didn't have to worry about memory leak.  I will have to spend a 
+considerable amount of time making sure that there is no memory leak by
+explicitly destroying objects the program creates.  I will also have to 
+consider how I will go about the copying of the classes as I am yet sure
+if I will be passing by reference (shallow-copy) or emplying deep copy 
+yet.  This will also impact how I delete objects, especially since I 
+will be using mutiple map's which may have to have their own copies of
+the data.  Overall this version will take a lot more time to implement 
+as I have more to worry about, so I have already started notecards to 
+help me keep track of the classes.   
