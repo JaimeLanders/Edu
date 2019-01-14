@@ -1,0 +1,118 @@
+CS201 FINAL EXAM
+
+Write code that computes the value of pi using the Monte Carlo Method. Your
+code should get the number of "darts" to "throw" from the first (and only)
+command-line argument.
+
+Your code should print the value of pi with 10 digits to the right of the
+decimal point.
+
+Each dart will consist of two double-precision floating point numbers: an
+X coordinate and a Y coordinate. In order to generate the two random numbers
+you need for each dart, you will call the following function twice:
+
+    double drand48();
+
+This function returns a random 64-bit floating point non-negative number whose
+value is in the interval [0.0 .. 1.0). Make sure to generate each dart's X
+coordinate first and then generate the Y coordinate.
+
+Before you call drand48() the first time, you need to initialize the random
+number generator by calling:
+
+    void srand48(0);
+
+You should only call this function ONCE. The argument of 0 is required; no
+other value is allowed.
+
+Both of the random number generation functions mentioned above require you to
+include stdlib.h.
+
+YOU ARE REQUIRED TO USE THE RANDOM NUMBER GENERATION FUNCTIONS SPECIFIED ABOVE.
+THE USE OF ANY OTHER RANDOM NUMBER FUNCTION(S) WILL RESULT IN A GRADE OF 0.
+
+To figure out whether a dart has landed within the circle, you will use the
+Pythagorean Theorem, d^2 == x^2 + y^2. ("^2" is used to denote "squared" in
+this formula. The symbol 'd' represents the distance of the "dart" from the
+center of the circle.)
+
+Count darts whose 'd' value is <= 1 as being INSIDE the circle. Count dartsr
+whose 'd' value is > 1 as OUTSIDE the circle.
+
+You will need to do the Pythagorean Theorem floating point calculations by
+writing a small amount of GAS assembler code. In this code, you are required to
+use only the syntax demonstrated in course file objectCode/asm.c. You are not
+allowed to use any other GAS syntax, such as %0, or any specifier other than
+"=m" in an "output" or "m" in an "input."
+
+THE USE OF ANY OTHER SYNTAX IN YOUR ASSEMBLY CODE WILL RESULT IN A GRADE OF 0.
+
+You need to use assembly language to compute the value of 'd'. You do not need
+to use assembly language to determine whether the "dart" is within the circle.
+You can use an "if" statement for that.
+
+Your code will get the number of darts to throw from the command line. Your
+code will be called like this to throw 10 darts:
+
+    final 10
+
+Your code will be tested by using the run_final bash script. Each run of your
+code should produce output as shown in finalOutputCorrect.txt. Your code will
+be graded by asking it to throw darts according to the following series of
+numbers: 10, 100, 1000, 10000, 100000, 1000000. For each of these values, it
+will be required to produce numbers identical to what's shown in
+finalCorrectValues.txt.
+
+Start with final.c, from this directory. Make sure to have your code print out
+YOUR name instead of "I. Forgot".
+
+Upload your code as final.c to D2L.
+
+--------------------------------------------------------------------------------
+
+REQUIRED PLATFORM
+
+I grade your code on syccuxas01.pcc.edu. Your code is required to compile and
+run correctly on that machine.
+
+COMPILING YOUR CODE
+
+You are required to compile your code with the same flags that are used by
+the 'gc' bash script in ~michael.trigoboff/bin.
+
+GRADING YOUR CODE
+
+Your code needs to compile without errors or warnings and run correctly. Code
+that does not compile will receive zero points. Code that crashes will receive
+zero points.
+
+I use bash scripts to grade your code. Because of this, it is very important
+that you submit your code with the file name that was requested. If you change
+the file name, my scripts will crash, your work will not be graded, you will
+have to resubmit a corrected version of your work, and you will lose points.
+
+My scripts produce a log file containing your code, compiler warnings and errors
+(if any), your code's output, and some statistics that are useful to me. I then
+personally go through that log file to produce your grade. In other words, the
+scripts don't generate your grade, they just make it more convenient for me to
+generate your grade.
+
+TO SUBMIT THIS ASSIGNMENT
+
+Submit the requested file to Desire2Learn.
+
+    * Be certain to check that you completed the upload successfully. After you
+        click the Upload File button, you must also click the SUBMIT ASSIGNMENT
+        button. This is very easy to forget. If you do not do this, I will not
+        see your work and you will get a grade of zero for the assignment. I
+        would recommend entering an email address so you can be notified that
+        the upload was completed successfully.
+    * You may upload as many versions as you wish prior to the due date. I will
+        only see and grade the final one. You will not be able to upload
+        assignments after the due date.
+
+Points will be deducted for uploading a file with a name that is not as
+specified. Every term I get a few students whose approach to following
+directions is, shall we say, "creative." I encourage creativity in general, but
+there are places where it is not appropriate.
+

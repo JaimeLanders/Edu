@@ -1,0 +1,148 @@
+CS201 ASSIGNMENT 1 INSTRUCTIONS
+-------------------------------
+
+Remember that you only need to do one of these, either the Regular or the
+Premium version.
+
+For either version, do not use the pow() function defined in math.h.
+
+--------------------------------------------------------------------------------
+
+REGULAR VERSION
+
+First, your program should print out either "byte order: big-endian" or
+"byte order: little-endian" depending on the characteristics of the machine
+your code is running on. Your program should figure this out at run time,
+not at compile time.
+
+Then, using scanf() and printf(), write a program that requests numbers from the
+user (typed in decimal) and then prints each number out in a variety of formats.
+
+For each number typed in, your program should print out two lines:
+
+    first line:
+        * integer, right justified in a 10 character field
+        * hex representation of the integer (the 4-byte actual value that is
+            independent of the machine's endian-ness)
+    second line:
+        * floating, right justified in a 10 character field, with 2 digits to
+            the right of the decimal point
+        * hex representation of the floating number (the 4-byte actual value
+            that is independent of the machine's endian-ness). Do not use C99's
+            %a or %A format specifier for this. You are required to use the %X
+            (NOT the %x) format specifier.
+
+Your program should repeatedly ask for input until the user types in a zero, and
+then it should exit. Each number in the input will be an integer, expressed as a
+decimal number. Some of the numbers will be negative, expressed like this: -3.
+You do not need to worry about bad input. I will run your code with a script
+that does not do this.
+
+Your program's output should be formatted as shown in asgmt01.output.txt
+(including uppercase vs. lowercase). I use scripts to grade assignments, and if
+your output is formatted "creatively" (i.e. different from what's requested),
+you will lose points for that.
+
+Start with file a01.c.
+
+Upload your work as a01.c.
+
+--------------------------------------------------------------------------------
+
+PREMIUM VERSION
+
+First, your program should print out either "byte order: big-endian" or "byte
+order: little-endian" depending on the characteristics of the machine your code
+is running on. Your program should figure this out at run time, not at compile
+time.
+
+Then your code should accept user input in the form of 8 hexadecimal digits.
+Your code will interpret those 8 digits as an IEEE 754 32-bit floating point
+number and will print out information about that number. Do not worry about bad
+input. My test script does not do this.
+
+Use scanf to get the user input. Your code should accept input with or without
+"0x" in front of it (scanf does this).
+
+For each number, your code should print out:
+
+    * the sign bit
+    * the exponent bits, expressed as a decimal number
+    * the fraction bits, expressed as an 8 digit hexadecimal number
+
+Here is what your code should print out for the various types of floating point
+number:
+
+    * normalized
+        the word "normalized" and the true exponent
+        (i.e. the power to which 2 will be raised in computing the numerical
+        value of the floating point number)
+    * denormalized
+        the word "denormalized" and the true exponent
+    * infinity
+        "+infinity" or "-infinity"
+    * zero
+        "+zero" or "-zero"
+    * NaN
+        "SNaN" or "QNan"
+
+Your program's output should be formatted exactly as shown in asgmt01p.output.txt
+(including uppercase vs. lowercase). Use %X for formatting hex output, NOT %x.
+I use scripts to grade assignments, and if your output is formatted "creatively"
+(i.e. different from what's requested), you will lose points for that.
+
+Your program should exit when user input that results in a zero value is
+entered, after printing the information for that zero input.
+
+Start with file a01p.c, contained in the provided zip file.
+
+Upload your work as a01p.c.
+
+--------------------------------------------------------------------------------
+
+REQUIRED PLATFORM
+
+I grade your code on syccuxas01.pcc.edu. Your code is required to compile and
+run correctly on that machine.
+
+COMPILING YOUR CODE
+
+You are required to compile your code with the same flags that are used by
+the 'gc' bash script in ~michael.trigoboff/bin.
+
+GRADING YOUR CODE
+
+Your code needs to compile without errors or warnings and run correctly. Code
+that does not compile will receive zero points. Code that crashes will receive
+zero points.
+
+I use bash scripts to grade your code. Because of this, it is very important
+that you submit your code with the file name that was requested. If you change
+the file name, my scripts will crash, your work will not be graded, you will
+have to resubmit a corrected version of your work, and you will lose points.
+
+My scripts produce a log file containing your code, compiler warnings and errors
+(if any), your code's output, and some statistics that are useful to me. I then
+personally go through that log file to produce your grade. In other words, the
+scripts don't generate your grade, they just make it more convenient for me to
+generate your grade.
+
+TO SUBMIT THIS ASSIGNMENT
+
+Submit the requested file to Desire2Learn.
+
+    * Be certain to check that you completed the upload successfully. After you
+        click the Upload File button, you must also click the SUBMIT ASSIGNMENT
+        button. This is very easy to forget. If you do not do this, I will not
+        see your work and you will get a grade of zero for the assignment. I
+        would recommend entering an email address so you can be notified that
+        the upload was completed successfully.
+    * You may upload as many versions as you wish prior to the due date. I will
+        only see and grade the final one. You will not be able to upload
+        assignments after the due date.
+
+Points will be deducted for uploading a file with a name that is not as
+specified. Every term I get a few students whose approach to following
+directions is, shall we say, "creative." I encourage creativity in general, but
+there are places where it is not appropriate.
+

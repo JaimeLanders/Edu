@@ -1,0 +1,865 @@
+#include "a04.h"
+
+using namespace std;
+
+/*void debug_function()
+{
+	cout << "debug_function working" << endl;
+}
+*/
+
+order_info::order_info() // Default Constructor
+{
+	cout << "order_info constructor" << endl;
+	famous_qty = 0;
+	kahuna_qty = 0;
+	royal_qty = 0;
+	fry_qty = 0;
+	shake_qty = 0;
+	soda_qty = 0;
+	tab_ttl = 0;
+	order_name = NULL;
+	order_note = NULL;
+	next = NULL;
+	prev = NULL;
+}
+
+order_tracker::order_tracker() // Default constructor
+{
+	cout << "order_tracker default constructor" << endl;
+	order_num = 0;
+	tab_num = NULL;
+	head = NULL; 
+	tail = NULL; 
+}
+
+order_tracker::~order_tracker() // Deconstuctor
+{
+	cout << "order_tracker deconstructor" << endl;
+/*
+	tab_num = head;
+	cout << "tab_num =" << tab_num << endl;
+//	order_info *temp = NULL;
+
+//	if (tab_num != NULL && tab_num->next != NULL)		
+	for(int i = 0; i < order_num && tab_num != NULL; i++)
+	{
+
+		cout << "i = " << i << endl;
+
+//		cout << "order_name = " << tab_number[i].order_name << endl;
+		delete[] tab_num->order_name;
+//		cout << "order_name = " << tab_number[i].order_name << endl;
+
+//		cout << "order_note = " << tab_number[i].order_note << endl;
+		delete[] tab_num->order_note;
+//		cout << "order_note = " << tab_number[i].order_note << endl;
+
+		tab_num = tab_num->next; 
+//		temp = tab_num->next;
+		delete tab_num->prev;
+//		tab_num = temp;
+
+	} // Closes for loop
+*//*	else if(tab_num != NULL && tab_num == NULL)
+	{
+	}
+*/
+}
+
+void order_tracker::deletetab()
+{
+	cout << "deletetab loaded" << endl;
+
+	int string_size = 0;
+	bool match_found = false; 
+	char search_name[STRING_SIZE] = {'\0'};
+	tab_num = head;
+	cout << "tab_num = " << tab_num << endl;
+
+	order_info *temp; 
+	temp = NULL;
+	cout << "temp = " << temp << endl;
+
+	cout << "Please enter the name to delete: ";
+	cin.ignore();
+	cin.getline(search_name, STRING_SIZE);
+	cout << "search_name = " << search_name << endl;
+
+	for (int i = 0; i < order_num && tab_num != NULL; i++) 
+	{
+		cout << "i = " << i << endl;
+		cout << "order_name = " << tab_num->order_name << endl;
+
+		if (strcmp (search_name, tab_num->order_name) == 0)
+		{
+			cout << "Match found!" << endl;
+			match_found = true;
+			break;
+		}
+		else if (strcmp (search_name, tab_num->order_name) != 0)
+		{
+			cout << "No match..." << endl;
+		}
+
+		tab_num = tab_num->next;
+	} // closes for
+
+	if (match_found == true)
+	{
+		cout << "Yes, match found" << endl;
+		if (tab_num == head) // First
+		{
+			cout << "first" << endl;
+			temp = tab_num;
+			cout << "temp = " << temp << endl;
+			head = tab_num->next;
+			cout << "head = " << head << endl;
+			temp = NULL;
+			cout << "temp = " << temp << endl;
+		} // closes else if
+		else if (tab_num == head->next) // Second
+		{
+			cout << "second" << endl;
+			temp = tab_num;
+			cout << "temp = " << temp << endl;
+			head->next = tab_num->next; 
+			cout << "head->next = " << head->next << endl;
+			delete temp;
+			temp = NULL;
+			cout << "temp = " << temp << endl;
+		} // closes else if
+		else if (tab_num == tail) // Last
+		{
+			cout << "last" << endl;
+			temp = tab_num;
+			cout << "temp = " << temp << endl;
+			cout << "tab_num = " << tab_num << endl;
+			tab_num = tab_num->prev;
+			cout << "tab_num = " << tab_num << endl;
+			tab_num->next = NULL;
+			cout << "tab_num = " << tab_num << endl;
+			tab_num = tail;
+			cout << "tab_num = " << tab_num << endl;
+			tail = tab_num->prev;
+			cout << "tail = " << tail << endl;
+			delete temp;
+			temp = NULL;
+			cout << "temp = " << temp << endl;
+		} // Closes else if
+		else // Middle
+		{
+			cout << "middle" << endl;
+			temp = tab_num;
+			cout << "temp = " << temp << endl;
+			tab_num = tab_num->prev;
+			cout << "tab_num = " << tab_num << endl;
+			tab_num->next = tab_num->next->next;
+			cout << "tab_num->next = " << tab_num->next << endl;
+			tab_num = tab_num->next;
+			cout << "tab_num = " << tab_num << endl;
+			tab_num->prev = tab_num->prev->prev;			
+			cout << "tab_num->prev = " << tab_num->prev << endl;
+			delete temp;
+			temp = NULL;
+			cout << "temp = " << temp << endl;
+		} // CLoses else
+
+		order_num--;
+
+	} // Closes if
+
+	return;
+
+} // Closes deletetab
+
+void order_tracker::listtab()
+{
+	cout << "listtab loaded" << endl;
+	
+	tab_num = head;
+//	cout << "tab_num = " << tab_num << endl;
+
+	for (int i; i < order_num && tab_num != NULL; i++)
+	{
+		cout << "i = " << i << endl;
+//		cout << "Customer Name: " << tab_num->order_name << endl;
+		viewtab();
+		tab_num = tab_num->next;
+	}
+
+	return;
+}
+
+void order_tracker::loadtab()
+{
+	cout << "loadtab loaded\n" << endl;
+
+	cout << "head = " << head << endl;
+
+	char charEat = '\0';
+	char temp_string[STRING_SIZE] = {'\0'};
+	char user_selection = 0;
+	double sales_total = 0.0;
+	ifstream inFile; 
+	int i = 0; 
+	int primer = 0;
+	int string_size = 0;
+
+	order_info *n, *curNum, *nextNum; // Declares pointers of type order_info	
+/*	n = new order_info; // Creates new order_info 
+	curNum = NULL;
+	nextNum =NULL;
+	n->next = NULL;
+*/
+	cout << "What file would you like to read and write orders to?: "; 
+	cin.getline(file_name, STRING_SIZE);
+//	cout << "file_name = " << file_name << endl;
+
+	inFile.open(file_name);
+	inFile.peek(); // Fix for loading empty files
+
+/*	if (head == NULL) 
+	{
+		head = n; // Initializes head to new pointer if not already initialized
+		cout << "head = " << head << endl;
+		tail = n; // Initializes tail to new pointer if not already initialized
+		cout << "tail = " << tail << endl;
+		cout << "n = " << n << endl;
+	}
+*/
+	while (!inFile.fail() && !inFile.eof() && i < MAX_TAB)
+//	while (!inFile.fail() && !inFile.eof() && head != NULL && i < MAX_TAB)
+//	while (!inFile.fail() && !inFile.eof() && i < MAX_TAB)
+	{
+		cout << "i = " << i << endl;
+
+//		tab_num = new order_info;
+//		n = tab_num;
+		if (i > 0)
+		n = new order_info; // Creates new order_info 
+		cout << "n = " << n << endl;
+	
+		curNum = NULL;
+		nextNum = NULL;
+		n->next = NULL;
+
+		if (head == NULL) // List hasn't been created yet 
+		{
+			head = n; // Initializes head to new pointer if not already initialized
+			cout << "head = " << head << endl;
+			tail = n; // Initializes tail to new pointer if not already initialized
+			cout << "tail = " << tail << endl;
+//			cout << "n = " << n << endl;
+		}
+/*		else if (head != NULL && head -> next == NULL) // List has one item 
+		{
+			head->next = n;
+			cout << "head->next = " << head->next << endl;
+			n->prev = head;
+			cout << "n->prev = " << n->prev << endl;
+			tail = n; // Initializes tail to new pointer if not already initialized
+			cout << "tail = " << tail << endl;
+		}
+		else // List has more than one item
+		{
+//			tail->next = n;  // Updates previous nodes next to new last
+
+			tail->next = n; // Stores new tails location in previous tail's next
+			cout << "tail->next = " <<  tail->next << endl;
+			n->prev = tail; // Stores previous tails location in new tails prev
+			cout << "n->prev = " << n->prev << endl;
+			tail = n;  // Stores last node location of stack
+//			tail->prev = ;
+			cout << "tail = " << tail << endl;
+		}
+*//*
+		if (inFile.eof())  // Redundant, delete
+			break;
+*/
+		inFile >> n->famous_qty; 
+		inFile >> charEat; // Fix for comma input
+		inFile >> n->kahuna_qty; 
+		inFile >> charEat; // Fix for comma input
+		inFile >> n->royal_qty; 
+		inFile >> charEat; // Fix for comma input
+		inFile >> n->fry_qty; 
+		inFile >> charEat; // Fix for comma input
+		inFile >> n->shake_qty;
+		inFile >> charEat; // Fix for comma input
+		inFile >> n->soda_qty; 
+		inFile >> charEat; // Fix for comma input
+
+		inFile.getline(temp_string, STRING_SIZE, ',');
+		string_size = strlen(temp_string);
+		n->order_name = new char[string_size + 1];
+		strncpy(n->order_name, temp_string, string_size);
+		n->order_name[string_size] = '\0'; 
+		string_size = 0;
+
+		inFile.getline(temp_string, STRING_SIZE);
+		string_size = strlen(temp_string);
+		n->order_note = new char[string_size + 1];
+		strncpy(n->order_note, temp_string, string_size);
+		n->order_note[string_size] = '\0'; 
+		string_size = 0;
+
+		inFile.peek(); // Sets eof flag, fix for extra loop 
+
+		n->tab_ttl = (n->famous_qty * FAMOUS_COST) + (n->kahuna_qty * KAHUNA_COST) + (n->royal_qty * ROYAL_COST) + (n->fry_qty * FRY_COST) + (n->shake_qty * SHAKE_COST) + (n->soda_qty * SODA_COST); 
+
+		cout << n->famous_qty << "," << n->kahuna_qty << "," << n->royal_qty << "," << n->fry_qty << "," << n->shake_qty << "," << n->soda_qty << "," << n->order_name << "," << n->order_note << endl;
+		if (head == NULL) // List hasn't been created yet 
+		{
+			head = n; // Initializes head to new pointer if not already initialized
+			cout << "head = " << head << endl;
+			tail = n; // Initializes tail to new pointer if not already initialized
+			cout << "tail = " << tail << endl;
+//			cout << "n = " << n << endl;
+		}
+		else if (n->order_name < head->order_name) // Insert n at beginning of list 	
+		{
+			cout << "beginning" << endl;
+			tab_num = head;
+			cout << "tab_num = " << tab_num << endl;
+			head = n;
+			cout << "head = " << head << endl;
+			n->next = tab_num;
+			cout << "n->next = " << n->next << endl;
+			tab_num->prev = n;
+			cout << "n->prev = " << n->prev << endl;
+/*			nextNum = head;
+			head = n;
+			n->next = nextNum;
+*/		} // Closes if
+		else  // Insert somewhere in list after head
+		{
+			tab_num = head;//->next; 
+			cout << "tab_num = " << tab_num << endl;
+//			nextNum = head->next;
+//			curNum = head; 
+//			nextNum = head->next;
+
+			while (tab_num != NULL)
+//			while (nextNum != NULL)
+			{
+				if ((tab_num->order_name <= n->order_name) && (tab_num->next->order_name >= n->order_name)) // Insert in middile of list 
+//				if ((curNum->order_name <= n->order_name) && (nextNum->order_name >= n->order_name)) // Insert in middile of list 
+				{
+					cout << "middle" << endl;
+					tab_num->prev->next = n;
+					cout << "tab_num->prev->next " << tab_num->prev->next << endl;
+					n->prev = tab_num->prev; 
+					cout << "n->prev = " << n->prev << endl;
+					n->next = tab_num->next; 
+					cout << "n->next = " << n->next << endl;
+					tab_num->next = n;   	
+					cout << "tab_num->next = " << tab_num->next << endl;
+//					curNum->next = n;
+//					n->next = nextNum;
+					break;
+				} // Closes else
+				else // Compare to next name
+				{
+					cout << "next comp" << endl;
+					tab_num = tab_num->next; 	
+					cout << "tab_num = " << tab_num << endl;
+//					curNum = nextNum;
+//					nextNum = nextNum->next;
+				} // Closes else
+			} // Closes while
+			if (tab_num == NULL) // Inset at end of list
+//			if(nextNum == NULL) // Inset at end of list
+			{
+				cout << "end" << endl;
+				tab_num->next = n;
+				cout << "tab_num->next = " << tab_num->next << endl;
+				n->prev = tab_num;
+				cout << "n->prev = " << n->prev << endl;
+				n->next = NULL;				
+				cout << "n->next = " << n->next << endl;
+//				curNum->next = n;
+			} // Closes if
+		} // Closes else and sory by name algorithm
+
+		n = n->next;
+
+	 	order_num++;
+		cout << "order_num = " << order_num << endl; 
+
+		i++;
+
+//		} // Closes else
+
+	} // Closes while
+/*
+	current_tab--; // Temp fix
+
+	if (current_tab < 0) // Temp fix
+	{
+		current_tab = 0;
+	}
+
+	cout << "current_tab = " << current_tab << endl;
+*/
+//	inFile.clear(); // Clears error state 
+	inFile.close();
+
+	cout << "\nSuccessfully loaded " << order_num  << " orders from " << file_name << ". \n" << endl;
+
+	return;
+} // Closes loadtab
+
+void order_tracker::newtab()
+{
+	cout << "newtab working" << endl;
+	cout << "order_num = " << order_num << endl;
+
+	int user_qty = 0;
+	int string_size = 0;
+	char temp_string[] = {'\0'};
+//	char temp_string[STRING_SIZE] = {'\0'};
+	cout << "temp_string = " << temp_string << endl;
+
+	order_info *n, *curNum, *nextNum; // Declares pointers of type order_info	
+	n = new order_info; // Creates new order_info 
+	curNum = NULL;
+	nextNum =NULL;
+	n->next = NULL;
+
+/*	if (head == NULL) 
+	{
+		head = n; // Initializes head to new pointer if not already initialized
+		tail = n;
+	}
+*/
+	while (order_num < MAX_TAB)
+//	else if (head != NULL && order_num < MAX_TAB)
+	{
+		cout << "Entering order #" << order_num + 1 << endl;
+		
+		cout << "What is customer's name?: ";
+
+		cin.ignore();
+		cin.getline (temp_string, STRING_SIZE); 	
+		cout << "temp_string = " << temp_string << endl;
+		string_size = strlen(temp_string);
+		cout << "string_size = " << string_size << endl;
+
+		n->order_name = new char[string_size + 1];
+		strncpy(n->order_name, temp_string, string_size);
+		cout << "order_name = " << n->order_name << endl;
+		n->order_name[string_size] = '\0'; 
+//		cout << "order_name = " << n->order_name << endl;
+		string_size = 0;
+
+		cout << "order_name = " << n->order_name << endl;
+
+		if (head == NULL) // List hasn't been created yet 
+		{
+			head = n; // Initializes head to new pointer if not already initialized
+			cout << "head = " << head << endl;
+			tail = n; // Initializes tail to new pointer if not already initialized
+			cout << "tail = " << tail << endl;
+//			cout << "n = " << n << endl;
+		}
+		else if (head != NULL && head -> next == NULL) // List has one item 
+		{
+			head->next = n;
+			cout << "head->next = " << head->next << endl;
+			n->prev = head;
+			cout << "n->prev = " << n->prev << endl;
+			tail = n; // Initializes tail to new pointer if not already initialized
+			cout << "tail = " << tail << endl;
+		}
+		else // List has more than one item
+		{
+//			tail->next = n;  // Updates previous nodes next to new last
+
+			tail->next = n; // Stores new tails location in previous tail's next
+			cout << "tail->next = " <<  tail->next << endl;
+			n->prev = tail; // Stores previous tails location in new tails prev
+			cout << "n->prev = " << n->prev << endl;
+			tail = n;  // Stores last node location of stack
+//			tail->prev = ;
+			cout << "tail = " << tail << endl;
+		}
+/*
+		if (n->order_name < head->order_name) // Start of sort by name algorithm
+		{
+			nextNum = head;
+			head = n;
+			n->next = nextNum;
+		} // Closes if
+		else
+		{
+			curNum = head;
+			nextNum = head->next;
+
+			while (nextNum != NULL)
+			{
+				if((curNum->order_name <= n->order_name) && (nextNum->order_name >= n->order_name))
+				{
+					curNum->next = n;
+					n->next = nextNum;
+					break;
+				} // Closes else
+				else
+				{
+					curNum = nextNum;
+					nextNum = nextNum->next;
+				} // Closes else
+			} // Closes while
+			if(nextNum == NULL)
+			{
+				curNum->next = n;
+			} // Closes if
+		} // Closes else and sory by name algorithm
+*/
+		cout << fixed << showpoint << setprecision(2); 
+		cout << "Famous burgers are $" << FAMOUS_COST << " each. How many would you like?: "; //&& 
+		while (!(cin >> user_qty) || user_qty < 0)
+		{
+			cout << "You did not enter a valid number, try again... \n" << endl;
+			cin.clear();
+			cin.ignore(200, '\n');
+		}
+ 		n->famous_qty = user_qty;
+ 		cout << "famous_qty = " << n->famous_qty << endl;
+		user_qty = 0;
+
+		cout << fixed << showpoint << setprecision(2); 
+		cout << "Big Kahuna burgers are $" << KAHUNA_COST << " each. How many would you like?: ";// && 
+		while (!(cin >> user_qty) || user_qty < 0)
+		{
+			cout << "You did not enter a valid number, try again... \n" << endl;
+			cin.clear();
+			cin.ignore(200, '\n');
+		}
+ 		n->kahuna_qty = user_qty;
+ 		cout << "kahuna_qty = " << n->kahuna_qty << endl;
+		user_qty = 0;
+
+		cout << fixed << showpoint << setprecision(2); 
+		cout << "Royal burgers are $" << ROYAL_COST << " each. How many would you like?: "; //&& 
+		while (!(cin >> user_qty) || user_qty < 0)
+		{
+			cout << "You did not enter a valid number, try again... \n" << endl;
+			cin.clear();
+			cin.ignore(200, '\n');
+		}
+ 		n->royal_qty = user_qty;
+ 		cout << "royal_qty = " << n->royal_qty << endl;
+		user_qty = 0;
+
+		cout << fixed << showpoint << setprecision(2); 
+		cout << "Fries are $" << FRY_COST << " each. How many would you like?: "; //&& 
+		while (!(cin >> user_qty) || user_qty < 0)
+		{
+			cout << "You did not enter a valid number, try again... \n" << endl;
+			cin.clear();
+			cin.ignore(200, '\n');
+		}
+ 		n->fry_qty = user_qty;
+ 		cout << "fry_qty = " << n->fry_qty << endl;
+		user_qty = 0;
+
+		cout << fixed << showpoint << setprecision(2); 
+		cout << "Shakes are $" << SHAKE_COST << " each. How many would you like?: "; //&& 
+		while (!(cin >> user_qty) || user_qty < 0)
+		{
+			cout << "You did not enter a valid number, try again... \n" << endl;
+			cin.clear();
+			cin.ignore(200, '\n');
+		}
+ 		n->shake_qty = user_qty;
+ 		cout << "shake_qty = " << n->shake_qty << endl;
+		user_qty = 0;
+
+		cout << fixed << showpoint << setprecision(2); 
+		cout << "Sodas are $" << SODA_COST << " each. How many would you like?: "; //&& 
+		while (!(cin >> user_qty) || user_qty < 0)
+		{
+			cout << "You did not enter a valid number, try again... \n" << endl;
+			cin.clear();
+			cin.ignore(200, '\n');
+		}
+ 		n->soda_qty = user_qty;
+ 		cout << "soda_qty = " << n->soda_qty << endl;
+		user_qty = 0;
+
+		cout << "Any special requests for the order?: ";
+		cin.ignore();
+		cin.getline (temp_string, STRING_SIZE); 	
+		cout << "temp_string = " << temp_string << endl;
+		string_size = strlen(temp_string);
+		cout << "string_size = " << string_size << endl;
+		n->order_note = new char[string_size +1];
+		strncpy(n->order_note, temp_string, string_size);
+		cout << "order_note = " << n->order_note << endl;
+		n->order_note[string_size] = '\0'; 
+		string_size = 0;
+
+		cout << "order_note = " <<  n->order_note << endl;
+
+		n->tab_ttl = (n->famous_qty * FAMOUS_COST) + (n->kahuna_qty * KAHUNA_COST) + (n->royal_qty * ROYAL_COST) + (n->fry_qty * FRY_COST) + (n->shake_qty * SHAKE_COST) + (n->soda_qty * SODA_COST); 
+ 		cout << "tab_ttl = " << n->tab_ttl << endl;
+
+		cout << "\nThank you for your order ";  
+		cout << n->order_name << ". \n" << endl;
+
+		tab_num = n;
+		cout << "tab_num = " << tab_num << endl;
+//		tab_num = n;
+		viewtab();
+//		viewtab(tab_num);
+//		viewtab(n);
+//		viewtab(tab_num);
+
+		order_num++;
+		cout << "order_num = " << order_num << endl;
+		return;
+
+	} // closes else if
+
+	if (order_num >= MAX_TAB)
+//	else if (order_num >= MAX_TAB)
+	{
+		cout << "You have entered the maximum amount of orders for the day, please exit the program to clear memory and start over... " << endl;
+
+		return;
+	} // Coses else if
+
+	return;
+} // closes newtab
+
+void order_tracker::searchtab()
+{
+	cout << "searchtab working" << endl;
+
+	int user_tab = 0;
+	char search_name[STRING_SIZE];
+	bool match_found = false;
+	tab_num = head;
+//	cout << "tab_num =" << tab_num << endl;
+//	tab_num->next = head->next;
+	
+	if (order_num <= 0)
+//	if (current_tab <= 0)
+	{
+		cout << "There are not any orders yet, enter an order before viewing...\n" << endl;
+		return;
+	}
+
+	cout << "Searching orders by name, please enter the name: ";
+	cin.ignore();
+	cin.getline(search_name, STRING_SIZE);
+	cout << "search_name = " << search_name << endl;
+
+	for (int i = 0; i < order_num; i++)
+//	for (int i = 0; i < current_tab; i++)
+	{
+		cout << "i = " << i << endl;
+		cout << "order_name = " << tab_num->order_name << endl;
+
+		while (strcmp (search_name, tab_num->order_name) == 0)
+//		while (strcmp (search_name, tab_number[i].order_name) == 0)
+		{
+//			cout << "Match found!" << endl;
+			match_found = true;
+//			tab_num = i;
+			break;
+		}
+		
+		if (match_found == false)
+			tab_num = tab_num->next; 
+		else
+			break;
+	}
+
+	if (match_found == true)
+	{			
+		match_found = false;
+		cout << "\nHere is the order for " << search_name << "\n" << endl; 
+		viewtab();
+	}
+	else if (match_found != true)
+	{
+	cout << "\nNo match for " << search_name << endl;
+
+	return;
+	}
+
+/*	cout << "There have been " << current_tab << " orders today, what tab would you like to view? ";
+	cin >> user_tab;
+
+	if (user_tab > current_tab || user_tab <= 0) 
+	{
+		cout << user_tab << " is not a valid choice, returing to menu...\n" << endl;
+	}
+	else
+	{
+		cout << "\nHere is information for order #" << user_tab  << ".\n" << endl;
+		
+		tab_num = user_tab - 1;
+
+		viewtab(tab_num);
+//		order_tracker.viewtab(current_tab);
+	}
+*/
+	return;
+} // closes searchtab
+
+void order_tracker::totaltab()
+{
+	cout << "totaltab working" << endl;
+
+	int i = 0; 
+	double sales_total = 0.0;
+//	char file_name[STRING_SIZE];
+	char user_selection = 0;
+	ofstream outFile; 
+	tab_num = head;
+
+	cout << "Would you like to save todays data to " << file_name << "? (Y)es to save: " ;
+	cin.ignore();
+	cin.get(user_selection);
+//	cout << "user_selection = " << user_selection << endl;
+
+	if (user_selection == 'y' || user_selection == 'Y')
+	{
+//		cout << "Enter the name of the file to save: ";
+//		cin.ignore();
+//		cin.getline(file_name, STRING_SIZE);
+//		cout << "file_name = " << file_name << endl;
+		outFile.open(file_name);
+
+		for(int i = 0; i < order_num; i++)
+		{
+			cout << "i = " << i << endl;
+
+			outFile << tab_num->famous_qty << "," << tab_num->kahuna_qty << "," << tab_num->royal_qty << ","; 
+			outFile << tab_num->fry_qty << "," << tab_num->shake_qty << "," << tab_num->soda_qty << ","; 
+			outFile << tab_num->order_name << "," << tab_num->order_note << endl;
+
+			tab_num = tab_num-> next;
+		}
+	}
+/*
+	else if (user_selection == 'n' || user_selection == 'N')
+	{
+		cout << " user chose no" << endl; 
+	}
+*//*	for (i = 0; i < current_tab; i++)
+	{
+		sales_total += tab_number[i].tab_ttl; 
+	}
+
+	cout << "There were " << current_tab << " total customer(s) today and $" << fixed << showpoint << setprecision(2) << sales_total << " dollars made total. \n" << endl;  
+	
+	outFile.close();
+*/
+	return;
+
+} // closes totaltab
+
+void order_tracker::viewtab()
+{
+	cout << "viewtab working" << endl;
+//	cout << "tab_num =" << tab_num << endl;
+
+	cout << "Customer Name: " << tab_num->order_name << endl;
+
+	if (tab_num->famous_qty == 1)
+	{
+		cout << tab_num->famous_qty << " Famous burger at $"; 
+		cout << fixed << showpoint << setprecision(2); 
+		cout << FAMOUS_COST << ", charge = $" << tab_num->famous_qty * FAMOUS_COST << endl;
+	}
+	else if (tab_num->famous_qty > 1)
+	{
+		cout << tab_num->famous_qty << " Famous burgers at $"; 
+		cout << fixed << showpoint << setprecision(2); 
+		cout << FAMOUS_COST << ", charge = $" << tab_num->famous_qty * FAMOUS_COST << endl;
+	}
+
+	if (tab_num->kahuna_qty == 1)
+	{
+		cout << tab_num->kahuna_qty << " Big Kahuna burger at $"; 
+		cout << fixed << showpoint << setprecision(2); 
+		cout << KAHUNA_COST << ", charge = $" << tab_num->kahuna_qty * KAHUNA_COST << endl;
+	}
+
+   	else if (tab_num->kahuna_qty > 1)
+	{
+		cout << tab_num->kahuna_qty << " Big Kahuna burgers at $"; 
+		cout << fixed << showpoint << setprecision(2); 
+		cout << KAHUNA_COST << ", charge = $" << tab_num->kahuna_qty * KAHUNA_COST << endl;
+	}
+
+	if (tab_num->royal_qty == 1)
+	{
+		cout << tab_num->royal_qty << " Royal burger at $"; 
+		cout << fixed << showpoint << setprecision(2); 
+		cout << ROYAL_COST << ", charge = $" << tab_num->royal_qty* ROYAL_COST << endl;
+	}
+
+	else if (tab_num->royal_qty > 1)
+	{
+		cout << tab_num->royal_qty << " Royal burgers at $"; 
+		cout << fixed << showpoint << setprecision(2); 
+		cout << ROYAL_COST << ", charge = $" << tab_num->royal_qty * ROYAL_COST << endl;
+	}
+
+	if (tab_num->fry_qty == 1)
+	{
+		cout << tab_num->fry_qty << " fry at $"; 
+		cout << fixed << showpoint << setprecision(2);
+		cout << FRY_COST << ", charge = $" << tab_num->fry_qty * FRY_COST << endl;
+	}
+
+	else if (tab_num->fry_qty > 1)
+	{
+		cout << tab_num->fry_qty << " fries at $";
+		cout << fixed << showpoint << setprecision(2);
+		cout << FRY_COST << ", charge = $" << tab_num->fry_qty * FRY_COST << endl;
+	}
+
+	if (tab_num->shake_qty == 1)
+	{
+		cout << tab_num->shake_qty << " shake at $"; 
+		cout << fixed << showpoint << setprecision(2);
+	       	cout << SHAKE_COST << ", charge = $" << tab_num->shake_qty * SHAKE_COST << endl;
+	}
+
+	else if (tab_num->shake_qty > 1)
+	{
+		cout << tab_num->shake_qty << " shakes at $"; 
+		cout << fixed << showpoint << setprecision(2); 
+		cout << SHAKE_COST << ", charge = $" << tab_num->shake_qty * SHAKE_COST << endl;
+	}
+
+	if (tab_num->soda_qty == 1)
+	{
+		cout << tab_num->soda_qty << " soda at $"; 
+		cout << fixed << showpoint << setprecision(2); 
+		cout << SODA_COST << ", charge = $" << tab_num->soda_qty * SODA_COST << endl;
+	}
+
+	else if (tab_num->soda_qty > 1)
+	{
+		cout << tab_num->soda_qty << " sodas at $"; 
+		cout << fixed << showpoint << setprecision(2); 
+		cout << SODA_COST << ", charge = $" << tab_num->soda_qty * SODA_COST << endl;
+	}
+
+	cout << fixed << showpoint << setprecision(2); 
+	cout << "\nTotal charge = $" << tab_num->tab_ttl << "\n" << endl;
+
+	cout << "Order Notes: " <<  tab_num->order_note << endl;
+
+//	tab_num = NULL; // Resets tab_num pointer
+
+	return;
+
+} // closes viewtab

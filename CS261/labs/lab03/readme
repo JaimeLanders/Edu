@@ -1,0 +1,49 @@
+-- Readme
+
+For this lab we are going to write a small program that uses some othe Java
+Collection classes.  The purpose is to gain experience with the Collection
+classes.  It is assumed that you have already done all previous lab exercises.
+
+-- Setup
+
+Use the instructions in the previous lessions to create a new directory called
+"lab03" in your "labs" directory.  After you have created the directory make
+sure that you "go into" the "lab03" directory (Hint: "go into x" means "change
+your current directory to x").
+
+-- Write a program
+
+After you have setup your lab directory copy the ReadValues.java program from
+the class lab03 directory into your directory. Open your copy of the file in a
+text editor and locate the "TODO" comments. Follow the instructions for each
+of those comments.
+
+When you are done you should be able to compile and run the program. The
+program will process two different types of lists and print out the time taken
+to process the data.
+
+-- Graphing the results
+
+Once your program works, run it and notice the timing numbers that it
+generates. Use a graphing tool to create a line chart that graphs the timing
+results from both the ArrayList and the LinkedList on the same graph. You can
+use any graphing tool that you have available. If you don't have one available
+you can use the free tool online here:
+https://www.onlinecharttool.com/graph. Be sure to select the "Line" chart
+option.
+
+On the graph you should notice a significant difference between the ArrayList
+numbers and the LinkedList numbers. One of them should be linear in
+performance while the other is quadratic.
+
+-- Lab completion
+
+To show that you have completed the lab take a screenshot of your graph that
+shows the data from both lists (or save it as PDF) and email it to
+mike.noel@pcc.edu. The subject line of your email should say "cs261 lab03 chart".
+
+
+
+
+
+

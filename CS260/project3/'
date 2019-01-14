@@ -1,0 +1,180 @@
+#include <cstring>
+#include <iomanip>
+#include <iostream>
+#include "data.h"
+#include "hashTable.h"
+
+using namespace std;
+
+int menu (hashTable& hashIn)
+{
+	cout << "\nmenu" << endl;
+	cout << "hashIn address = " << &hashIn << endl;
+
+	hashTable stockHash = hashIn;
+
+	char userChoice = '\0';
+
+	while (userChoice != 'X' || userChoice != 'x')
+	{
+
+		cout << "\nWelcome to stock tracker 1.0 " << endl;
+
+		cout << "Choose from the following options: " << endl;
+		cout << "A) Insert " << endl;
+		cout << "B) Remove " << endl;
+		cout << "C) Modify " << endl;
+		cout << "D) Retrieve " << endl;
+		cout << "E) Display " << endl;
+		cout << "F) Monitor " << endl;
+		cout << "X) Exit " << endl;
+		cout <<  "\nSelection: "; 
+
+		cin >> userChoice;
+
+		if (userChoice == 'A' || userChoice == 'a') 
+		{
+			data n;
+
+			char newTicker [100] = {'\0'};
+			char newName [100] = {'\0'};
+			char newDate [100] = {'\0'};
+			float newValue = 0.0;
+			float newReturn = 0.0;
+
+			cout << "\nEntering new stock " << endl;
+
+			cout << "\nTicker: ";
+			cin.ignore();
+			cin.getline(newTicker, '\n');
+			cin.clear();
+			cout << "newTicker = " << newTicker << endl;
+			n.setTicker(newTicker);
+
+			cout << "\nStock Name: ";
+			cin.getline(newName, '\n');
+			cin.clear();
+			cout << "newName = " << newName << endl;
+			n.setName(newName);
+
+			cout << "\nValue of asset: ";
+			cin >> tempFloat;
+			n.setValue(tempFloat);
+
+			cout << "\nDate of Value: ";
+			cin.ignore();
+			cin.getline(tempString, '\n');
+			cin.clear();
+			cout << "tempString = " << tempString << endl;
+			n.setDate(tempString);
+
+			cout << "\nValue of asset: ";
+			cin.ignore();
+			cin >> tempFloat;
+			n.setValue(tempFloat);
+
+			stockHash.insert(n);
+
+			userChoice = '\0';
+		}
+		else if (userChoice == 'B' || userChoice == 'b') 
+		{
+			char ticker[100] = {'\0'}; 
+
+			cout << "What ticker would you like to remove?: ";
+			cin.ignore();
+			cin.getline(ticker, '\n');
+			cout << "ticker = " << ticker << endl;
+
+			stockHash.remove(ticker);
+		}
+		else if (userChoice == 'C' || userChoice == 'c') 
+		{
+			char ticker[100] = {'\0'}; 
+			char newDate[100] = {'\0'};
+			float newValue = 0.0;
+			float newReturn = 0.0;
+
+			cout << "What ticker would you like to modify?: ";
+			cin.ignore();
+			cin.getline(ticker, '\n');
+			cout << "ticker = " << ticker << endl;
+//			cin.clear();
+
+			cout << "What is the new asset value?: ";
+			cin >> newValue;
+			cout << "newValue = " << newValue << endl;
+//			cin.clear();
+
+			cout << "What is the new date?: ";
+			cin.ignore();
+			cin.getline(newDate, '\n');
+			cout << "newDate = " << newDate << endl;
+//			cin.clear();
+
+			cout << "What is the new year to date return?: ";
+			cin.ignore();
+			cin >> newReturn;
+			cout << "newReturn = " << newReturn << endl;
+//			cin.clear();
+
+			stockHash.modify(ticker,newValue,newDate,newReturn);
+		}
+		else if (userChoice == 'D' || userChoice == 'd') 
+		{
+			char ticker[100] = {'\0'}; 
+			data currData; 
+
+			cout << "What ticker would you like to retrieve?: ";
+			cin.ignore();
+			cin.getline(ticker, '\n');
+			cout << "ticker = " << ticker << endl;
+
+			cout << "======================================================================= " << endl;
+			cout << "Ticker: \t" << "Name: \t\t\t" << "Value: \t" << "Date: \t\t" << "Return: \t" << endl;
+			cout << "======================================================================= " << endl;
+
+			stockHash.retrieve(ticker, currData);
+
+			cout <</* "currData = " << */ currData << endl;
+		}
+		else if (userChoice == 'E' || userChoice == 'e') 
+		{
+			stockHash.display();
+		}
+		else if (userChoice == 'F' || userChoice == 'f') 
+		{
+			stockHash.monitor();
+		}
+		else if (userChoice == 'X' || userChoice == 'x') 
+		{
+			cout << "Goodbye! " << endl;
+			char filename [100] = "data.dat";
+
+			stockHash.writeOut(filename);
+
+			break;
+		}
+		else
+		{
+			cout << "You did not enter a valid choice, try again... " << endl; 
+		}
+
+		cout << "\n===== " << endl;
+	}
+
+	return 0;
+}
+
+int main ()
+{
+	cout << "main " << endl;
+
+	char fileName[] = "data.dat";
+
+	hashTable stockHash(fileName);// = new hashTable;
+
+	menu(stockHash);
+
+	return 0;
+}
