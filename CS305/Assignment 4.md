@@ -1,0 +1,28 @@
+Jaime Landers
+CS305
+Assignment 4 - Case Study
+1/31/19
+
+## A Case Study of Intellectual Property and the Trade War with China
+For my case study I chose to analyze a situation that qualifies not only as an ethical issue, but a legal, social and cultural issue as well; intellectual property.  A recent Washington Post article reviews the situation the US finds itself in with China which has been a major driving factor for Trump to impose tariffs on imports to China, locking us in a trade war that has implication on not just our economies, but likely the rest of the worlds as well.  According to the article, intellectual property (IP) are inventions, artistic and literary works as well as designs, images, symbols and names used to do business worldwide (Clark, 2019).  That is, IP is the artistic creations of mind that are vital to businesses, products and brands worldwide (logos such as the Nike swoosh, McDonald’s M, Coca-Cola being some of the most recognized IP examples).
+
+It is no surprise to me that China is the target of this article, as it is no secret that China is home of the knock-off, or imitation of products from video game consoles such as the Phony Gamestation (Okay, I made this one up, but there are similar knockoffs to be found), to world renowned tourist attractions such as the Eiffel Tower in one of its ghost cities at the Tianducheng development in Hangzhou, Zhejiang Province (“Eiffel Tower replica looms over China’s Parisian-style ‘ghost town,’” 2013).  Even China’s fighter jets looks like a direct copies or knock-offs of the US’s (Hollings, 2018), and recent hacks of F-35 data have helped fuel it’s 5th generation fighter ambitions, which is most certainly an IP issue as well as a national security issue (Daniels, 2017).
+
+What has surprised me, however, is the president’s willingness to take on the behemoth that is China.  For one, we owe an astronomical amount of money to China, over 1.1 trillion as of October 2018 (Amadeo, 2018).  We also rely heavily on imports from the country that has become the go to for exporting manufacturing of everything from electronics to clothing to everyday products such as cleaning supplies.  A recent trip to Target by my wife led to an interesting conversation with an employee when asked where a particular item was, they said that they didn’t have it and the shelves were going bare due to what the believe was “something going on with China.”  I personally feel that China get’s the scapegoat treatment for the issue that is IP theft though, as even though they are the most visible offender, they are far from the only ones but are targeted as though they are.
+
+Still, the issue of IP theft is a problem and China may just be the most visible offender on the largest scale.  The article in the Washington Post states that the US International Trade Commission estimates that billions of dollars are spent addressing IP infringements.  This also leads to a loss of competitive advantage as in the example of China, more than half the technology owned by Chinese firms came from foreign companies according to the article.  While I don’t personally feel that the tariffs imposed by Trump will be enough to solve the issue of IP theft universally, I do feel that it sends a string message to Chine that we are not willing to line their pockets while they steal from us and others and reuse others technologies and IP’s to sell back to us and other countries.  China has even made promises to pass laws that would help protect IP of foreign companies, according to the article, so there is some signs that the presidents message was well received.  I guess we’ll have to wait and see.
+
+****
+### Sources:
+Amadeo, K. (2018, December 19). US Debt to China: How Much, Reasons, What Could Happen. Retrieved February 1, 2019, from https://www.thebalance.com/u-s-debt-to-china-how-much-does-it-own-3306355
+
+Daniels, J. (2017, November 9). Chinese theft of sensitive US military technology still “huge problem.” Retrieved February 1, 2019, from https://www.cnbc.com/2017/11/08/chinese-theft-of-sensitive-us-military-technology-still-huge-problem.html
+
+Eiffel Tower replica looms over China’s Parisian-style “ghost town.” (2013, August 2). Retrieved February 1, 2019, from https://www.nbcnews.com/news/photo/eiffel-tower-replica-looms-over-chinas-parisian-style-ghost-town-flna6C10833193
+
+Clark, G. (2019, January 21). What Is Intellectual Property, and Does China Steal It? Retrieved February 1, 2019, from https://www.washingtonpost.com/business/what-isintellectual-property-anddoes-china-steal-it/2019/01/21/180c3a9e-1d64-11e9-a759-2b8541bbbe20_story.html?noredirect=on&utm_term=.36fdb24d5b66
+
+Hollings, A. (2018, September 19). Counterfeit Air Power: Meet China’s Copycat Air Force. Retrieved February 1, 2019, from https://www.popularmechanics.com/military/aviation/g23303922/china-copycat-air-force/
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE5MzIzMTY5NTNdfQ==
+-->
