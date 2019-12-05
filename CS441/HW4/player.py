@@ -20,9 +20,10 @@
 #   - Add option to gracefully exit the game
 #   - Fix handling end of game.
 #   - Implement better evaluator (extra)
+import copy
 
 import gthclient
-# import numpy as np
+import random
 import sys
 #import pydevd_pycharm
 #if sys.argv[5] == "debug":
@@ -37,28 +38,20 @@ def main():
 
 #    me = "black"
     me = sys.argv[1]
-    print("me = ", me)
+    print("me = ", me) # DEBUG
     ip = sys.argv[2]
-    print("ip = ", ip)
-    servernum = sys.argv[3]
-    print("servernum = ", servernum)
-    depth = sys.argv[4]
-    print("depth = ", depth)
+    print("ip = ", ip) # DEBUG
+    servernum = int(sys.argv[3])
+    print("servernum = ", servernum) # DEBUG
+    depth = int(sys.argv[4])
+    print("depth = ", depth) # DEBUG
 #    if len(sys.argv) > 5 and sys.argv[5] == "debug":
 #        pydevd_pycharm.settrace('10.0.0.12', ort=12345, stdoutToServer=True, stderrToServer=True)
 #    client = gthclient.GthClient(me, "localhost", 0)
-    client = gthclient.GthClient(me, ip, int(servernum))
+    client = gthclient.GthClient(me, ip, servernum)
     opp = gthclient.opponent(me)
 #    client.make_move("pass")
 #    client.make_move("a1")
-
-#    board = []
-#    board = np.zeros((5, 5))
-#    print(board)
-
-#    grid = []
-#    grid = np.zeros((2, 25))
-#    print(grid)
 
     # Source: gthrandom.py from gothello-libclient-python3
 #    grid = {"white": set(), "black": set()}
@@ -73,14 +66,15 @@ def main():
 #        print("oppscore = ", myscore) # DEBUG
         curscore = score(me, opp)
         print("curscore = ", curscore) # DEBUG
-#        print(value(grid))
+#        print(value(grid)) # DEBUG
 
         if side == me :
-            userin = input("Your move: ")
-            move = userin
-            print("My move: ", move)
-            minimax(grid, depth, side)
+#            userin = input("Your move: ")
+#            move = userin
+#            minimax(grid, depth, True)
+            val, move = minimax(grid, depth, True)
 #            move = "pass"
+            print("My move: ", move)
             try:
                 client.make_move(move)
                 grid[me].add(move)
@@ -95,6 +89,7 @@ def main():
             print("Opponents move: ", move)
             if cont and move == "pass":
                 print("me: pass to end game")
+                minimax(grid, depth, False)
                 client.make_move("pass")
                 break
             else:
@@ -105,26 +100,85 @@ def main():
 
         side = gthclient.opponent(side)
 
+# Algorithm source: https://en.wikipedia.org/wiki/Minimax
 # function minimax(node, depth, maximizingPlayer) is
 def minimax(node, depth, maxPlayer):
-    print("\nminimax()") # DEBUG
-    print("depth = ", depth) # DEBUG
-    print("maxPlayer = ", maxPlayer) # DEBUG
+#    print("\nminimax()") # DEBUG
+#    print("depth = ", depth) # DEBUG
+#    print("maxPlayer = ", maxPlayer) # DEBUG
 #    print() # DEBUG
     # if depth = 0 or node is a terminal node then
+    pos = 0
+    move = random.choice(list(board))
     if depth == 0:
         # return the heuristic value of node
-        return value(node)
+#        return value(node)
+        val = value(node)
+#        print("val = ", val) # DEBUG
+#        return val
+        return val[0] # NOT ALWAYS 0!!!
     # if maximizingPlayer then
+    if maxPlayer:
         # value := −∞
+        val = float("-inf")
+#        tgrid = grid
+#        tgrid = copy.deepcopy(grid)
+#        val = 0
         # for each child of node do
-            # value := max(value, minimax(child, depth − 1, FALSE))
+        for digit in letter_range('1'):
+            #        print("digit = ", digit) # DEBUG
+            for letter in letter_range('a'):
+#                print("letter = ", letter) # DEBUG
+#                pos = letter + digit
+                pos = letter + str((6 - int(digit)))  # Hacky fix
+                tgrid = copy.deepcopy(grid)
+                tval = 0
+                if pos not in tgrid["black"] and pos not in tgrid["white"]:
+#                    print("not in")
+                    child = tgrid
+                    child["black"].add(pos) # Not always black!!!
+                    # value := max(value, minimax(child, depth − 1, FALSE))
+#                    val = max(val, minimax(child, depth - 1, False))
+#                    tval, gmove = minimax(child, depth - 1, False)
+                    tval = minimax(child, depth - 1, False)
+                    if val < tval:
+                        val = tval
+                        move = pos
+#                    print("val = ", val)
+#                    val[0] = max(val[0], minimax(child, depth - 1, True))  # Not always 0!!!
         # return value
+        return val, move
     # else (* minimizing player *)
+    else:
         # value := +∞
+        val = float("inf")
         # for each child of node do
-            # value := min(value, minimax(child, depth − 1, TRUE))
+#        tgrid = grid
+#        tgrid = copy.deepcopy(grid)
+#        val = 0
+        for digit in letter_range('1'):
+#        print("digit = ", digit) # DEBUG
+            for letter in letter_range('a'):
+#                print("letter = ", letter) # DEBUG
+#                pos = letter + digit
+                pos = letter + str((6 - int(digit)))  # Hacky fix
+                tgrid = copy.deepcopy(grid)
+                tval = 0
+                if pos not in tgrid["black"] and pos not in tgrid["white"]:
+#                    print("not in")
+                    child = tgrid
+#                    child.add(pos)
+                    child["white"].add(pos) # Not always white!!!
+                    # value := min(value, minimax(child, depth − 1, TRUE))
+#                    val = max(val, minimax(child, depth - 1, True))
+#                    val = max(val[0], minimax(child, depth - 1, True))  # Not always 0!!!
+#                    tval = minimax(child, depth - 1, False)
+                    tval, gmove = minimax(child, depth - 1, False)
+                    if val < tval:
+                        val = tval
+                        move = pos
         # return value
+        return val, move
 
 #def score(player):
 def score(me, opp):
@@ -134,8 +188,8 @@ def score(me, opp):
     return len(grid[me]), len(grid[opp])
 
 def value(state):
-    print("\nvalue()")
-    print(state)
+#    print("\nvalue()")
+#    print(state)
 #    return 0
     return len(grid["white"]), len(grid["black"])
 
