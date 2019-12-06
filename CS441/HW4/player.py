@@ -36,16 +36,6 @@ def letter_range(letter):
     for i in range(5):
         yield chr(ord(letter) + i)
 
-# Source: gthrandom.py from gothello-libclient-python3
-#board = {letter + digit
-#         for letter in letter_range('a')
-#         for digit in letter_range('1')}
-
-# Source: gthrandom.py from gothello-libclient-python3
-#grid = {"white": set(), "black": set()}
-#imove = set()
-
-#def show_position():
 def show_position(grid):
     for digit in letter_range('1'):
 #        print("digit = ", digit) # DEBUG
