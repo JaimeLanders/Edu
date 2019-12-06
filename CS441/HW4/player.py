@@ -86,12 +86,9 @@ def main():
     side = "black" # Black goes first
     while True:
         print("-----")
-#        show_position()
         show_position(grid)
-#        curscore = score(me, opp)
         curscore = score(grid, me, opp)
         print("curscore = ", curscore) # DEBUG
-#        if(len(grid) > 0):
         cval = value(grid)[me] # Bug: NOT ALWAYS 0!!!
         print("cval = ", cval)
         if side == me :
@@ -123,7 +120,6 @@ def main():
                     break
                 board.remove(move)
                 grid[opp].add(move)
-#                grid = captures(grid)
                 nstate = captures(grid)
                 print("nstate = ", nstate)
                 grid = nstate
@@ -132,7 +128,6 @@ def main():
 
 # Algorithm source: https://en.wikipedia.org/wiki/Minimax
 # function minimax(node, depth, maximizingPlayer) is
-#def minimax(node, depth, maxPlayer, cval, me):
 def minimax(grid, node, depth, maxPlayer, cval, me, imove):
 #    print("\nminimax()") # DEBUG
 #    print("depth = ", depth) # DEBUG
@@ -165,7 +160,6 @@ def minimax(grid, node, depth, maxPlayer, cval, me, imove):
                     child[me].add(pos) # Bug: Not always me?
 #                    child = captures(child)
                     # value := max(value, minimax(child, depth − 1, FALSE))
-#                    tval = minimax(child, depth - 1, False, cval, me)
                     tval = minimax(grid, child, depth - 1, False, cval, me, imove)
                     if val < tval:
                         if tval >= cval:
@@ -191,12 +185,10 @@ def minimax(grid, node, depth, maxPlayer, cval, me, imove):
                 tgrid = copy.deepcopy(grid)
                 tval = 0
                 if pos not in tgrid["black"] and pos not in tgrid["white"] and pos not in imove:
-    #                    print("not in")
                     child = tgrid
                     child["white"].add(pos) # Bug: Not always white?
 #                    child = captures(child)
                     # value := min(value, minimax(child, depth − 1, TRUE))
-#                    tval, gmove = minimax(child, depth - 1, False, cval, me)
                     tval, gmove = minimax(grid, child, depth - 1, False, cval, me, imove)
                     if val < tval and tval >= cval:
                         val = tval
@@ -231,9 +223,18 @@ def captures(state):
         for digit in letter_range('1'):
 #            print("digit = ", digit) # DEBUG
             pos = letter + digit
-            if pos in state["white"] and pos not in visited:
-                visited.add(pos)
+            if pos in state["white"]:
                 gcolor = "white"
+                ccolor = "black"
+            elif pos in state["black"]:
+                gcolor = "black"
+                ccolor = "white"
+
+            if pos not in visited:
+                if pos not in group:
+                    group.append(pos)
+
+                visited.add(pos)
                 group = getneighbors(state, pos, gcolor)
 #                print("white group = ", group)
                 capneeded = capneed(group, state, gcolor)
@@ -242,37 +243,14 @@ def captures(state):
                 captured = True
 
                 for i in capneeded:
-                    if i not in state["black"]:
-#                        return state
+                    if i not in state[ccolor] or len(state[ccolor]) < len(capneeded):
                         captured = False
                         break
 
                 if captured:
                     for i in group:
-                        nstate["black"].add(i)
-                        nstate["white"].remove(i)
-
-            elif pos in state["black"] and pos not in visited:
-                if pos not in group:
-                    group.append(pos)
-                visited.add(pos)
-                gcolor = "black"
-                group = getneighbors(state, pos, gcolor)
-#                print("black group = ", group)
-                capneeded = capneed(group, state, gcolor)
-#                print("capneeded = ", capneeded)
-
-                captured = True
-
-                for i in capneeded:
-                    if i not in state["white"] or len(state["white"]) < len(capneeded):
-                        captured = False
-                        break
-
-                if captured:
-                    for i in group:
-                        nstate["white"].add(i)
-                        nstate["black"].remove(i)
+                        nstate[ccolor].add(i)
+                        nstate[gcolor].remove(i)
 
     return nstate
 
@@ -282,7 +260,6 @@ def getneighbors(state, pos, side):
 #    print("pos = ", pos)
 #    print("side = ", side)
 
-#    group = set()
     group = list()
     if pos not in group:
         group.append(pos)
