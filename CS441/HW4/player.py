@@ -17,10 +17,10 @@
 #   - Implement depth limited minimax player
 #       - Implement value (heuristic) function X
 #       - Fix not working on depth > 1
-#   - Fix making illegal moves that would lower score
-#       - Implement captures
-#   - Add option to gracefully exit the game
+#   - Fix making illegal moves that would lower score X
+#       - Implement captures X
 #   - Fix handling end of game.
+#   - Add option to gracefully exit the game
 #   - Implement better evaluator (extra)
 import copy
 
@@ -101,12 +101,15 @@ def main():
                 if move != "pass":
                     grid[me].add(move)
                     board.remove(move)
+                    nstate = captures(grid)
+                    print("nstate = ", nstate)
+                    grid = nstate
+
             except gthclient.MoveError as e:
                 print(e)
                 if e.cause == e.ILLEGAL:
                     print("You made illegal move, passing")
                     client.make_move("pass")
-#                    return # Temp end game
         else:
             cont, move = cont, move = client.get_move()
             print("Opponents move: ", move)
@@ -138,24 +141,22 @@ def minimax(grid, node, depth, maxPlayer, cval, me, imove):
     move = "pass"
     if depth == 0:
         # return the heuristic value of node
-#        return value(node)
         val = value(node)
 #        print("val = ", val) # DEBUG
-#        return val
         return val[me]  # Bug: Not Always me?
     # if maximizingPlayer then
     if maxPlayer:
         # value := −∞
-        val = float("-inf")
+        val = -26
     # else (* minimizing player *)
     else:
         # value := +∞
-        val = float("inf")
+        val = 26
     # for each child of node do
     for digit in letter_range('1'):
 #        print("digit = ", digit) # DEBUG
         for letter in letter_range('a'):
-#                print("letter = ", letter) # DEBUG
+#            print("letter = ", letter) # DEBUG
             pos = letter + digit
             tgrid = copy.deepcopy(grid)
             tval = 0
@@ -164,17 +165,14 @@ def minimax(grid, node, depth, maxPlayer, cval, me, imove):
                 child[me].add(pos) # Bug: Not always me?
                 child = captures(child)
                 # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
-                tval = minimax(grid, child, depth - 1, False, cval, me, imove)
-                # value := min(value, minimax(child, depth − 1, TRUE)) if not maxPlayer
-                tval = minimax(grid, child, depth - 1, True, cval, me, imove)
-#                    tval = minimax(grid, child, depth - 1, not maxPlayer, cval, me, imove)
+                tval = minimax(grid, child, depth - 1, not maxPlayer, cval, me, imove)
                 if val < tval:
-                    if tval >= cval:
+                    if tval > cval:
                         val = tval
                         print("val = ", val) # DEBUG
                         move = pos
                         print("move = ", move) # DEBUG
-                    else: # Bug: tval never < cval -> needs captures
+                    elif tval <= cval or len(grid) >= 24:
                         print("imove pos = ", pos)
                         imove.add(pos)
     # return value
@@ -197,46 +195,54 @@ def captures(state):
 #    print("captures()")
 #    print("state = ", state)
     nstate = copy.deepcopy(state)
-    group = list()
     visited = set()
     for letter in letter_range('a'):
 #        print("letter = ", letter) # DEBUG
         for digit in letter_range('1'):
 #            print("digit = ", digit) # DEBUG
+            group = list()
             pos = letter + digit
+#            print("pos = ", pos)
             if pos in state["white"]:
                 gcolor = "white"
                 ccolor = "black"
             elif pos in state["black"]:
                 gcolor = "black"
                 ccolor = "white"
-            else:
-                return state
+            if pos in state["white"] or pos in state["black"]:
+#                print("gcolor = ", gcolor)
+    #            print("ccolor = ", ccolor)
+                if pos not in visited:
+                    if pos not in group:
+                        group.append(pos)
+                        group.sort()
 
-            if pos not in visited:
-                if pos not in group:
-                    group.append(pos)
+                    visited.add(pos)
+                    group = getneighbors(state, pos, gcolor) # Getting non-neighbors
                     group.sort()
+                    print("group = ", group)
+                    capneeded = capneed(group, state, gcolor)
+                    print("capneeded = ", capneeded)
 
-                visited.add(pos)
-                group = getneighbors(state, pos, gcolor)
-                group.sort()
-#                print("white group = ", group)
-                capneeded = capneed(group, state, gcolor)
-#                print("capneeded = ", capneeded)
-
-                captured = True
-
-                for i in capneeded:
-                    if i not in state[ccolor]:
-                        captured = False
-                        break
-
-                if captured:
                     for i in group:
-                        nstate[ccolor].add(i)
-                        if i in nstate[gcolor]:
-                            nstate[gcolor].remove(i)
+                        visited.add(i)
+
+                    captured = True
+
+                    for i in capneeded:
+                        if i not in state[ccolor]:
+                            captured = False
+                            break
+
+                    if captured:
+                        print("---CAPTURE!!!---")
+                        print("gcolor = ", gcolor)
+                        print("ccolor = ", ccolor)
+                        for i in group:
+                            nstate[ccolor].add(i)
+                            if i in nstate[gcolor]:
+                                nstate[gcolor].remove(i)
+                        print("nstate = ", nstate)
     return nstate
 
 def getneighbors(state, pos, side):
@@ -254,11 +260,8 @@ def getneighbors(state, pos, side):
 #            print("digit = ", digit)  # DEBUG
             pos = letter + digit
             if pos in state[side]:
-                if pos not in group:
+                if pos not in group and checkneigbors(pos, group):
                     group.append(pos)
-            else:
-                break
-
     return group
 
 def capneed(group, state, side):
@@ -276,7 +279,7 @@ def capneed(group, state, side):
 
     capneeded = list()
 
-    for letter in letter_range(startpos[0]):
+    for letter in letter_range('a'):
 #        print("digit = ", digit) # DEBUG
         for digit in letter_range('1'):
 #            print("letter = ", letter) # DEBUG
