@@ -16,9 +16,13 @@
 #   - Handle arguments X
 #   - Implement depth limited minimax player
 #       - Implement value (heuristic) function X
-#       - Fix not working on depth > 1
-#   - Fix making illegal moves that would lower score X
 #       - Implement captures X
+#       - Fix making illegal moves that would lower score
+#           - Fix for depth = 1 X
+#           - Fix for depth = 2 X
+#           - Fix for depth = 3
+#       - Fix not working on depth > 1
+#       - Fix losing every game
 #   - Fix handling end of game.
 #   - Add option to gracefully exit the game
 #   - Implement better evaluator (extra)
@@ -132,8 +136,8 @@ def main():
 # Algorithm source: https://en.wikipedia.org/wiki/Minimax
 # function minimax(node, depth, maximizingPlayer) is
 def minimax(grid, node, depth, maxPlayer, cval, me, imove):
-#    print("\nminimax()") # DEBUG
-#    print("depth = ", depth) # DEBUG
+    print("\nminimax()") # DEBUG
+    print("depth = ", depth) # DEBUG
 #    print("maxPlayer = ", maxPlayer) # DEBUG
 #    print() # DEBUG
     # if depth = 0 or node is a terminal node then
@@ -143,7 +147,7 @@ def minimax(grid, node, depth, maxPlayer, cval, me, imove):
         # return the heuristic value of node
         val = value(node)
 #        print("val = ", val) # DEBUG
-        return val[me]  # Bug: Not Always me?
+        return val[me], "pass"  # Bug: Not Always me?
     # if maximizingPlayer then
     if maxPlayer:
         # value := −∞
@@ -158,21 +162,27 @@ def minimax(grid, node, depth, maxPlayer, cval, me, imove):
         for letter in letter_range('a'):
 #            print("letter = ", letter) # DEBUG
             pos = letter + digit
-            tgrid = copy.deepcopy(grid)
+#            tgrid = copy.deepcopy(grid)
+            tgrid = copy.deepcopy(node)
             tval = 0
             if pos not in tgrid["black"] and pos not in tgrid["white"] and pos not in imove:
                 child = copy.deepcopy(tgrid)
                 child[me].add(pos) # Bug: Not always me?
                 child = captures(child)
+                if value(child)[me] <= cval:
+                    print("illegal move detected")
+                    imove.add(pos)
+                    break
                 # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
-                tval = minimax(grid, child, depth - 1, not maxPlayer, cval, me, imove)
-                if val < tval:
+                tval, tmove = minimax(grid, child, depth - 1, not maxPlayer, cval, me, imove)
+                if tval > val:
                     if tval > cval:
                         val = tval
                         print("val = ", val) # DEBUG
                         move = pos
                         print("move = ", move) # DEBUG
                     elif tval <= cval or len(grid) >= 24:
+                        print("illegal move detected")
                         print("imove pos = ", pos)
                         imove.add(pos)
     # return value
@@ -234,15 +244,22 @@ def captures(state):
                             captured = False
                             break
 
-                    if captured:
+#                    if captured:
+                    if captured and len(group) < 24:
+#                    if captured and len(state) < 24:
                         print("---CAPTURE!!!---")
                         print("gcolor = ", gcolor)
                         print("ccolor = ", ccolor)
+                        print("pos = ", pos)
                         for i in group:
                             nstate[ccolor].add(i)
                             if i in nstate[gcolor]:
                                 nstate[gcolor].remove(i)
                         print("nstate = ", nstate)
+                        return nstate
+#                        break
+#                    elif len(group) >= 24:
+#                        return nstate
     return nstate
 
 def getneighbors(state, pos, side):
