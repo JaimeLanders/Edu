@@ -187,38 +187,25 @@ def minimax(node, depth, maxPlayer, me, opp, imove, mdepth):
 #    move = cmove
 
     # if depth = 0 or node is a terminal node then
-#    if depth == 0 or len(grid) > 23: # Bug
     if depth == 0 or len(imove) > 23:  # Bug: not sure if correct terminal node
         # return the heuristic value of node
         val = value(node)
 #        print("val = ", val) # DEBUG
-#        return val[me], "pass"  # Bug: Not Always me?
-#        return val, "pass"  # Bug: Not Always me?
         return val, move
-# if maximizingPlayer then
+    # if maximizingPlayer then
     if maxPlayer:
         # value := −∞
-#        ival = -26
         ival = {"black":-26, "white": 0}
     # else (* minimizing player *)
     else:
         # value := +∞
-#        ival = 26
         ival = {"black": 0, "white": 26}
-#        ival = {"black": 26, "white": 0}
     # for each child of node do
     for letter in letter_range('a'):
         for digit in letter_range('1'):
             pos = letter + digit
-#            if pos in imove:
-#                break
-#            tgrid = copy.deepcopy(node)
             child = copy.deepcopy(node)
-#            tval = 0
-#            if pos not in tgrid["black"] and pos not in tgrid["white"] and pos not in imove:
             if pos not in child["black"] and pos not in child["white"] and pos not in imove:
-#            if pos not in tgrid["black"] and pos not in tgrid["white"]:
-#                child = copy.deepcopy(tgrid)
 
                 if maxPlayer:
                     child[me].add(pos) # Bug: Not always me?
@@ -229,7 +216,6 @@ def minimax(node, depth, maxPlayer, me, opp, imove, mdepth):
                 if maxPlayer:
                     tgroup = list()
                     sgroup = list()
-    #                tgroup.append(pos) # Only checks position by itself, not group
                     sgroup.append(pos) # Only checks position by itself, not group
                     scap = capneed(sgroup, child, opp)
                     if iscaptured(child, opp, scap):
@@ -247,36 +233,20 @@ def minimax(node, depth, maxPlayer, me, opp, imove, mdepth):
                         break
 
                 child = docaptures(child)
-#                if value(child)[me] <= cval:
-#                if value(child)[me] <= cval[me]:
-#                    print("illegal move detected")
-#                    imove.add(pos)
-#                    break
                 tval, tmove = minimax(child, depth - 1, not maxPlayer, me, opp, imove, mdepth)
 
                 #if maxPlayer
                 # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
                 if(maxPlayer):
-#                    max(tval[me], ival[me])
-#                    if tval > ival:
                     if tval[me] > ival[me]:
-#                        if tval > cval:
-#                        if tval[me] > cval[me]:
                         ival = tval
                         print("ival = ", ival) # DEBUG
                         move = pos
-#                        move = tmove
                         print("move = ", move) # DEBUG
-#                        elif tval <= cval or len(grid) >= 24:
-#                        elif tval[me] <= cval[me] or len(grid) >= 24:
-#                            print("illegal move detected")
-#                            print("imove pos = ", pos)
-#                            imove.add(pos)
                 # if minPlayer
                 # value := min(value, minimax(child, depth − 1, TRUE))
                 else:
                     min(tval[opp], ival[opp])
-#                    min(tval[minplayer], ival[minplayer])
 
     # return value
     return ival, move
@@ -325,13 +295,6 @@ def docaptures(state):
 
                     visited.add(pos)
 
-#                    tgroup = list()
-#                    tgroup.append(pos)
-#                    tcap = capneeded(tgroup, state, gcolor)
-#                    if iscaptured(state, ccolor, tcap):
-#                        imove.add(pos)
-#                        break
-
                     group = getneighbors(state, pos, gcolor)
                     group.sort()
                     print("group = ", group)
@@ -342,7 +305,6 @@ def docaptures(state):
                         visited.add(i)
 
                     if iscaptured(state, ccolor, capneeded): #and len(group) < 24:
-    #                    if captured and len(state) < 24:
                         print("---CAPTURE!!!---")
                         print("gcolor = ", gcolor)
                         print("ccolor = ", ccolor)
@@ -353,9 +315,6 @@ def docaptures(state):
                                 nstate[gcolor].remove(i)
                         print("nstate = ", nstate)
                         return nstate
-#                        break
-#                    elif len(group) >= 24:
-#                        return nstate
     return nstate
 
 
