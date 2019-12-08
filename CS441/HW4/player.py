@@ -17,12 +17,19 @@
 #   - Implement depth limited minimax player
 #       - Implement value (heuristic) function X
 #       - Implement captures X
-#       - Fix making illegal moves that would lower score
+#           - Fix captures not updating when depth = 3
+#       - Fix making illegal moves
 #           - Fix for depth = 1 X
 #           - Fix for depth = 2 X
-#           - Fix for depth = 3
+#           - Fix for depth = 3 X
+#           - Fix considering illgal move a gain
 #       - Fix not working on depth > 1
 #       - Fix losing every game
+#   - Increase efficiency
+#       - Time = ~48 seconds @ depth 3
+#       - Time = ~7.5 seconds @ depth 1
+#       - Only traverse unvisited nodes
+#       - Implement AB Pruning
 #   - Fix handling end of game.
 #   - Add option to gracefully exit the game
 #   - Implement better evaluator (extra)
@@ -72,7 +79,7 @@ def main():
     # Source: gthrandom.py from gothello-libclient-python3
     grid = {"white": set(), "black": set()} # Global?
 
-    imove = set() # Tracks illegal moves to avoid repete calculations
+    imove = set() # Tracks illegal moves to avoid repeate calculations
 
     me = sys.argv[1]
     print("me = ", me) # DEBUG
@@ -89,23 +96,31 @@ def main():
 
     side = "black" # Black goes first
     while True:
-        print("-----")
+        print("\n-----\n")
         show_position(grid)
         curscore = score(grid, me, opp)
         print("curscore = ", curscore) # DEBUG
         cval = value(grid)[me] # Bug: NOT ALWAYS 0!!!
+#        cval = value(grid) # Bug: NOT ALWAYS 0!!!
         print("cval = ", cval)
         if side == me :
 #            userin = input("Your move: ")
 #            move = userin
             val, move = minimax(grid, grid, depth, True, cval, me, imove)
             print("My move: ", move)
+#            if val < cval:
+#                move = "pass"
+            if move != "pass":
+                imove.add(move)
+            print("imove = ", imove)
+
+#            board.remove(move)
             try:
                 client.make_move(move)
                 if move != "pass":
                     grid[me].add(move)
-                    board.remove(move)
-                    nstate = captures(grid)
+#                    board.remove(move)
+                    nstate = docaptures(grid)
                     print("nstate = ", nstate)
                     grid = nstate
 
@@ -113,9 +128,14 @@ def main():
                 print(e)
                 if e.cause == e.ILLEGAL:
                     print("You made illegal move, passing")
-                    client.make_move("pass")
+#                    board.remove(move)
+#                    client.make_move("pass")
+                return #temp
         else:
             cont, move = cont, move = client.get_move()
+            if move != "pass":
+                imove.add(move)
+            print("imove = ", imove)
             print("Opponents move: ", move)
             if cont and move == "pass":
                 print("me: pass to end game")
@@ -125,9 +145,9 @@ def main():
             else:
                 if not cont:
                     break
-                board.remove(move)
+#                board.remove(move)
                 grid[opp].add(move)
-                nstate = captures(grid)
+                nstate = docaptures(grid)
                 print("nstate = ", nstate)
                 grid = nstate
 
@@ -135,58 +155,109 @@ def main():
 
 # Algorithm source: https://en.wikipedia.org/wiki/Minimax
 # function minimax(node, depth, maximizingPlayer) is
+    # if depth = 0 or node is a terminal node then
+        # return the heuristic value of node
+    # if maximizingPlayer then
+        # value := −∞
+        # for each child of node do
+            # value := max(value, minimax(child, depth − 1, FALSE))
+        # return value
+    # else (* minimizing player *)
+        # value := +∞
+        # for each child of node do
+            # value := min(value, minimax(child, depth − 1, TRUE))
+        # return value
+
+# function minimax(node, depth, maximizingPlayer) is
 def minimax(grid, node, depth, maxPlayer, cval, me, imove):
     print("\nminimax()") # DEBUG
+
     print("depth = ", depth) # DEBUG
 #    print("maxPlayer = ", maxPlayer) # DEBUG
 #    print() # DEBUG
-    # if depth = 0 or node is a terminal node then
     pos = 0
     move = "pass"
-    if depth == 0:
+    if me == "black":
+        opp = "white"
+    else:
+        opp = "black"
+
+    # if depth = 0 or node is a terminal node then
+#    if depth == 0 or len(grid) > 23: # Bug
+    if depth == 0 or len(imove) > 23:  # Bug
         # return the heuristic value of node
         val = value(node)
 #        print("val = ", val) # DEBUG
         return val[me], "pass"  # Bug: Not Always me?
+#        return val, "pass"  # Bug: Not Always me?
     # if maximizingPlayer then
     if maxPlayer:
         # value := −∞
-        val = -26
+        ival = -26
+#        ival = -26, 0
     # else (* minimizing player *)
     else:
         # value := +∞
-        val = 26
+        ival = 26
+#        ival = 26, 0
     # for each child of node do
-    for digit in letter_range('1'):
-#        print("digit = ", digit) # DEBUG
-        for letter in letter_range('a'):
-#            print("letter = ", letter) # DEBUG
+#    for digit in letter_range('1'):
+    for letter in letter_range('a'):
+        #        print("digit = ", digit) # DEBUG
+#        for letter in letter_range('a'):
+        for digit in letter_range('1'):
+    #            print("letter = ", letter) # DEBUG
             pos = letter + digit
+#            if pos in imove:
+#                break
 #            tgrid = copy.deepcopy(grid)
             tgrid = copy.deepcopy(node)
-            tval = 0
+#            tval = 0
             if pos not in tgrid["black"] and pos not in tgrid["white"] and pos not in imove:
+#            if pos not in tgrid["black"] and pos not in tgrid["white"]:
                 child = copy.deepcopy(tgrid)
                 child[me].add(pos) # Bug: Not always me?
-                child = captures(child)
-                if value(child)[me] <= cval:
-                    print("illegal move detected")
+
+                # Check if illegal move before doing captures
+                tgroup = list()
+                tgroup.append(pos)
+                tcap = capneed(tgroup, child, opp)
+                if iscaptured(child, opp, tcap):
                     imove.add(pos)
                     break
+
+                child = docaptures(child)
+#                if value(child)[me] <= cval:
+#                if value(child)[me] <= cval[me]:
+#                    print("illegal move detected")
+#                    imove.add(pos)
+#                    break
                 # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
                 tval, tmove = minimax(grid, child, depth - 1, not maxPlayer, cval, me, imove)
-                if tval > val:
-                    if tval > cval:
-                        val = tval
-                        print("val = ", val) # DEBUG
-                        move = pos
-                        print("move = ", move) # DEBUG
-                    elif tval <= cval or len(grid) >= 24:
-                        print("illegal move detected")
-                        print("imove pos = ", pos)
-                        imove.add(pos)
+
+                #if maxPlayer
+                if(maxPlayer):
+                    if tval > ival:
+#                    if tval[me] > ival[me]:
+                        if tval > cval:
+#                        if tval[me] > cval[me]:
+                            ival = tval
+                            print("ival = ", ival) # DEBUG
+                            move = pos
+                            print("move = ", move) # DEBUG
+#                        elif tval <= cval or len(grid) >= 24:
+#                        elif tval[me] <= cval[me] or len(grid) >= 24:
+#                            print("illegal move detected")
+#                            print("imove pos = ", pos)
+#                            imove.add(pos)
+                # if minPlayer
+                # value := min(value, minimax(child, depth − 1, TRUE))
+                else:
+                    min(tval, ival)
+#                    min(tval[minplayer], ival[minplayer])
+
     # return value
-    return val, move
+    return ival, move
 
 #def score(me, opp): # Needed since I have  value()?
 def score(grid, me, opp): # Needed since I have  value()?
@@ -201,8 +272,8 @@ def value(state):
 
 # When a stone is placed in such a way that stones of the player on move plus the outer wall completely enclose, with
 # no gaps, a group of the opponent's stones horizontally and vertically, the opponent's group is captured.
-def captures(state):
-#    print("captures()")
+def docaptures(state):
+#    print("docaptures()")
 #    print("state = ", state)
     nstate = copy.deepcopy(state)
     visited = set()
@@ -221,14 +292,22 @@ def captures(state):
                 ccolor = "white"
             if pos in state["white"] or pos in state["black"]:
 #                print("gcolor = ", gcolor)
-    #            print("ccolor = ", ccolor)
+#                print("ccolor = ", ccolor)
                 if pos not in visited:
                     if pos not in group:
                         group.append(pos)
                         group.sort()
 
                     visited.add(pos)
-                    group = getneighbors(state, pos, gcolor) # Getting non-neighbors
+
+#                    tgroup = list()
+#                    tgroup.append(pos)
+#                    tcap = capneeded(tgroup, state, gcolor)
+#                    if iscaptured(state, ccolor, tcap):
+#                        imove.add(pos)
+#                        break
+
+                    group = getneighbors(state, pos, gcolor)
                     group.sort()
                     print("group = ", group)
                     capneeded = capneed(group, state, gcolor)
@@ -237,16 +316,8 @@ def captures(state):
                     for i in group:
                         visited.add(i)
 
-                    captured = True
-
-                    for i in capneeded:
-                        if i not in state[ccolor]:
-                            captured = False
-                            break
-
-#                    if captured:
-                    if captured and len(group) < 24:
-#                    if captured and len(state) < 24:
+                    if iscaptured(state, ccolor, capneeded): #and len(group) < 24:
+    #                    if captured and len(state) < 24:
                         print("---CAPTURE!!!---")
                         print("gcolor = ", gcolor)
                         print("ccolor = ", ccolor)
@@ -261,6 +332,21 @@ def captures(state):
 #                    elif len(group) >= 24:
 #                        return nstate
     return nstate
+
+def iscaptured(state, color, capneed):
+    print("iscaptured()")
+#    print("state = ", state)
+#    print("color = ", color)
+#    print("capneed = ", capneed)
+
+    captured = True
+
+    for i in capneed:
+        if i not in state[color]:
+            captured = False
+
+    return captured
+
 
 def getneighbors(state, pos, side):
 #    print("getneighbors()")
