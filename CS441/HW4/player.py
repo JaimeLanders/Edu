@@ -22,9 +22,13 @@
 #           - Fix for depth = 1 X
 #           - Fix for depth = 2 X
 #           - Fix for depth = 3 X
-#           - Fix considering illgal move a gain
-#       - Fix not working on depth > 1
+#           - Fix considering illegal move a gain X
+#       - Fix not working on depth > 1 X
 #       - Fix losing every game
+#           - Fix never making move when depth 3 white side X
+#           - Fix not getting neigbors in collumns before pos in getneighbors X
+#           - Fix adding valid moves to imove X
+#           - Fix making dumb moves
 #   - Increase efficiency
 #       - Time = ~48 seconds @ depth 3
 #       - Time = ~7.5 seconds @ depth 1
@@ -43,9 +47,12 @@ import sys
 #    pydevd_pycharm.settrace('10.0.0.12', port=12345, stdoutToServer=True, stderrToServer=True)
 
 # Source: gthrandom.py from gothello-libclient-python3
+
+
 def letter_range(letter):
     for i in range(5):
         yield chr(ord(letter) + i)
+
 
 def show_position(grid):
     for digit in letter_range('1'):
@@ -63,6 +70,7 @@ def show_position(grid):
                 piece = "."
             print(piece, end="")
         print()
+
 
 # Source: gthrandom.py from gothello-libclient-python3
 def main():
@@ -83,11 +91,16 @@ def main():
 
     me = sys.argv[1]
     print("me = ", me) # DEBUG
+    if me == "black":
+        opp = "white"
+    else:
+        opp = "black"
     ip = sys.argv[2]
     print("ip = ", ip) # DEBUG
     servernum = int(sys.argv[3])
     print("servernum = ", servernum) # DEBUG
     depth = int(sys.argv[4])
+    mdepth = depth
     print("depth = ", depth) # DEBUG
 #    if len(sys.argv) > 5 and sys.argv[5] == "debug":
 #        pydevd_pycharm.settrace('10.0.0.12', ort=12345, stdoutToServer=True, stderrToServer=True)
@@ -100,26 +113,21 @@ def main():
         show_position(grid)
         curscore = score(grid, me, opp)
         print("curscore = ", curscore) # DEBUG
-        cval = value(grid)[me] # Bug: NOT ALWAYS 0!!!
-#        cval = value(grid) # Bug: NOT ALWAYS 0!!!
+        cval = value(grid)
         print("cval = ", cval)
-        if side == me :
+        if side == me:
 #            userin = input("Your move: ")
 #            move = userin
-            val, move = minimax(grid, grid, depth, True, cval, me, imove)
+            val, move = minimax(grid, depth, True, me, opp, imove, mdepth)
             print("My move: ", move)
-#            if val < cval:
-#                move = "pass"
             if move != "pass":
                 imove.add(move)
             print("imove = ", imove)
-
 #            board.remove(move)
             try:
                 client.make_move(move)
                 if move != "pass":
                     grid[me].add(move)
-#                    board.remove(move)
                     nstate = docaptures(grid)
                     print("nstate = ", nstate)
                     grid = nstate
@@ -128,18 +136,16 @@ def main():
                 print(e)
                 if e.cause == e.ILLEGAL:
                     print("You made illegal move, passing")
-#                    board.remove(move)
 #                    client.make_move("pass")
-                return #temp
+                    return #temp
         else:
-            cont, move = cont, move = client.get_move()
+            cont, move = client.get_move()
+            print("Opponents move: ", move)
             if move != "pass":
                 imove.add(move)
             print("imove = ", imove)
-            print("Opponents move: ", move)
             if cont and move == "pass":
                 print("me: pass to end game")
-                minimax(grid, depth, False, cval, me, imove)
                 client.make_move("pass")
                 break
             else:
@@ -152,6 +158,7 @@ def main():
                 grid = nstate
 
         side = gthclient.opponent(side)
+
 
 # Algorithm source: https://en.wikipedia.org/wiki/Minimax
 # function minimax(node, depth, maximizingPlayer) is
@@ -167,9 +174,9 @@ def main():
         # for each child of node do
             # value := min(value, minimax(child, depth − 1, TRUE))
         # return value
-
 # function minimax(node, depth, maximizingPlayer) is
-def minimax(grid, node, depth, maxPlayer, cval, me, imove):
+def minimax(node, depth, maxPlayer, me, opp, imove, mdepth):
+
     print("\nminimax()") # DEBUG
 
     print("depth = ", depth) # DEBUG
@@ -177,54 +184,67 @@ def minimax(grid, node, depth, maxPlayer, cval, me, imove):
 #    print() # DEBUG
     pos = 0
     move = "pass"
-    if me == "black":
-        opp = "white"
-    else:
-        opp = "black"
+#    move = cmove
 
     # if depth = 0 or node is a terminal node then
 #    if depth == 0 or len(grid) > 23: # Bug
-    if depth == 0 or len(imove) > 23:  # Bug
+    if depth == 0 or len(imove) > 23:  # Bug: not sure if correct terminal node
         # return the heuristic value of node
         val = value(node)
 #        print("val = ", val) # DEBUG
-        return val[me], "pass"  # Bug: Not Always me?
+#        return val[me], "pass"  # Bug: Not Always me?
 #        return val, "pass"  # Bug: Not Always me?
-    # if maximizingPlayer then
+        return val, move
+# if maximizingPlayer then
     if maxPlayer:
         # value := −∞
-        ival = -26
-#        ival = -26, 0
+#        ival = -26
+        ival = {"black":-26, "white": 0}
     # else (* minimizing player *)
     else:
         # value := +∞
-        ival = 26
-#        ival = 26, 0
+#        ival = 26
+        ival = {"black": 0, "white": 26}
+#        ival = {"black": 26, "white": 0}
     # for each child of node do
-#    for digit in letter_range('1'):
     for letter in letter_range('a'):
-        #        print("digit = ", digit) # DEBUG
-#        for letter in letter_range('a'):
         for digit in letter_range('1'):
-    #            print("letter = ", letter) # DEBUG
             pos = letter + digit
 #            if pos in imove:
 #                break
-#            tgrid = copy.deepcopy(grid)
-            tgrid = copy.deepcopy(node)
+#            tgrid = copy.deepcopy(node)
+            child = copy.deepcopy(node)
 #            tval = 0
-            if pos not in tgrid["black"] and pos not in tgrid["white"] and pos not in imove:
+#            if pos not in tgrid["black"] and pos not in tgrid["white"] and pos not in imove:
+            if pos not in child["black"] and pos not in child["white"] and pos not in imove:
 #            if pos not in tgrid["black"] and pos not in tgrid["white"]:
-                child = copy.deepcopy(tgrid)
-                child[me].add(pos) # Bug: Not always me?
+#                child = copy.deepcopy(tgrid)
+
+                if maxPlayer:
+                    child[me].add(pos) # Bug: Not always me?
+                else:
+                    child[opp].add(pos)  # Bug: Not always me?
 
                 # Check if illegal move before doing captures
-                tgroup = list()
-                tgroup.append(pos)
-                tcap = capneed(tgroup, child, opp)
-                if iscaptured(child, opp, tcap):
-                    imove.add(pos)
-                    break
+                if maxPlayer:
+                    tgroup = list()
+                    sgroup = list()
+    #                tgroup.append(pos) # Only checks position by itself, not group
+                    sgroup.append(pos) # Only checks position by itself, not group
+                    scap = capneed(sgroup, child, opp)
+                    if iscaptured(child, opp, scap):
+                       if depth == mdepth:
+                            imove.add(pos)
+                       break
+
+                    tgroup = getneighbors(child, "a1", me) # Bug: Not returning all members of group
+                    print("tgroup = ", tgroup)
+                    tcap = capneed(tgroup, child, opp)
+                    print("tcap = ", tcap)
+                    if iscaptured(child, opp, tcap):
+                        if depth == mdepth:
+                            imove.add(pos)
+                        break
 
                 child = docaptures(child)
 #                if value(child)[me] <= cval:
@@ -232,19 +252,21 @@ def minimax(grid, node, depth, maxPlayer, cval, me, imove):
 #                    print("illegal move detected")
 #                    imove.add(pos)
 #                    break
-                # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
-                tval, tmove = minimax(grid, child, depth - 1, not maxPlayer, cval, me, imove)
+                tval, tmove = minimax(child, depth - 1, not maxPlayer, me, opp, imove, mdepth)
 
                 #if maxPlayer
+                # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
                 if(maxPlayer):
-                    if tval > ival:
-#                    if tval[me] > ival[me]:
-                        if tval > cval:
+#                    max(tval[me], ival[me])
+#                    if tval > ival:
+                    if tval[me] > ival[me]:
+#                        if tval > cval:
 #                        if tval[me] > cval[me]:
-                            ival = tval
-                            print("ival = ", ival) # DEBUG
-                            move = pos
-                            print("move = ", move) # DEBUG
+                        ival = tval
+                        print("ival = ", ival) # DEBUG
+                        move = pos
+#                        move = tmove
+                        print("move = ", move) # DEBUG
 #                        elif tval <= cval or len(grid) >= 24:
 #                        elif tval[me] <= cval[me] or len(grid) >= 24:
 #                            print("illegal move detected")
@@ -253,11 +275,12 @@ def minimax(grid, node, depth, maxPlayer, cval, me, imove):
                 # if minPlayer
                 # value := min(value, minimax(child, depth − 1, TRUE))
                 else:
-                    min(tval, ival)
+                    min(tval[opp], ival[opp])
 #                    min(tval[minplayer], ival[minplayer])
 
     # return value
     return ival, move
+
 
 #def score(me, opp): # Needed since I have  value()?
 def score(grid, me, opp): # Needed since I have  value()?
@@ -265,10 +288,12 @@ def score(grid, me, opp): # Needed since I have  value()?
 #    print(player)
     return len(grid[me]), len(grid[opp])
 
+
 def value(state):
 #    print("\nvalue()")
 #    print(state)
     return {"white": len(state["white"]), "black": len(state["black"])}
+
 
 # When a stone is placed in such a way that stones of the player on move plus the outer wall completely enclose, with
 # no gaps, a group of the opponent's stones horizontally and vertically, the opponent's group is captured.
@@ -333,8 +358,9 @@ def docaptures(state):
 #                        return nstate
     return nstate
 
+
 def iscaptured(state, color, capneed):
-    print("iscaptured()")
+#    print("iscaptured()")
 #    print("state = ", state)
 #    print("color = ", color)
 #    print("capneed = ", capneed)
@@ -357,7 +383,7 @@ def getneighbors(state, pos, side):
     group = list()
     if pos not in group:
         group.append(pos)
-    for letter in letter_range(pos[0]):
+    for letter in letter_range(pos[0]): # Bug: Not getting neighbors in collumns before pos
 #        print("letter = ", letter)  # DEBUG
         for digit in letter_range("1"):
 #            print("digit = ", digit)  # DEBUG
@@ -366,6 +392,7 @@ def getneighbors(state, pos, side):
                 if pos not in group and checkneigbors(pos, group):
                     group.append(pos)
     return group
+
 
 def capneed(group, state, side):
 #    print("capneed()")
@@ -395,6 +422,7 @@ def capneed(group, state, side):
 #                print("pos added")
 
     return capneeded
+
 
 def checkneigbors(pos, group):
 #    print("checkneighbors()")
