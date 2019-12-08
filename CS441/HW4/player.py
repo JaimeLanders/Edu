@@ -28,12 +28,13 @@
 #           - Fix never making move when depth 3 white side X
 #           - Fix not getting neigbors in collumns before pos in getneighbors X
 #           - Fix adding valid moves to imove X
+#           - Fix passing always when starting with random move when black
 #           - Fix making dumb moves
 #   - Increase efficiency
 #       - Time = ~48 seconds @ depth 3
 #       - Time = ~7.5 seconds @ depth 1
 #       - Only traverse unvisited nodes
-#       - Implement AB Pruning
+#       - Implement AB Pruning X
 #   - Fix handling end of game.
 #   - Add option to gracefully exit the game
 #   - Implement better evaluator (extra)
@@ -80,9 +81,15 @@ def main():
         print(sys.argv[i]) # DEBUG
 
     # Source: gthrandom.py from gothello-libclient-python3
-    board = {letter + digit
-             for letter in letter_range('a')
-             for digit in letter_range('1')}
+#    board = {letter + digit
+#             for letter in letter_range('a')
+#             for digit in letter_range('1')}
+    board = list()
+    for letter in letter_range("a"):
+        for digit in letter_range("1"):
+            pos = letter + digit
+            board.append(pos)
+    print("board = ", board)
 
     # Source: gthrandom.py from gothello-libclient-python3
     grid = {"white": set(), "black": set()} # Global?
@@ -118,10 +125,15 @@ def main():
         if side == me:
 #            userin = input("Your move: ")
 #            move = userin
-            val, move = minimax(grid, depth, True, me, opp, imove, mdepth)
+#            if len(board) == 25: # Open with random move if on the play (black)
+#                move = random.choice(list(board))
+#            else:
+            val, move = minimax(grid, depth, True, -26, 26, me, opp, imove, board, mdepth)
             print("My move: ", move)
             if move != "pass":
                 imove.add(move)
+                board.remove(move)
+                print("board = ", board)
             print("imove = ", imove)
 #            board.remove(move)
             try:
@@ -143,6 +155,8 @@ def main():
             print("Opponents move: ", move)
             if move != "pass":
                 imove.add(move)
+                board.remove(move)
+                print("board = ", board)
             print("imove = ", imove)
             if cont and move == "pass":
                 print("me: pass to end game")
@@ -160,22 +174,27 @@ def main():
         side = gthclient.opponent(side)
 
 
-# Algorithm source: https://en.wikipedia.org/wiki/Minimax
-# function minimax(node, depth, maximizingPlayer) is
+# Algorithm source: https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
+# function alphabeta(node, depth, α, β, maximizingPlayer) is
     # if depth = 0 or node is a terminal node then
         # return the heuristic value of node
     # if maximizingPlayer then
         # value := −∞
         # for each child of node do
-            # value := max(value, minimax(child, depth − 1, FALSE))
+            # value := max(value, alphabeta(child, depth − 1, α, β, FALSE))
+            # α := max(α, value)
+            # if α ≥ β then
+                # break (* β cut-off *)
         # return value
-    # else (* minimizing player *)
+    # else
         # value := +∞
         # for each child of node do
-            # value := min(value, minimax(child, depth − 1, TRUE))
+            # value := min(value, alphabeta(child, depth − 1, α, β, TRUE))
+            # β := min(β, value)
+            # if α ≥ β then
+                # break (* α cut-off *)
         # return value
-# function minimax(node, depth, maximizingPlayer) is
-def minimax(node, depth, maxPlayer, me, opp, imove, mdepth):
+def minimax(node, depth, alpha, beta, maxPlayer, me, opp, imove, board, mdepth):
 
     print("\nminimax()") # DEBUG
 
@@ -187,7 +206,7 @@ def minimax(node, depth, maxPlayer, me, opp, imove, mdepth):
 #    move = cmove
 
     # if depth = 0 or node is a terminal node then
-    if depth == 0 or len(imove) > 23:  # Bug: not sure if correct terminal node
+    if depth == 0 or len(board) <= 1:  # Bug: not sure if correct terminal node
         # return the heuristic value of node
         val = value(node)
 #        print("val = ", val) # DEBUG
@@ -201,53 +220,59 @@ def minimax(node, depth, maxPlayer, me, opp, imove, mdepth):
         # value := +∞
         ival = {"black": 0, "white": 26}
     # for each child of node do
-    for letter in letter_range('a'):
-        for digit in letter_range('1'):
-            pos = letter + digit
-            child = copy.deepcopy(node)
-            if pos not in child["black"] and pos not in child["white"] and pos not in imove:
+#    for letter in letter_range('a'):
+#        for digit in letter_range('1'):
+    for pos in board:
+#        pos = letter + digit
+        child = copy.deepcopy(node)
+        if pos not in child["black"] and pos not in child["white"] and pos not in imove:
 
-                if maxPlayer:
-                    child[me].add(pos) # Bug: Not always me?
-                else:
-                    child[opp].add(pos)  # Bug: Not always me?
+            if maxPlayer:
+                child[me].add(pos) # Bug: Not always me?
+            else:
+                child[opp].add(pos)  # Bug: Not always me?
 
-                # Check if illegal move before doing captures
-                if maxPlayer:
-                    tgroup = list()
-                    sgroup = list()
-                    sgroup.append(pos) # Only checks position by itself, not group
-                    scap = capneed(sgroup, child, opp)
-                    if iscaptured(child, opp, scap):
-                       if depth == mdepth:
-                            imove.add(pos)
-                       break
+            # Check if illegal move before doing captures
+            if maxPlayer:
+                tgroup = list()
+                sgroup = list()
+                sgroup.append(pos) # Only checks position by itself, not group
+                scap = capneed(sgroup, opp)
+                if iscaptured(child, opp, scap):
+                    if depth == mdepth:
+                        imove.add(pos)
+                    break
 
-                    tgroup = getneighbors(child, "a1", me) # Bug: Not returning all members of group
-                    print("tgroup = ", tgroup)
-                    tcap = capneed(tgroup, child, opp)
-                    print("tcap = ", tcap)
-                    if iscaptured(child, opp, tcap):
-                        if depth == mdepth:
-                            imove.add(pos)
+                tgroup = getneighbors(child, "a1", me) # Bug: Not returning all members of group
+                print("tgroup = ", tgroup)
+                tcap = capneed(tgroup, opp)
+                print("tcap = ", tcap)
+                if iscaptured(child, opp, tcap):
+                    if depth == mdepth:
+                        imove.add(pos)
+                    break
+
+            child = docaptures(child)
+            tval, tmove = minimax(child, depth - 1, not maxPlayer, alpha, beta, me, opp, imove, board, mdepth)
+
+            #if maxPlayer
+            # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
+            if(maxPlayer):
+                if tval[me] > ival[me]:
+                    ival = tval
+                    print("ival = ", ival) # DEBUG
+                    move = pos
+                    print("move = ", move) # DEBUG
+                    alpha = max(alpha, tval[me])
+                    if (alpha >= beta):
                         break
-
-                child = docaptures(child)
-                tval, tmove = minimax(child, depth - 1, not maxPlayer, me, opp, imove, mdepth)
-
-                #if maxPlayer
-                # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
-                if(maxPlayer):
-                    if tval[me] > ival[me]:
-                        ival = tval
-                        print("ival = ", ival) # DEBUG
-                        move = pos
-                        print("move = ", move) # DEBUG
-                # if minPlayer
-                # value := min(value, minimax(child, depth − 1, TRUE))
-                else:
-                    min(tval[opp], ival[opp])
-
+            # if minPlayer
+            # value := min(value, minimax(child, depth − 1, TRUE))
+            else:
+                min(tval[opp], ival[opp])
+                beta = min(beta, tval[opp])
+                if (alpha >= beta):
+                    break
     # return value
     return ival, move
 
@@ -298,7 +323,7 @@ def docaptures(state):
                     group = getneighbors(state, pos, gcolor)
                     group.sort()
                     print("group = ", group)
-                    capneeded = capneed(group, state, gcolor)
+                    capneeded = capneed(group, gcolor)
                     print("capneeded = ", capneeded)
 
                     for i in group:
@@ -353,7 +378,7 @@ def getneighbors(state, pos, side):
     return group
 
 
-def capneed(group, state, side):
+def capneed(group, side):
 #    print("capneed()")
 #    print("group = ", group)
 #    print("state = ", state)
