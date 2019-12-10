@@ -31,10 +31,9 @@
 #           - Fix passing always when starting with random move when black
 #           - Fix making dumb moves
 #   - Increase efficiency
-#       - Time = ~48 seconds @ depth 3
-#       - Time = ~7.5 seconds @ depth 1
-#       - Only traverse unvisited nodes
 #       - Implement AB Pruning X
+#       - Only traverse unvisited nodes X
+#       - Only traverse valid nodes
 #   - Fix handling end of game.
 #   - Add option to gracefully exit the game
 #   - Implement better evaluator (extra)
@@ -81,14 +80,14 @@ def main():
         print(sys.argv[i]) # DEBUG
 
     # Source: gthrandom.py from gothello-libclient-python3
-#    board = {letter + digit
-#             for letter in letter_range('a')
-#             for digit in letter_range('1')}
-    board = list()
-    for letter in letter_range("a"):
-        for digit in letter_range("1"):
-            pos = letter + digit
-            board.append(pos)
+    board = {letter + digit
+             for letter in letter_range('a')
+             for digit in letter_range('1')}
+#    board = list()
+#    for letter in letter_range("a"):
+#        for digit in letter_range("1"):
+#            pos = letter + digit
+#            board.append(pos)
     print("board = ", board)
 
     # Source: gthrandom.py from gothello-libclient-python3
