@@ -349,14 +349,15 @@ def docaptures(state):
                     tvisited = set()
 
 #                    group = getneighbors(state, pos, gcolor)
-                    group = recgetneighbors(state, pos, gcolor, group, tvisited)
 #                    group.sort()
+                    group = recgetneighbors(state, pos, gcolor, group, tvisited)
                     print("group = ", group)
+                    visited.update(group)
                     capneeded = capneed(group, gcolor)
                     print("capneeded = ", capneeded)
 
-                    for i in group:
-                        visited.add(i)
+#                    for i in group:
+#                        visited.add(i)
 
                     if iscaptured(state, ccolor, capneeded): #and len(group) < 24:
                         print("---CAPTURE!!!---")
@@ -423,32 +424,41 @@ def recgetneighbors(state, pos, side, group, visited):
 
         up = letter + upnumber
         down = letter + downnumber
-        right = downletter + digit
-        left = upletter + digit
+        left = downletter + digit
+        right = upletter + digit
 
 #        group.append(pos)
         group.add(pos)
         visited.add(pos)
         if int(upnumber) <= 5:
+#        if int(upnumber) <= 5 and checkneigbors(up, state):
             posup = recgetneighbors(state, up, side, group, visited)
-            if posup != None and posup not in group:
-#                group.extend(posup)
+#            if posup != None and posup not in group:
+            if posup != None:
+    #                    group.extend(posup)
                 group.update(posup)
+#        if int(downnumber) >= 1 and checkneigbors(down, state):
         if int(downnumber) >= 1:
             posdown = recgetneighbors(state, down, side, group, visited)
-            if posdown != None and posdown not in group:
-#                group.extend(posdown)
+#            if posdown != None and posdown not in group:
+            if posdown != None:
+    #                    group.extend(posdown)
                 group.update(posdown)
-        if ord(downletter) >= ord('A') :
+#        if ord(downletter) >= ord('A') and checkneigbors(left, state):
+        if ord(downletter) >= ord('A'):
             posleft = recgetneighbors(state, left, side, group, visited)
-            if posleft != None and posleft not in group:
-#                group.extend(posleft)
+#            if posleft != None and posleft not in group:
+            if posleft != None:
+    #                group.extend(posleft)
                 group.update(posleft)
+#        if ord(downletter) >= ord('A'):
         if ord(upletter) <= ord('E'):
             posright = recgetneighbors(state, right, side, group, visited)
-            if posright != None and posright not in group:
-#                group.extend(posright)
+#            if posright != None and posright not in group:
+            if posright != None:
+    #                group.extend(posleft)
                 group.update(posright)
+
 
         return group
 
