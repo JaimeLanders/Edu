@@ -24,12 +24,13 @@
 #           - Fix for depth = 3 X
 #           - Fix considering illegal move a gain X
 #       - Fix not working on depth > 1 X
-#       - Fix losing every game
+#       - Fix losing every game/making dumb moves
 #           - Fix never making move when depth 3 white side X
 #           - Fix not getting neigbors in collumns before pos in getneighbors X
 #           - Fix adding valid moves to imove X
-#           - Fix passing always when starting with random move when black
-#           - Fix making dumb moves
+#           - Fix passing always when starting with random move when black X
+#           - Fix bug in getneighbors
+#           - Fix base case/terminal node logic
 #   - Increase efficiency
 #       - Implement AB Pruning X
 #       - Only traverse unvisited nodes X
@@ -37,6 +38,7 @@
 #   - Fix handling end of game.
 #   - Add option to gracefully exit the game
 #   - Implement better evaluator (extra)
+
 import copy
 
 import gthclient
@@ -204,20 +206,26 @@ def minimax(node, depth, alpha, beta, maxPlayer, me, opp, imove, board, mdepth):
     move = "pass"
 #    move = cmove
 
+    # Base case: when there are no more valid moves left to make
     # if depth = 0 or node is a terminal node then
-    if depth == 0 or len(board) <= 1:  # Bug: not sure if correct terminal node
+#    if depth == 0 or len(board) <= 1:  # Bug: not sure if correct terminal node
+    if depth == 0 or len(imove) >= 24:  # Bug: not sure if correct terminal node
+    #    if depth == 0 or len(board) + len(imove) <= 1:  # Bug: not sure if correct terminal node
         # return the heuristic value of node
-        val = value(node)
+#        val = value(node)
+        val = eval(node)
 #        print("val = ", val) # DEBUG
         return val, move
     # if maximizingPlayer then
     if maxPlayer:
         # value := −∞
-        ival = {"black":-26, "white": 0}
+#        ival = {"black":-26, "white": 0}
+        val = -26
     # else (* minimizing player *)
     else:
         # value := +∞
-        ival = {"black": 0, "white": 26}
+#        ival = {"black": 0, "white": 26}
+        val = 26
     # for each child of node do
 #    for letter in letter_range('a'):
 #        for digit in letter_range('1'):
@@ -233,16 +241,23 @@ def minimax(node, depth, alpha, beta, maxPlayer, me, opp, imove, board, mdepth):
 
             # Check if illegal move before doing captures
             if maxPlayer:
-                tgroup = list()
-                sgroup = list()
-                sgroup.append(pos) # Only checks position by itself, not group
+#                tgroup = list()
+                tgroup = set()
+#                sgroup = list()
+                sgroup = set()
+#                sgroup.append(pos) # Only checks position by itself, not group
+                sgroup.add(pos) # Only checks position by itself, not group
                 scap = capneed(sgroup, opp)
                 if iscaptured(child, opp, scap):
                     if depth == mdepth:
                         imove.add(pos)
                     break
 
-                tgroup = getneighbors(child, "a1", me) # Bug: Not returning all members of group
+#                tgroup = getneighbors(child, pos, me) # Bug: Not returning all members of group
+#                tgroup.append(pos) # Only checks position by itself, not group
+                tgroup.add(pos) # Only checks position by itself, not group
+                visited = set()
+                tgroup = recgetneighbors(child, pos, me, tgroup, visited) # Bug: Not returning all members of group
                 print("tgroup = ", tgroup)
                 tcap = capneed(tgroup, opp)
                 print("tcap = ", tcap)
@@ -257,23 +272,27 @@ def minimax(node, depth, alpha, beta, maxPlayer, me, opp, imove, board, mdepth):
             #if maxPlayer
             # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
             if(maxPlayer):
-                if tval[me] > ival[me]:
-                    ival = tval
-                    print("ival = ", ival) # DEBUG
+#                if tval[me] > ival[me]:
+                if tval > val:
+                    val = tval
+                    print("val = ", val) # DEBUG
                     move = pos
                     print("move = ", move) # DEBUG
-                    alpha = max(alpha, tval[me])
+#                    alpha = max(alpha, tval[me])
+                    alpha = max(alpha, tval)
                     if (alpha >= beta):
                         break
             # if minPlayer
             # value := min(value, minimax(child, depth − 1, TRUE))
             else:
-                min(tval[opp], ival[opp])
-                beta = min(beta, tval[opp])
+#                min(tval[opp], ival[opp])
+                min(tval, val)
+#                beta = min(beta, tval[opp])
+                beta = min(beta, tval)
                 if (alpha >= beta):
                     break
     # return value
-    return ival, move
+    return val, move
 
 
 #def score(me, opp): # Needed since I have  value()?
@@ -289,6 +308,13 @@ def value(state):
     return {"white": len(state["white"]), "black": len(state["black"])}
 
 
+def eval(state):
+    print("eval()")
+    diff = len(state["black"]) - len(state["white"])
+    print("diff = ", diff)
+    return diff
+
+
 # When a stone is placed in such a way that stones of the player on move plus the outer wall completely enclose, with
 # no gaps, a group of the opponent's stones horizontally and vertically, the opponent's group is captured.
 def docaptures(state):
@@ -300,7 +326,8 @@ def docaptures(state):
 #        print("letter = ", letter) # DEBUG
         for digit in letter_range('1'):
 #            print("digit = ", digit) # DEBUG
-            group = list()
+#            group = list()
+            group = set()
             pos = letter + digit
 #            print("pos = ", pos)
             if pos in state["white"]:
@@ -314,13 +341,16 @@ def docaptures(state):
 #                print("ccolor = ", ccolor)
                 if pos not in visited:
                     if pos not in group:
-                        group.append(pos)
-                        group.sort()
+#                        group.append(pos)
+                        group.add(pos)
+#                        group.sort()
 
                     visited.add(pos)
+                    tvisited = set()
 
-                    group = getneighbors(state, pos, gcolor)
-                    group.sort()
+#                    group = getneighbors(state, pos, gcolor)
+                    group = recgetneighbors(state, pos, gcolor, group, tvisited)
+#                    group.sort()
                     print("group = ", group)
                     capneeded = capneed(group, gcolor)
                     print("capneeded = ", capneeded)
@@ -364,10 +394,11 @@ def getneighbors(state, pos, side):
 #    print("side = ", side)
 
     group = list()
-    if pos not in group:
-        group.append(pos)
-    for letter in letter_range(pos[0]): # Bug: Not getting neighbors in collumns before pos
-#        print("letter = ", letter)  # DEBUG
+#    if pos not in group:
+#        group.append(pos)
+#    for letter in letter_range(pos[0]): # Bug: Not getting neighbors in collumns before pos
+    for letter in letter_range("a"):  # Bug: Not getting neighbors in collumns before pos
+    #        print("letter = ", letter)  # DEBUG
         for digit in letter_range("1"):
 #            print("digit = ", digit)  # DEBUG
             pos = letter + digit
@@ -377,11 +408,58 @@ def getneighbors(state, pos, side):
     return group
 
 
+def recgetneighbors(state, pos, side, group, visited):
+#    print("recgetneighbors()")
+    letter = pos[0]
+#    print("letter = ", letter)
+    digit = pos[1]
+#    print("digit = ", digit)
+
+    if pos in state[side] and pos not in visited:
+        upletter = chr(ord(letter) + 1)
+        downletter = chr(ord(letter) - 1)
+        upnumber = str(int(digit) + 1)
+        downnumber = str(int(digit) - 1)
+
+        up = letter + upnumber
+        down = letter + downnumber
+        right = downletter + digit
+        left = upletter + digit
+
+#        group.append(pos)
+        group.add(pos)
+        visited.add(pos)
+        if int(upnumber) <= 5:
+            posup = recgetneighbors(state, up, side, group, visited)
+            if posup != None and posup not in group:
+#                group.extend(posup)
+                group.update(posup)
+        if int(downnumber) >= 1:
+            posdown = recgetneighbors(state, down, side, group, visited)
+            if posdown != None and posdown not in group:
+#                group.extend(posdown)
+                group.update(posdown)
+        if ord(downletter) >= ord('A') :
+            posleft = recgetneighbors(state, left, side, group, visited)
+            if posleft != None and posleft not in group:
+#                group.extend(posleft)
+                group.update(posleft)
+        if ord(upletter) <= ord('E'):
+            posright = recgetneighbors(state, right, side, group, visited)
+            if posright != None and posright not in group:
+#                group.extend(posright)
+                group.update(posright)
+
+        return group
+
+
 def capneed(group, side):
 #    print("capneed()")
 #    print("group = ", group)
 #    print("state = ", state)
 
+    group = list(group)
+    group.sort()
     startpos = group[0]
 #    print("startpos = ", startpos)
 
@@ -435,3 +513,4 @@ def checkneigbors(pos, group):
     return False
 
 main()
+
