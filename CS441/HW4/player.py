@@ -29,14 +29,13 @@
 #           - Fix not getting neigbors in collumns before pos in getneighbors X
 #           - Fix adding valid moves to imove X
 #           - Fix passing always when starting with random move when black X
-#           - Fix bug in getneighbors
+#           - Fix bug in getneighbors X
 #           - Fix base case/terminal node logic
-#   - Increase efficiency
+#   - Increase efficiency X
 #       - Implement AB Pruning X
 #       - Only traverse unvisited nodes X
-#       - Only traverse valid nodes
-#   - Fix handling end of game.
-#   - Add option to gracefully exit the game
+#       - Only traverse valid nodes X
+#   - Fix handling end of game
 #   - Implement better evaluator (extra)
 
 import copy
@@ -49,13 +48,12 @@ import sys
 #    pydevd_pycharm.settrace('10.0.0.12', port=12345, stdoutToServer=True, stderrToServer=True)
 
 # Source: gthrandom.py from gothello-libclient-python3
-
-
 def letter_range(letter):
     for i in range(5):
         yield chr(ord(letter) + i)
 
 
+# Source: gthrandom.py from gothello-libclient-python3
 def show_position(grid):
     for digit in letter_range('1'):
 #        print("digit = ", digit) # DEBUG
@@ -72,10 +70,14 @@ def show_position(grid):
             print(piece, end="")
         print()
 
-
-# Source: gthrandom.py from gothello-libclient-python3
+# Main function which makes and recieves moves and determines when game is over
 def main():
     print("Welcome to Gothello Player 1.0")
+
+    if len(sys.argv) != 5:
+        print("\nError: missing command line arguments.")
+        print("\nUsage: python3 player.py black|white server_ip server_number search_depth")
+        return
 
     for i in range(1, len(sys.argv)):
         print(sys.argv[i]) # DEBUG
@@ -89,7 +91,7 @@ def main():
     # Source: gthrandom.py from gothello-libclient-python3
     grid = {"white": set(), "black": set()} # Global?
 
-    imove = set() # Tracks illegal moves to avoid repeate calculations
+    imoves= set() # Tracks illegal moves to avoid repeate calculations
 
     me = sys.argv[1]
     print("me = ", me) # DEBUG
@@ -119,13 +121,18 @@ def main():
 #            if len(board) == 25: # Open with random move if on the play (black)
 #                move = random.choice(list(board))
 #            else:
-            val, move = minimax(grid, depth, True, -26, 26, me, opp, imove, board, mdepth)
+#            val, move = minimax(grid, depth, True, -26, 26, me, opp, imove,
+#                                board, mdepth)
+
+            val, move = minimax(grid, depth, True, float("-inf"), float("inf"),
+                                me, opp, imoves, board, mdepth)
+
             print("My move: ", move)
             if move != "pass":
-                imove.add(move)
+                imoves.add(move)
                 board.remove(move)
                 print("board = ", board)
-            print("imove = ", imove)
+            print("imoves = ", imoves)
             try:
                 client.make_move(move)
                 if move != "pass":
@@ -141,25 +148,31 @@ def main():
 #                    client.make_move("pass")
                     return #temp
         else:
-            cont, move = client.get_move()
-            print("Opponents move: ", move)
-            if move != "pass":
-                imove.add(move)
-                board.remove(move)
-                print("board = ", board)
-            print("imove = ", imove)
-            if cont and move == "pass" and len(imove) == 25:
-                print("me: pass to end game")
-                client.make_move("pass")
-                break
-            else:
-                if not cont:
+            try:
+                cont, move = client.get_move()
+                print("Opponents move: ", move)
+                if move != "pass":
+                    imoves.add(move)
+                    board.remove(move)
+                    print("board = ", board)
+                print("imoves = ", imoves)
+                if cont and move == "pass" and len(imoves) == 25:
+                    print("me: pass to end game")
+                    client.make_move("pass")
                     break
-                grid[opp].add(move)
-                nstate = docaptures(grid)
-                print("nstate = ", nstate)
-                grid = nstate
-
+                else:
+                    if not cont:
+                        break
+                    if move != "pass":
+                        grid[opp].add(move)
+                        nstate = docaptures(grid)
+                        print("nstate = ", nstate)
+                        grid = nstate
+            except gthclient.MoveError as e:
+#                print(e)
+                print("Game over...")
+#                    client.make_move("pass")
+                return #tempError as e:
         side = gthclient.opponent(side)
 
 
@@ -183,7 +196,8 @@ def main():
             # if α ≥ β then
                 # break (* α cut-off *)
         # return value
-def minimax(node, depth, alpha, beta, maxPlayer, me, opp, imove, board, mdepth):
+# Minimax function used to calculate best moves
+def minimax(node, depth, alpha, beta, maxPlayer, me, opp, imoves, board, mdepth):
 
     print("\nminimax()") # DEBUG
 
@@ -193,99 +207,132 @@ def minimax(node, depth, alpha, beta, maxPlayer, me, opp, imove, board, mdepth):
     pos = 0
     move = "pass"
 
+    if depth == mdepth:
+        tmoves = copy.deepcopy(imoves)
+    else:
+        tmoves = imoves
+
     # Base case: when there are no more valid moves left to make
     # if depth = 0 or node is a terminal node then
-    if depth == 0 or len(imove) >= 24:  # Bug: not sure if correct terminal node
+    if depth == 0 or len(tmoves) == 25:  # Bug: not sure if correct terminal node
         # return the heuristic value of node
-        val = eval(node)
+        if maxPlayer:
+            val = eval(node, me, opp)
+        else:
+            val = eval(node, opp, me)
         return val, move
     # if maximizingPlayer then
     if maxPlayer:
         # value := −∞
-        val = -26
+#        val = -26
+        val = float("-inf")
     # else (* minimizing player *)
     else:
         # value := +∞
-        val = 26
+#        val = 26
+        val = float("inf")
+
+#    vmove = board - imove
+    vmove = board - tmoves
+    print("vmove = ", vmove)
     # for each child of node do
-    for pos in board:
+    for pos in vmove:
+        print("pos = ", pos)
         child = copy.deepcopy(node)
-        if pos not in child["black"] and pos not in child["white"] and pos not in imove:
+#        if pos not in child["black"] and pos not in child["white"] \
+#                and pos not in imove:
 
-            if maxPlayer:
-                child[me].add(pos) # Bug: Not always me?
-            else:
-                child[opp].add(pos)  # Bug: Not always me?
+        if maxPlayer:
+            child[me].add(pos)
+        else:
+            child[opp].add(pos)
 
-            # Check if illegal move before doing captures
-            if maxPlayer:
-                tgroup = set()
-                sgroup = set()
-                sgroup.add(pos) # Only checks position by itself, not group
-                scap = capneed(sgroup, opp)
-                if iscaptured(child, opp, scap):
-                    if depth == mdepth:
-                        imove.add(pos)
-                    break
+        # Check if illegal move before doing captures
+        if maxPlayer:
+            tgroup = set()
+            sgroup = set()
+            sgroup.add(pos) # Only checks position by itself, not group
+            scap = capneed(sgroup, opp)
+            if iscaptured(child, opp, scap):
+                print("illegal move detected = ", pos)
+                if depth == mdepth:
+                    imoves.add(pos)
+#                    tmove.add(pos)
+#                else:
+                tmoves.add(pos)
+                print("tmoves = ", tmoves)
+                print("imoves = ", imoves)
+#                break
+                continue
 
-                tgroup.add(pos) # Only checks position by itself, not group
-                visited = set()
-                tgroup = getneighbors(child, pos, me, tgroup, visited) # Bug: Not returning all members of group
-                print("tgroup = ", tgroup)
-                tcap = capneed(tgroup, opp)
-                print("tcap = ", tcap)
-                if iscaptured(child, opp, tcap):
-                    if depth == mdepth:
-                        imove.add(pos)
-                    break
+            tgroup.add(pos) # Only checks position by itself, not group
+            visited = set()
+            tgroup = getneighbors(child, pos, me, tgroup, visited)
+            print("tgroup = ", tgroup)
+            tcap = capneed(tgroup, opp)
+            print("tcap = ", tcap)
+            if iscaptured(child, opp, tcap):
+                print("illegal move detected = ", pos)
+                if depth == mdepth:
+                    imoves.add(pos)
+#                    tmove.add(pos)
+#                else:
+                tmoves.add(pos)
+                print("tmoves = ", tmoves)
+                print("imoves = ", imoves)
+#                break
+                continue
 
-            child = docaptures(child)
-            tval, tmove = minimax(child, depth - 1, not maxPlayer, alpha, beta, me, opp, imove, board, mdepth)
+        child = docaptures(child)
+        tval, tmove = minimax(child, depth - 1, not maxPlayer, alpha, beta,
+                              me, opp, tmoves, board, mdepth)
 
-            #if maxPlayer
-            # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
-            if(maxPlayer):
-                if tval > val:
-                    val = tval
-                    print("val = ", val) # DEBUG
-                    move = pos
-                    print("move = ", move) # DEBUG
-                    alpha = max(alpha, tval)
-                    if (alpha >= beta):
-                        break
-            # if minPlayer
-            # value := min(value, minimax(child, depth − 1, TRUE))
-            else:
-                min(tval, val)
-                beta = min(beta, tval)
+        #if maxPlayer
+        # value := max(value, minimax(child, depth − 1, FALSE)) if maxPlayer
+        if(maxPlayer):
+            if tval > val:
+                val = tval
+                print("val = ", val) # DEBUG
+                move = pos
+                print("move = ", move) # DEBUG
+                alpha = max(alpha, tval)
                 if (alpha >= beta):
                     break
+#                    continue
+        # if minPlayer
+        # value := min(value, minimax(child, depth − 1, TRUE))
+        else:
+            val = min(tval, val)
+            beta = min(beta, val)
+            if (alpha >= beta):
+                break
+#                continue
     # return value
     return val, move
 
-
-#def score(me, opp): # Needed since I have  value()?
+# Used to print score in (me, opponent) format
 def score(grid, me, opp): # Needed since I have  value()?
 #    print("\nscore()")
 #    print(player)
     return len(grid[me]), len(grid[opp])
 
 
+# Old evaluation function, deprecated since using eval()
 def value(state):
 #    print("\nvalue()")
 #    print(state)
     return {"white": len(state["white"]), "black": len(state["black"])}
 
 
-def eval(state):
+# Evaluation function used to determine the value of the current state for a
+# player
+def eval(state, a, b) :
     print("eval()")
-    diff = len(state["black"]) - len(state["white"])
+    diff = len(state[a]) - len(state[b])
     print("diff = ", diff)
     return diff
 
-
-# When a stone is placed in such a way that stones of the player on move plus the outer wall completely enclose, with
-# no gaps, a group of the opponent's stones horizontally and vertically, the opponent's group is captured.
+# Used to redo the board after a move and flip pieces that have been captured.
 def docaptures(state):
 #    print("docaptures()")
 #    print("state = ", state)
@@ -377,11 +424,11 @@ def getneighbors(state, pos, side, group, visited):
             posdown = getneighbors(state, down, side, group, visited)
             if posdown != None:
                 group.update(posdown)
-        if ord(downletter) >= ord('A'):
+        if ord(downletter) >= ord('a'):
             posleft = getneighbors(state, left, side, group, visited)
             if posleft != None:
                 group.update(posleft)
-        if ord(upletter) <= ord('E'):
+        if ord(upletter) <= ord('e'):
             posright = getneighbors(state, right, side, group, visited)
             if posright != None:
                 group.update(posright)
@@ -449,4 +496,3 @@ def checkneigbors(pos, group):
     return False
 
 main()
-
