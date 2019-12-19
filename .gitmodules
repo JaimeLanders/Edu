@@ -7,3 +7,6 @@
 [submodule "CS201"]
 	path = CS201
 	url = git@github.com:jland13/CS201
+[submodule "CS250"]
+	path = CS250
+	url = git@github.com:jland13/CS250
