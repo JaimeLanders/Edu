@@ -10,3 +10,6 @@
 [submodule "CS250"]
 	path = CS250
 	url = git@github.com:jland13/CS250
+[submodule "CS251"]
+	path = CS251
+	url = git@github.com:jland13/CS251
