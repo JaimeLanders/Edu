@@ -19,3 +19,6 @@
 [submodule "CS261"]
 	path = CS261
 	url = git@github.com:jland13/CS261
+[submodule "CS305"]
+	path = CS305
+	url = git@github.com:jland13/CS305
