@@ -22,3 +22,6 @@
 [submodule "CS305"]
 	path = CS305
 	url = git@github.com:jland13/CS305
+[submodule "CS320"]
+	path = CS320
+	url = git@github.com:jland13/CS320
