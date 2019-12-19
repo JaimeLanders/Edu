@@ -1,0 +1,57 @@
+1. For arrays, prepending is much slower than appending.
+
+time java IntSequenceTimer array 1000 0 10000 0
+
+real	0m3.906s
+user	0m3.935s
+sys	0m0.028s
+
+time java IntSequenceTimer array 1000 10000 0 0
+
+real	0m0.102s
+user	0m0.119s
+sys	0m0.041s
+
+2. For lists, prepending and appending are roughly the same speed.
+
+time java IntSequenceTimer list 1000 0 10000 0
+
+real	0m0.152s
+user	0m0.165s
+sys	0m0.047s
+
+time java IntSequenceTimer list 1000 10000 0 0
+
+real	0m0.148s
+user	0m0.174s
+sys	0m0.047s
+
+3. Prepending is much faster in the list implementation than in the ar-
+ray implementation.
+
+time java IntSequenceTimer list 1000 0 10000 0
+
+real	0m0.154s
+user	0m0.163s
+sys	0m0.044s
+
+time java IntSequenceTimer array 1000 0 10000 0
+
+real	0m3.944s
+user	0m3.969s
+sys	0m0.032s
+
+4. Appending is roughly the same speed for both implementations.
+
+time java IntSequenceTimer array 1000 10000 0 0
+
+real	0m0.102s
+user	0m0.136s
+sys	0m0.026s
+
+time java IntSequenceTimer list 1000 10000 0 0
+
+real	0m0.140s
+user	0m0.160s
+sys	0m0.047s
+

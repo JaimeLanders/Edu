@@ -1,0 +1,384 @@
++----------------------------------+
+| Name:           Jaime Landers    |
+| Class:          CS320            |
+| Assignment:     Homework 6       | 
+| Date Started:   6/3/19           |
+| Date/Time Due:  6/4/19 @ 8:00 PM | 
+| Est. Time:      8 Hours          |
++----------------------------------+
+
+========================================================================
+
+-----------
+Question 1:
+-----------
+
+My answer for Lab 7 #11 in answer.txt:
+
+What I noticed during this experiment is that when I use java or c++
+with the -O0 optimization flag and pass in an argument of 
+a = 2000000000, I get:
+
+    2000000000 > -294967296
+
+Where if I use the -02 optimization flag with gcc for C++ I get:
+
+    2000000000 <= -294967296
+
+What is happening is that when I pass in a the above value for a, the pro-
+grams are adding it to b which is:
+
+    b = a + 2000000000 => b = 2000000000 + 2000000000 = 4000000000
+	
+Since the range for a signed 32 bit integer in Java and C++ is:
+
+    [-2147483648; 2147483647]
+	
+	and...
+	
+	4000000000 !E [-2147483648; 2147483647] (!E = not an element of...)
+	
+The value for b is outside of this range and thus we have a signed int-
+eger overflow which is determined by Java (and C++ with -O0 flag) to be
+a negative number (overflow is ignored), hence the first output on line
+4 above.  Essentially Java and C++ when compiled with GCC -O0 treat the
+undefined behavior of an signed integer overflow as a negative number,
+which is why it outputs that a > b, where b is actually 4000000000, 
+which clearly isn't actually the case.
+
+However, when we compile the C++ version with GCC -O2 which is a higher
+level of optimization, C++ recognized the undefined behavior as it act-
+ually is, a number outside the range of positive values and should be 
+treated as such with the output of a <= b, even though it still prints
+b as a negative number as in Java and C++ using gcc -O0, it knows that 
+in this case b is actually greater than or equal to a which is true.   
+
+------------------------------------------------------------------------
+
+-----------
+Question 2:
+-----------
+
+Results from timing.txt:
+
+1. For arrays, prepending is much slower than appending.
+
+time java IntSequenceTimer array 1000 0 10000 0
+
+real	0m3.906s
+user	0m3.935s
+sys	0m0.028s
+
+time java IntSequenceTimer array 1000 10000 0 0
+
+real	0m0.102s
+user	0m0.119s
+sys	0m0.041s
+
+2. For lists, prepending and appending are roughly the same speed.
+
+time java IntSequenceTimer list 1000 0 10000 0
+
+real	0m0.152s
+user	0m0.165s
+sys	0m0.047s
+
+time java IntSequenceTimer list 1000 10000 0 0
+
+real	0m0.148s
+user	0m0.174s
+sys	0m0.047s
+
+3. Prepending is much faster in the list implementation than in the ar-
+ray implementation.
+
+time java IntSequenceTimer list 1000 0 10000 0
+
+real	0m0.154s
+user	0m0.163s
+sys	0m0.044s
+
+time java IntSequenceTimer array 1000 0 10000 0
+
+real	0m3.944s
+user	0m3.969s
+sys	0m0.032s
+
+4. Appending is roughly the same speed for both implementations.
+
+time java IntSequenceTimer array 1000 10000 0 0
+
+real	0m0.102s
+user	0m0.136s
+sys	0m0.026s
+
+time java IntSequenceTimer list 1000 10000 0 0
+
+real	0m0.140s
+user	0m0.160s
+sys	0m0.047s
+
+------------
+
+Explanation:
+
+1. For this experiment, I used the department linux machines during the
+   lab.
+   
+2. The version of java I was using is:
+
+   jlanders@babbage:~$ java -version
+   openjdk version "11.0.3" 2019-04-16
+   OpenJDK Runtime Environment (build 11.0.3+7-Ubuntu-1ubuntu218.04.1)
+   OpenJDK 64-Bit Server VM (build 11.0.3+7-Ubuntu-1ubuntu218.04.1, 
+   mixed mode,sharing)
+
+------------------------------------------------------------------------
+
+-----------
+Question 3:
+-----------
+
+-------
+Part a:
+-------
+
+Code:
+
+    import java.util.*;
+
+    class  AdjSetDirectedGraph<V> extends AdjSetGraph<V> {
+      // Add an edge between two vertices.
+      // Raises IllegalArgumentException if either vertex is not in graph
+      // No-op if edge already exists
+      public void addEdge(V v1, V v2) {
+        Set<V> adjs1 = adjacents(v1);   // Check that v1 is in the graph
+        Set<V> adjs2 = adjacents(v2);   // Check that v2 is in the graph
+        adjs1.add(v2);                  // Add an edge from v1 to v2
+      }
+    }
+
+	
+Explanation:
+
+From previous experience with Java (and C++) I rememberd that one class
+can inherit (extend) another and essentially override methods from the 
+original class while keeping the original functionality of the methods
+in the inherited class.  This made this problem easy as I just needed
+to extend AdjSetGraph, re-write (or reuse in this case) the addEdge me-
+thod while removing the functionality to reciprocate the edges, that is
+remove the undirected aspect making it so the edges of the graph are 
+now directed.
+
+-------
+Part c:
+-------
+
+Code:
+
+    public static <V> Graph<V> flip(Graph<V> g) {
+      // Construct a flipped version of g as a directed graph, using
+      // a Java translation of the algorithm from Week 5, Slide 70.
+      Graph<V> flipped = emptyDirectedGraph();
+
+      for (V v : g.vertices()) {
+        flipped.addVertex(v);
+      }
+
+      for (V v : g.vertices()) {
+        for (V w : g.neighbors(v)) {
+          flipped.addEdge(w, v);
+        }
+      }
+
+      return flipped;  // this is a stub, not the correct implementation!
+    }
+	
+	
+Testing:
+
+  To test the functionality of the flip() method, I added the following
+  code to my test files (SccTest.java, etc.) after the output of the
+  original graph graph, but before the Strongly Connected Components
+  section:
+  
+  
+    // Flip graph
+    System.out.println("\nFlipped graph: \n");
+    Graph<String> g2 = GraphUtils.emptyDirectedGraph();
+    g2 = GraphUtils.flip(g);
+    System.out.print(GraphUtils.dumpGraph(g2));
+    GraphUtils.directedToDot(g2, "flipped_graph");
+	
+	
+Testing Results:
+
+  I used the test code above my issuing the following command and re-
+  corded the resulting output:
+
+	~/Edu/CS320/hw6$ java SccTest
+
+	Graph: 
+
+	Vertex count = 7
+	a: b
+	b: c d
+	c: b
+	d: e
+	e: f
+	f: d g
+	g:
+
+	Flipped graph: 
+
+	Vertex count = 7
+	a:
+	b: a c
+	c: b
+	d: b f
+	e: d
+	f: e
+	g: f
+
+	-----
+	Number of strongly connected components = 0
+	-----
+	
+	
+Explanation of development and testing:
+
+  I developed this by referencing the slides for week 5 as well as the
+  implementations of other methods in the GraphUtils and AdjSetGraph
+  classes.  I then modified the original SccTest class to add the
+  functionality to test my implementation of the flip() method by
+  printing the graph to the console as we did with the original graph
+  before flipping, and then added the ability to output the graph to a
+  dot pdf to compare the original and flipped version.  From the output
+  of the program in the console and comparing the pdf's of the graph it
+  was immediately apparent that the implementation of flip() was cor-
+  rect and as such I decided this was sufficient for testing this meth-
+  so I could begin the strongly connect components method.
+
+-------
+Part d:
+------- 
+
+Code:
+
+	public static <V> List<List<V>> scc(Graph<V> g) {
+	List<V> finished = new LinkedList<V>();
+	Set<V> visited = new HashSet<V>();
+	Graph<V> flipped = emptyDirectedGraph();
+
+	finished = dfs(g);
+	finished = reverse(finished);
+	flipped = flip(g);
+	LinkedList<List<V>> sccs = new LinkedList<List<V>>();
+	for(V v : finished){
+	  if(!visited.contains(v)){
+		List<V> scc = new LinkedList<V>();
+		visit2(v, scc, visited, flipped);
+		sccs.add(scc);
+	  }
+	}
+	return sccs ;
+	}
+
+	private static <V> List<V> dfs(Graph<V> g) {
+
+	Set<V> visited = new HashSet<V>();
+	List<V> finished = new LinkedList<V>();
+
+	for(V v : g.vertices()) { 
+	  finished = visit1(v, g, visited, finished);
+	}
+	return finished;
+	}
+
+	private static <V> List<V> visit1(V v, Graph<V> g, Set<V> visited, List<V> finished) {
+	if(!visited.contains(v)){
+	  visited.add(v);
+	  for (V w : g.vertices()) {
+		visit1(w, g, visited, finished);
+	  }
+	  finished.add(v);
+	}
+	return finished;
+	}
+
+	private static <V> List<V> visit2(V v, List<V> scc, Set<V> visited, Graph<V> flipped) {
+	visited.add(v);
+	scc.add(v);
+	for(V w : flipped.neighbors(v)) { 
+	  if(!visited.contains(w)){ 
+		visit2(w, scc, visited, flipped);
+	  }
+	}
+	return scc;
+	}
+
+	private static <V> List<V> reverse(List<V> list) {
+	List<V> revList = new LinkedList<V>();
+	for(int i = list.size(); i > 0; i--) {
+	  revList.add(list.get(i - 1));
+	}
+	return revList;
+	}
+	
+	
+Testing:
+
+  To test my implementation above, I used the test included in the
+  SccTest.java below:
+	
+	// Run the stronly connected components algorithm on this
+    // graph and print out the results:
+    List<List<String>> sccs = GraphUtils.scc(g);
+    System.out.println("-----");
+    System.out.println("Number of strongly connected components = " + sccs.size());
+    for (List<String> scc : sccs) {
+      System.out.print("strongly connected component:");
+      for (String v : scc) {
+        System.out.print(" " + v);
+      }
+      System.out.println();
+    }
+    System.out.println("-----");
+	
+	
+Testing Results:
+
+  I used the same command to test as in my flip() implementation but 
+  only included the relevant code for this part of the testing:
+	
+	-----
+	Number of strongly connected components = 4
+	strongly connected component: a
+	strongly connected component: b c
+	strongly connected component: d f e
+	strongly connected component: g
+	-----	
+	
+Explanation:
+
+  To complete the translation I followed the algorithms on the slides
+  for week 5 starting at 66, and went line by line through the algor-
+  ithms and converteted each to the Java equivalent while keeping in
+  mind some of the tips in the instructions.  For instance, some of the
+  functins (dfs, scc) included nested functions/classes, which I had to
+  implement as static private classes outside of the classes they were
+  called.  I also had to pass in additional paramters, i.e. for my
+  visit1 and visit2 helpers which relied on defintions in the valling 
+  classes/methods.  
+  
+  My testing strategy was largely the same for this method as it was
+  for flip, except this time I didn't have to add any additonal code to
+  the SccTest files.  I compared the results in the output above with
+  the generated graphical representation from dot and found that the 
+  number of strongly connected components from the test output matched
+  what I would expect from observing the graphs.  To make sure that my 
+  implementation was correct I made some additional test's using the
+  same template for SccTest and found that my results were consistent
+  across multiple tests.
+	
+========================================================================

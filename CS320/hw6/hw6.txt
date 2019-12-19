@@ -1,0 +1,241 @@
+------------------------------------------------------------------------
+CS 320 Principles of Programming Languages, Spring 2019       Homework 6
+------------------------------------------------------------------------
+
+Due: 8:00pm on Tuesday, June 4 (via the HW6 dropbox on D2L)
+
+To prepare your solution to this assignment, create the following
+files:
+
+- writeup.txt:  a plain text file containing the main write up
+  for your answers to Questions 1-3 below.
+
+- GraphUtils.java and AdjSetDirectedGraph.java:  the files that
+  you modify/create for Question 3 below.
+
+With these three files in the same directory, use the following
+command to package them in a single zip file:
+
+  zip sol6.zip writeup.txt GraphUtils.java AdjSetDirectedGraph.java
+
+This will create a file called "sol6.zip" that you should upload
+to D2L before the deadline.  Please do not include any other
+files in your sol6.zip file.
+
+------------------------------------------------------------------------
+NOTE: This assignment includes exercises based on the material
+from the Lab sessions in Weeks 7 and 8.  Questions 1 and 2
+ask you specifically for components of the lab work in those
+two weeks.  Question 3 is the more substantial component of
+this assignment; it builds on ideas that were covered in the
+Week 8 lab sessions, but also draws some inspiration from an
+example that was presented at the start of each of the Week 5
+lab sessions.  To allow for the Memorial Day weekend, and to
+compensate for the fact that there will not be office hours on
+Memorial day, 5/27, the deadline for this assignment has been
+postponed until the Tuesday of Week 10.  Although that deadline
+may seem quite far away, you should start working on this
+assignment at the earliest possible opportunity.  Of course,
+we will continue to do our best to respond to all questions,
+but OUR ABILITY TO RESPOND BY EMAIL MAY BE LIMITED DURING THE
+WEEKEND AT THE START OF JUNE, IMMEDIATELY BEFORE THE DEADLINE.
+The sooner you get started, the more time there will be to
+ask questions and get answers!
+
+------------------------------------------------------------------------
+Question 1:
+-----------
+Please provide your solution to Exercise 11 (Arithmetic Overflow)
+from the Week 7 Lab.  If you have completed that Lab already,
+then you will have saved your answer already in a file called
+"answer.txt", which you can paste in to your solutions for
+this assignment.
+
+[If you did not complete all the exercises in Lab 7, then you
+should review the lab materials---with particular attention to
+Step 10 (Division by zero)---but you will not need to do any
+further work on any of the earlier coding exercises in that lab.]
+
+------------------------------------------------------------------------
+Question 2:
+-----------
+Please provide your solution to Exercise 04X (Performance Testing
+the Alternatives) from the Week 8 Lab.  If you have completed
+that part of the lab already, then you will have saved your
+answer in a file called "timing.txt".  (There was some time to
+work on this in each of the lab sessions, but you may not have
+had enough time to complete the experiments.)
+
+Your answer should also include a (very brief) description of:
+1) The machine that you used for your tests: If you used the
+department's Linux machines, then you should just state that.
+If you used a different machine, it will be sufficient to state
+which operating system you were using and the clock speed of
+the processor (if known).
+2) The version of Java that you were using:  If you are not sure,
+you can find out by running the command "java -version".
+
+[Why do we care about these details?  The results that you obtain
+by running benchmark tests will depend in critical ways on the
+machine that you use to run those tests.  For that reason, it
+is not useful to state benchmark results unless you also provide
+details of the platform that you used to obtain those results!]
+
+------------------------------------------------------------------------
+Question 3:
+-----------
+Your goal in this question is to produce a Java version of the
+strongly connected components algorithm that was demonstrated
+(in Python) at the beginning of each of the Week 5 labs.
+(It is also described in Week 5, Slides 66-75.)  It is not
+necessary for you to understand the full details of how that
+algorithm works in order to complete this exercise; instead
+your primary goal is just to show how the same algorithm can
+be translated into Java using abstract datatypes (from the Java
+Collections Framework in the java.util package, as well as the
+Graph abstract datatype that was defined in the Lab 8 materials).
+
+The following files are provided to help you with this
+assignment:
+
+- Graph.java: This is the interface for the graph abstract
+  datatype that was presented in the labs.  You should not
+  need to modify this file in any way; it is included here
+  for conveniences so that you do not have to go searching
+  for it among the other materials from Lab 7.  (It was first
+  introduced in Step 07 if you are looking for more details.)
+
+- AdjSetGraph.java: This is a completed version of the adjacency
+  set implementation of graphs that you were asked to construct
+  in Step 08 of the Lab.  It is also an implementation of the
+  interface in Graph.java.  You are free to use your own version
+  if you prefer, or to compare your version with this solution.
+  You may find that it includes some details that are useful
+  for you elsewhere in this assignment.
+
+- GraphUtils.java: This is an expanded version of the GraphUtils
+  class that was used in the labs.  It includes code for printing
+  out graphs and for generating dot files corresponding to
+  graphs.  It also includes stubs (and some comments and hints)
+  for the functions that you are expected to implement in the
+  exercises below.
+
+- SccTest.java: This file can be used for testing; it includes
+  comments that should help you to understand and use the code.
+  You are encouraged not to modify this file, but instead to
+  use it as a template for creating additional test cases.
+  (For example, "cp SccTest.java SccTest1.java" and then rename
+  the class in the new "SccTest1.java" file to match the file
+  name.)  This will allow you to build up a small collection of
+  test case files instead of repeatedly modifying a single file.
+
+At any point, you should be able to compile and then, if there
+are no errors, run the program by using the following commands:
+
+  javac *.java
+  java SccTest        # replace with other tests, as you see fit
+
+If you want to generate a graphical version of the graphs
+that are described in .dot files, you can use a command of the
+following form to generate a pdf:
+
+  dot -Tpdf -o graph.pdf graph.dot
+
+[You are not required to use this command, but you may find it
+useful to look at diagrams of the graphs that you are working
+with while you are debugging your code.]
+
+Documentation for the Java Collection Frameworks may be found
+online at:
+
+https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html
+
+In particular, you may want to look at the pages for the List and
+Set interfaces to familiarize yourself with the key operations
+that they provide.  You are not required to know or expected to
+use anything close to the full functionality of those classes.
+We recommend that you use declarations like the following to
+declare variables corresponding to an empty list or an empty
+set of values of some type E:
+
+  List<E> alist = new LinkedList<E>();
+  Set<E>  aset  = new HashSet<E>();
+
+You can test to see if e is a member of a given set using an
+expression of the form set.contains(e).  A statement of the
+form collection.add(e) will add the value for e to the specified
+collection (at the end, if the collection is a list).
+
+Please complete the following steps in order to complete your
+answer for this question:
+
+a) Create a new Java class called AdjSetDirectedGraph (in
+a source file with the name AdjSetDirectedGraph.java) that
+implements the Graph interface.  Unlike AdjSetGraph, which
+represents undirected graphs, the AdjSetDirectedGraph class
+should represent directed graphs.  In particular, this means
+that adding an edge from vertex v1 to v2 does not automatically
+imply that there will also be an edge from v2 to v1,
+
+Your general goal should be to write as few lines of code as
+possible in constructing AdjSetDirectedGraph.java (and to make no
+modifications to AdjSetGraph.java.)  Write a brief description
+explaining how you constructed the AdjSetDirectedGraph.java
+source file.  (You are also expected to submit the full source
+file, following the instructions at the top of this document.)
+
+b) Update the implementation of emptyDirectedGraph()
+in GraphUtils.java to invoke the constructor for
+AdjSetDirectedGraph.  You are not expected to include anything
+in your write up for this step.
+
+c) Complete the implementation of the flip() method in
+GraphUtils.java.  This function should construct a flipped
+version of the directed graph that is passed in as an input,
+staying as close as possible to the algorithm shown on Week 5
+Slide 70.
+
+Include the full code for your implementation of flip() as part
+of your write up and describe the steps that you used to test
+that it was working correctly.  (You do not need to include
+any diagrams of graphs for this.)
+
+d) Complete the implementation of the scc() method in
+GraphUtils.java.  This is a challenging exercise, but again
+you should follow the algorithm and methods from the Week 5
+slides as closely as possible.  When you are finished, it should
+be reasonably easy to see that the structure of your code is
+essentially the same as that of the Python implementation.
+
+You will notice that the original version of the algorithm uses
+two depth first searches, each of which is implemented using a
+nested function definition called "visit".  Java does not support
+nested functions like this, so you will need to create separate
+methods (I'd suggest calling them visit1 and visit2) for each
+of these.  You will also need to pass extra parameters to these
+methods to compensate for the fact that they are not nested.
+For example, the "visit" function on Slide 69 uses the visited,
+graph, and finished variables in addition to the parameter v,
+so the corresponding method in GraphUtils.java might be declared
+as follows:
+
+  private static <V> void visit1(V        v,
+                                 Graph<V> graph,
+                                 Set<V>   visited,
+                                 List<V>  finished) {
+    // your code goes here
+  }
+
+The supplied version of GraphUtils.java includes some additional
+comments that may be helpful to you in completing this task.
+
+Include the full code for your implementation of scc() as part
+of your write up, including the definitions of any additional
+methods that you defined in the process.
+
+Comment briefly on the techniques that you used to complete the
+translation, and describe the testing procedures
+that you used (including a short summary of your results)
+to verify that your implementation was working correctly
+
+------------------------------------------------------------------------

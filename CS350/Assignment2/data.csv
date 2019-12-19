@@ -1,2 +1,16 @@
-Sort Algorithm, Time (s) 
-Merge, 0
+Sort Algorithm, Array Type, Time (s) 
+Selection, Random, 2.674,50000
+Selection, Sorted, 2.65,50000
+Selection, Reverse, 2.642,50000
+Selection, Random, 10.805,100000
+Selection, Sorted, 10.683,100000
+Selection, Reverse, 10.795,100000
+Selection, Random, 24.468,150000
+Selection, Sorted, 24.007,150000
+Selection, Reverse, 24.183,150000
+Selection, Random, 43.025,200000
+Selection, Sorted, 42.605,200000
+Selection, Reverse, 43.121,200000
+Selection, Random, 67.6,250000
+Selection, Sorted, 67.171,250000
+Selection, Reverse, 67.357,250000

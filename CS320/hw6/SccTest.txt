@@ -1,0 +1,29 @@
+
+Graph: 
+
+Vertex count = 7
+a: b
+b: c d
+c: b
+d: e
+e: f
+f: d g
+g:
+
+Flipped graph: 
+
+Vertex count = 7
+a:
+b: a c
+c: b
+d: b f
+e: d
+f: e
+g: f
+-----
+Number of strongly connected components = 4
+strongly connected component: a
+strongly connected component: b c
+strongly connected component: d f e
+strongly connected component: g
+-----

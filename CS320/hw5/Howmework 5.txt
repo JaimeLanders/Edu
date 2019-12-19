@@ -1,0 +1,533 @@
++-----------------------------------+
+| Name:           Jaime Landers     |
+| Class:          CS320             |
+| Assignment:     Homework 5        | 
+| Date Started:   5/21/19           |
+| Date/Time Due:  5/24/19 @ 1:00 PM | 
+| Est. Time:      24 Hours          |
++-----------------------------------+
+
+========================================================================
+
+-----------
+Question 1:
+-----------
+
+I started this problem by converting the function in Haskell into Py-
+thon pseudo-code:
+
+  -- Haskell:
+
+  > zip as bs = case as of                            -- Case 1
+  >               Nil       -> Nil      
+  >               Cons x xs -> case bs of             -- Case 2
+  >                              Nil       -> Nil     
+  >                              Cons y ys -> Cons (x, y) (zip xs ys)
+
+  # Python Pseudo-code:
+
+  def zip(self, other):
+    if self == Nil:                                   # Case 1
+      return Nil()
+    else:
+      if other == Nil:                            	  # Case 2a 
+        return Nil()
+      else                                        	  # Case 2b
+        return Cons((self.head, other.head) 
+          (zip(self.tail, other.tail))
+
+In the Haskell version, there are two cases, one for the as list and
+one for the bs list, but for my Python pseudo-code I felt it made more
+sense to me to have 2 cases with 2 sub cases (a, b) for case 2 since
+Case 1 is distinct from case 2b and they might not use the exact same
+methods or may require additional helper methods in order to handle the
+cases of self (as) and other (bs) being Nil.
+
+I decided to tackle the easiest case first, Case 1 which means that the
+first list is empty:
+
+  def zip(self, other):                               # In Nil()
+    return Nil()
+
+This is defined in the Nil() meaning that if a list is called such that
+listp.zip(listq) where listp is empty (using dynamic dispatch), then 
+Nil() is returned. I tested this using the following tests and con-
+firmed that it was working correclty:
+
+  print(nums(0,0).zip(nums(1,7)))                     # Case 1 test
+
+This gave the following output when executed:
+
+[]
+
+which is the empty list, as expected.
+
+Next I decided to work on Case 2b where neither self or other is Nil. 
+I knew that I would need to construct a list with the current heads of
+self and other and that I would need some type of tail recursion in or-
+der to iterate/recurse over the whole list. I remembered then that we
+used Cons in order to construct a list, and we can use self.tail.method
+in order to recurse on the rest of the list after head.  I also recalled  
+from previous steps that we could call Cons with the first argument
+consisting of the head and the second argument with the tail recursion. 
+I also knew I needed to list the heads of each list as a pair using the
+format (x, y), where x and y are the head of the current self and other
+list respectively.  This lead to the following definition after a lot
+of trial and error:
+
+  def zip(self, other):                               # Case 2b
+    return Cons((self.head, other.head), (self.tail.zip(other.tail))
+
+I used the following test to make sure that this was working as expec-
+ted:
+
+  print(nums(0,6).zip(nums(1,7)))                     # Case 2b
+
+This gave me the following output:
+
+[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+
+This is the expected output for this test as given in the hw5.txt in-
+structions.
+
+Now that I have covered two of the cases, there is just one left to do,
+the case where other is Nil.  This case was difficult in that it re-
+quired more thought, a deeper understanding of double dynamic dispatch, 
+an additional helper function as well as a rewrite of the previous
+case.
+
+I started by comparing my pseudo-code with the examples given on the
+hw5.txt as well as the additional examples on D2L and realized I needed
+to rewrite my Case 2b code.  I decided to make a new helper called
+zipNil in Cons, following the same format as the step 5 example in lab 6:
+
+  def zipNil(self, other):                            # in Nil()
+    return Nil()        
+
+  def zipNil(self, other):                            # in Cons() 
+    return Cons((self.head, other.head), (self.tail.zip(other.tail))
+
+Now I just needed to modify my zip method in Cons() to be able to use
+the helper functions, similar to how we did in part 10, keeping in mind
+that the test for the other list (bs) being nil was important for this
+particular case:
+
+  def zip(self, other):                               # in Cons() 
+    return other.zipNil(self)
+
+After testing I realized that my head and tail were backward due to
+the way I was calling zipNil to test if other was nil. This required a 
+modification to the zipNil method definition similar to what we did in 
+step 10:
+                
+  def zipNil(other, self):                            # in Cons() 
+    return Cons((self.head, other.head), (self.tail.zip(other.tail))
+
+I then tests my modifications with the previous tests as well as an 
+additional test to make sure that my Case 2a was working correctly:
+
+print(nums(0,0).zip(nums(1,7))) # Case 1: Self is Nil
+print(nums(0,6).zip(nums(0,0))) # Case 2a: Other is Nil
+print(nums(0,6).zip(nums(1,7))) # Case 2b: Neither is Nil
+
+Which gave the following outputs when ran:
+
+[]
+[]
+[(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6)]
+
+This shows that Case 1 and 2a are working correctly as an empty list is
+returned if either self (as) or other (bs) is empty.  The third test
+and corresponding output show that the two lists are zipped correctly
+as done previously before adding the helper functions and modifying the
+zip method.
+
+Finally, I wanted to show that the implementations of zip handled the
+cases where one list was longer than the other using the following
+tests:
+
+  print(nums(0,6).zip(nums(0,3))) # self longer than other
+  print(nums(0,3).zip(nums(0,6))) # other longer than self
+
+Running this gave the following outputs:
+
+[(0, 0), (1, 1), (2, 2)]
+[(0, 0), (1, 1), (2, 2)]
+
+This shows that the implementation of zip correctly handles that cases
+where one list is longer, or has more elements than the other.
+
+I have shown that my implementation handles the cases where either list
+is empty, both are the same size, and one is larger than the other and
+that the behaviour of zip is the same as that of the Haskell implement-
+ation.  Therefore, my implementation of zip is correct.   
+
+========================================================================
+
+------------
+Question 2a:
+------------
+
+I have added the following code to prop.py:
+
+  # In TRUE():
+  def vars(self):
+    return ''
+
+  # In FALSE():
+  def vars(self):
+    return ''
+
+  # In VAR():	
+  def vars(self):
+    vs = []
+    vs.append(self.name)
+    return vs	
+  
+  # In AND():	
+  def vars(self):
+    return self.p.vars() + self.q.vars()
+  
+  # In OR():
+  def vars(self):
+    return self.p.vars() + self.q.vars() 
+  
+  # In NOT():	
+  def vars(self):
+    return self.p.vars()
+	
+I used the following code to test these implementations:
+
+  # Definitions:
+  t       = TRUE()
+  f       = FALSE()
+  a       = VAR("A")
+  b       = VAR("B")
+  c       = NOT(a)
+  d       = NOT(b)
+  left    = AND(a, NOT(b))
+  right   = AND(NOT(a), b)
+  example = OR(left, right)
+  
+  # vars tests:
+  print("vars tests:\n")
+  #print(t.vars())
+  #print(f.vars())
+  #print(a.vars())
+  #print(b.vars())
+  #print(c.vars())
+  #print(d.vars())
+  #print(left.vars())
+  #print(right.vars())
+  #print(example.vars())
+  
+This gave the following outputs when ran using python3 ./prop.py:
+
+vars tests:                                                                                                          
+
+
+['A']                                                                                                                
+['B']                                                                                                                
+['A']                                                                                                                
+['B']                                                                                                                
+['A', 'B']                                                                                                           
+['A', 'B']                                                                                                           
+['A', 'B', 'A', 'B'] 
+
+
+Explanation of test results:  
+
+The first two tests show that no vars are printed since the definitions
+for t and f don't contain any VAR's, thus an empty list is returned.
+
+The second two show that the definitions for a and b print correctly as
+they each have a list with one VAR each, 'A' and 'B' respectively.
+
+The fifth and sixth test show the output for the left and right defin-
+itions print a list with two VAR's each, which is as expected since the
+left and right definitions have two VAR's in their definition, a and b
+which are defined as 'A' and 'B'.
+
+Finally, the seventh and final test shows the output of the example
+definitions variables with four VAR's in the list, which is expected
+since the definition for example consists of the definitions of left and
+right which have two VAR's each.
+
+I have shown that the vars definition prints the correct VAR's for each
+definition tested, therefore I have shown that the vars() implementa-
+tions are correct.   
+  
+-----------------------------------------------------------------------
+
+------------
+Question 2b:
+------------
+
+I have added the following code to prop.py:
+
+  # In TRUE():
+  def eval(self):
+    return True
+
+  # In FALSE():	
+  def eval(self):
+    return False
+
+  # In VAR():	
+  def eval(self, env):
+    return env[self.name]
+  
+  # In AND():	
+  def eval(self, env):
+    return self.p.eval(env) and self.q.eval(env)
+  
+  # In OR():
+  def eval(self, env):
+    return self.p.eval(env) or self.q.eval(env)
+	
+  # In NOT():	
+  def eval(self, env):
+    return not self.p.eval(env)
+
+	
+I used the following code to test these implmentations using the same
+definitions as in part a:
+
+  # Definitions:
+  t       = TRUE()
+  f       = FALSE()
+  a       = VAR("A")
+  b       = VAR("B")
+  c       = NOT(a)
+  d       = NOT(b)
+  left    = AND(a, NOT(b))
+  right   = AND(NOT(a), b)
+  example = OR(left, right)
+
+  # eval tests:
+  print("eval tests:")
+  print(t.eval())
+  print(f.eval())
+  print(a.eval({'A': True, 'B': False}))
+  print(b.eval({'A': True, 'B': False}))
+  print(c.eval({'A': True, 'B': False}))
+  print(d.eval({'A': True, 'B': False}))
+  print(left.eval({'A': True, 'B': False}))
+  print(right.eval({'A': True, 'B': False}))
+  print(example.eval({'A': True, 'B': False}))                                                                         
+  print('\n')
+
+
+This gave the following outputs when ran using python3 ./prop.py:
+
+eval tests:                                                                                                          
+True                                                                                                                 
+False                                                                                                                
+True                                                                                                                 
+False                                                                                                                
+False                                                                                                                
+True                                                                                                                 
+True                                                                                                                 
+False                                                                                                                
+True
+
+
+Explanation of test results:  
+
+The first two tests show the eval definitions testing the evaluations
+of the t and f definitions, which are defined as TRUE() and FALSE() as
+shown in part a.  The outputs print the True and False booleans, which
+the t and f definitions correspond to, as expected.  
+
+The next two tests (3 and 4) show the display for the eval function
+with an environment of A = True and B = False.  When a and b are eval-
+uated using eval(), it outputs True and False as shown which is expec-
+ted since a = VAR 'A' and b = VAR 'b'.  
+
+Tests 5 and 6 show the definitions of c and d which are the negations
+of a and b shown in the previous two tests.  This time False and True
+are prinited as expected since !False = True and !True = False.
+
+Tests 7 and 8 show the evaluation of left and right, which is a more
+complicated tests than the previous ones.  Using the given environment
+we can see that AND(TRUE, NOT(FALSE)) should evaluate to True, which 
+the output shows is correct.  Using the same logic, 
+AND(NOT(TRUE), FALSE) should evaluate to false, which corresponds with
+the output of the tests. 
+
+The 9th and final test shows the eval function on example, which is a
+alternative of left and right in the previous test.  As such, 
+OR(TRUE, FALSE) should evaluate to True, with the output shows it does.
+
+I have shown that the tests pass with the given environments for all
+types of props, therefore the eval() function is working correctly as
+expected.        
+  
+-----------------------------------------------------------------------
+
+------------
+Question 2c:
+------------
+
+I have added the following code to prop.py:
+
+  # In Prop:
+  def eqTrue(self):
+    return False
+  def eqFalse(self):
+    return False
+  def eqVar(self, other):
+    return False
+  def eqAnd(self, other):
+    return False
+  def eqOr(self, other):
+    return False
+  def eqNot(self, other):
+    return False
+
+  # In TRUE():
+  def __eq__(self, other):
+    return other.eqTrue()
+  def eqTrue(self):
+    return True
+	
+  # In FALSE():	
+  def __eq__(self, other):
+    return other.eqFalse()
+  def eqFalse(self):
+    return True 
+
+  # In VAR():	
+  def __eq__(self, other):
+    return other.eqVar(self)                                                                                         
+  def eqVar(self, other):
+    return  self.name == other.name
+  
+  # In AND():	
+  def __eq__(self, other):
+    return other.eqAnd(self)                                                                                         
+  def eqAnd(self, other):
+    return self.p == other.p
+  
+  # In OR():
+  def __eq__(self, other):
+    return other.eqOr(self)
+  def eqOr(self, other):
+    return self.p == other.p	
+  
+  # In NOT():
+  def __eq__(self, other):
+    return other.eqNot(self)                                                                                         
+  def eqNot(self, other):
+    return self.p == other.p 
+	
+	
+I used the following code to test these implmentations:
+
+  print(TRUE() == TRUE())
+  print(TRUE() == FALSE())
+  print(FALSE() == FALSE())
+  print(FALSE() == TRUE())
+  print(VAR("A") == VAR("A"))
+  print(VAR("A") == VAR("B"))
+  print(VAR("B") == VAR("B"))
+  print(VAR("A") == TRUE())
+  print(TRUE() == VAR("A"))  
+  print(NOT(TRUE()) == NOT(TRUE()))
+  print(NOT(TRUE()) == NOT(FALSE()))
+  print(NOT(FALSE()) == NOT(FALSE()))
+  print(NOT(FALSE()) == NOT(TRUE()))
+  print(NOT(TRUE()) == FALSE())
+  print(AND(VAR("A"), VAR("B")) == AND(VAR("A"), VAR("B")))
+  print(AND(VAR("A"), VAR("B")) == AND(VAR("B"), VAR("A")))
+  print(OR(VAR("A"), VAR("B")) == OR(VAR("A"), VAR("B")))
+  print(OR(VAR("A"), VAR("B")) == OR(VAR("B"), VAR("A")))
+  print(AND(VAR("A"), VAR("B")) == OR(VAR("B"), VAR("A")))
+  print(OR(VAR("A"), VAR("B")) == AND(VAR("B"), VAR("A")))
+  print(example == example)
+  print(left == left)
+  print(right == right)
+  print(example == right)
+  print(left == right)
+  print(right == left)
+
+
+This gave the following outputs when ran using python3 ./prop.py:
+
+True
+False                                                                                                                
+True                                                                                                                 
+False                                                                                                                
+True                                                                                                                 
+False                                                                                                                
+True                                                                                                                 
+False                                                                                                                
+False                                                                                                                
+True
+False
+True
+False
+False
+True
+False
+True
+False
+False
+False
+True
+True
+True
+False
+False
+False
+
+
+Explanation of test results:  
+
+The first four outputs correspond to the tests on the TRUE() and
+FALSE() and show that the comparisons are working correctly as expec-
+ted since True == True and Fale == False return true, and True == False
+and False == True return false.
+
+Similarly, tests 5-7 show the same comparisons and corresponding out-
+puts for VAR's and print the correct output as expected.
+
+Tests 8 and 9 shows that a comparison between TRUE() and a VAR() will 
+return false as expected, since they are different types of props and 
+therefore cannot print the trees the same same exact way as required 
+for them to be equal.
+
+Tests 10 - 13 test the comparisons of the NOT() prop definitions using
+other NOT() props.  The outputs shows that if they are the same, True
+is returned and if they are not the same, False is returned as expec-
+ted
+
+Test 14, similar to tests 8 and 9 test that a comparison between props
+of different types (NOT() and FALSE()) return false, which prints 
+False as expected. 
+
+Tests 15-18 show the tests for the AND() and OR() props, which print as
+expected if the AND(p_1, q_1) is equal to AND(p_2, q_2) where the p's
+and q's are equal as well.  Likewise for the OR() prop equality tests. 
+
+Tests 19 and 20 show the results of testing the equality of an AND()
+and OR() prop, which returns False as expected since they are different
+props and can't possibly print the same tree.  
+
+Tests 21-23 show the results of testing the equality of the left, right
+and example definitions used in parts a and b when they are tested
+against themselves.  This returns True as expected since the trees
+printed will be the exact same.  
+
+Tests 24-26 show the results of testing the left, right and example
+definitions against unlike definitions (e.g. left == right).  Since
+these props are not the same, they will nor print the same tree and
+should return false, which the output confirms is correct and is work-
+ing as expected.
+
+Through my selective testing I have shown that the equality comparisons
+are working as expected and print the correct output of True or False
+where appropriate.  Therefore, my implementations of the equality comp-
+arison operator are correct.  
+  
+========================================================================
