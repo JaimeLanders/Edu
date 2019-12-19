@@ -1,3 +1,0 @@
-boolean x, y;
-if ((x=true) || (y=true))
-  if (y) print 0; else print 1;

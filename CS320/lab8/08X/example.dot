@@ -1,8 +1,0 @@
-digraph G {
-  a[shape="square"];
-  b[shape="circle"];
-  a -> b[label="hello"];
-  a -> c;
-  b -> c;
-  c -> d;
-}

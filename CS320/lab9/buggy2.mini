@@ -1,5 +1,0 @@
-if (-true)
-  print 0;
-//  print true;
-//else
-//  print 1;
