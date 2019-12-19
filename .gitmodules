@@ -1,0 +1,3 @@
+[submodule "CS161"]
+	path = CS161
+	url = git@github.com:jland13/CS161.git
